@@ -1,0 +1,87 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <div layout-margin layout layout-align="center">
+      <h1>Code</h1>
+    </div>
+  </div>
+</md-toolbar>
+<md-tabs md-margin-bottom md-dynamic-height md-border-bottom>
+  <template md-tab label="src/main.ts">
+    <md-content class="md-padding">
+       <pre highlight><code class="js">
+import { bootstrap } from 'angular2/platform/browser';
+import { MyService } from './services/my.service';
+import { App } from './app';
+
+bootstrap(App, [ MyService ]);
+          </code>
+        </pre>
+    </md-content>
+  </template>
+  <template md-tab label="src/app.ts">
+    <md-content class="md-padding">
+       <pre highlight><code class="js">
+import { Component } from 'angular2/core';
+import { MyComponent } from './components/my.component';
+import { MyService } from './services/my.service'; 
+
+@Component({
+  selector: 'app',
+  template: `
+    ...
+    &lt;h1&gt;&lt;small&gt;Counter:&lt;/small&gt; { {service.counter} }&lt;/h1&gt;
+    &lt;div&gt;
+      &lt;my-component&gt;&lt;/my-component&gt;
+      &lt;my-component&gt;&lt;/my-component&gt;
+      &lt;my-component&gt;&lt;/my-component&gt;
+    &lt;/div&gt;
+  `,
+  directives: [ MyComponent ]
+})
+
+export class App {
+  constructor(service: MyService) {
+    this.service = service;
+  }
+}
+        </code>
+      </pre>
+    </md-content>
+  </template>
+  <template md-tab label="src/components/my.component.ts">
+    <md-content class="md-padding">
+       <pre highlight><code class="js">
+import { Component } from 'angular2/core';
+import { MyService } from '../services/my.service';
+
+@Component({
+  selector: 'my-component',
+  template: `
+    &lt;button (click)=&quot;service.increment()&quot; md-button md-raised-button&gt;Increment&lt;/button&gt;
+  `
+})
+
+export class MyComponent {
+  constructor(service: MyService) {
+    this.service = service; // We shouldn't need to do this but it makes the plunk work
+  }
+}
+          </code>
+        </pre>
+    </md-content>
+  </template>
+  <template md-tab label="src/services/my.service.ts">
+    <md-content class="md-padding">
+       <pre highlight><code class="js">
+export class MyService {
+  counter: Number = 0;
+  
+  increment() {
+    this.counter++;  
+  }
+}
+          </code>
+        </pre>
+    </md-content>
+  </template>
+</md-tabs>

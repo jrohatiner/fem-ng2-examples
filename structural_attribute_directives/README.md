@@ -1,0 +1,4 @@
+### Structural and Attribute Directives
+Asterisks denote structural directives (`ngFor`, `ngIf`, etc.). Structural directives affect the element on which they are initialized in the context of the DOM. For example, `*ngIf` inserts and removes its element from the DOM based on the expression passed to it.
+
+Brackets denote attribute directives (`ngStyle`, `ngClass`, etc.). These don't change the layout of the element as such, they just provide hooks into different pieces of the element's functionality. As an example, `[ngClass]` takes an expression that applies a class name based on a value defined in the component.

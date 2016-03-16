@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Creating/importing/exporting ES6 modules</title>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/justindujardin/ng2-material/gh-pages/v/0.2.5/dist/ng2-material.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/darkula.min.css">
+    <link rel="stylesheet" href="//rawgit.com/sindresorhus/github-markdown-css/gh-pages/github-markdown.css">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <md-toolbar class="md-whiteframe-3dp">
+      <div class="md-toolbar-tools">
+        <div hide show-gt-sm flex layout="row" layout-align="center center" layout-fill>
+          <img src="//onehungrymind.com/wp-content/uploads/2014/08/ohm_logo.png" alt="One Hungry Mind" height="40%">
+        </div>
+        <div hide-gt-sm flex="20" layout="row" layout-align="center center" layout-fill>
+          <img src="//onehungrymind.com/wp-content/uploads/2015/11/brain.png" alt="One Hungry Mind" height="50%">
+        </div>
+        <div layout layout-align="center center" layout-fill flex>
+          <h1>Built-in Directives</h1>
+        </div>
+      </div>
+    </md-toolbar>
+    
+    <div layout layout-align="center">
+      <md-content flex-gt-sm="80" flex-xs="90">
+        <md-card> 
+          <md-card-content layout-column layout-align="center"> 
+            <button id="toggle" md-raised-button class="md-primary">Show Info</button>
+            <div data-show="true" class="markdown-body"></div>
+            <app></app>
+          </md-card-content>
+        </md-card>
+      </md-content>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
+    <script src="http://onehungrymind.com/cdn/readme.js?v=1"></script>
+    <script src="https://code.angularjs.org/tools/system.js"></script>
+    <script src="https://code.angularjs.org/tools/typescript.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.9/Rx.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.9/angular2-polyfills.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.9/angular2.dev.js"></script>
+    <script src="config.js"></script>
+    <script>
+      System.import('app')
+        .catch(console.error.bind(console));
+    </script>
+  </body>
+</html>

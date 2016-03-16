@@ -1,0 +1,74 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <div layout-margin layout layout-align="center">
+      <h1>Code</h1>
+    </div>
+  </div>
+</md-toolbar>
+<md-tabs md-margin-bottom md-dynamic-height md-border-bottom>
+  <template md-tab label="components">
+    <md-content class="md-padding">
+       <pre highlight><code class="js">
+// src/components/my.component.ts
+import { Component } from 'angular2/core';
+
+@Component({
+  selector: 'my-component',
+  template: `&lt;h1&gt;my component!&lt;/h1&gt;`
+})
+
+export class MyComponent {}
+
+// src/components/my.component.ts
+import { Component } from 'angular2/core';
+
+@Component({
+  selector: 'another-component',
+  template: `&lt;h1&gt;another component!&lt;/h1&gt;`
+})
+
+export class AnotherComponent {}
+          </code>
+        </pre>
+    </md-content>
+  </template>
+  <template md-tab label="src/app.ts">
+    <md-content class="md-padding">
+      <pre highlight><code class="js">
+import { Component } from 'angular2/core';
+import { RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
+import { MyComponent } from './components/my.component';
+import { AnotherComponent } from './components/another.component';
+
+@Component({
+  selector: 'app',
+  template: `
+    &lt;h1&gt;Introducing...&lt;/h1&gt;
+    &lt;router-outlet&gt;&lt;/router-outlet&gt;
+  `,
+  directives: [ ROUTER_DIRECTIVES ]
+})
+
+@RouteConfig([
+  {path:'/my-component', name: 'MyComponent', component: MyComponent},
+  {path:'/another-component', name: 'AnotherComponent', component: AnotherComponent, useAsDefault: true}
+])
+
+export class App {}
+        </code>
+      </pre>
+    </md-content>
+  </template>
+  <template md-tab label="src/main.ts">
+    <md-content class="md-padding">
+       <pre highlight><code class="js">
+import { bootstrap } from 'angular2/platform/browser';
+import { ROUTER_PROVIDERS } from 'angular2/router';
+import { App } from './app';
+
+bootstrap(App, [ ROUTER_PROVIDERS ]);
+          </code>
+        </pre>
+    </md-content>
+  </template>
+</md-tabs>

@@ -1,0 +1,27 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <div layout-margin layout layout-align="center">
+      <h1>Code</h1>
+    </div>
+  </div>
+</md-toolbar>
+<md-tabs md-margin-bottom md-dynamic-height md-border-bottom>
+  <template md-tab label="src/components/my.component.spec.ts">
+    <md-content class="md-padding">
+      <pre highlight><code class="js">
+import {
+  describe,
+  expect,
+  it
+} from 'angular2/testing';
+
+describe('A simple test', () => {
+  it('should work', () => {
+    expect(null).toBeDefined();
+  });
+});
+        </code>
+      </pre>
+    </md-content>
+  </template>
+</md-tabs>

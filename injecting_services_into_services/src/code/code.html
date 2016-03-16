@@ -1,0 +1,91 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <div layout-margin layout layout-align="center">
+      <h1>Code</h1>
+    </div>
+  </div>
+</md-toolbar>
+<md-tabs md-margin-bottom md-dynamic-height md-border-bottom>
+  <template md-tab label="src/services/items.service.ts">
+    <md-content class="md-padding">
+       <pre highlight><code class="js">
+import { Injectable } from 'angular2/core';
+import { CharacterService } from './character.service';
+
+@Injectable()
+export class ItemsService {
+  items: Array&lt;{ name: String, description: String}> = [
+    { name: 'Item 1', description: 'Epic item!' },
+    { name: 'Item 2', description: 'As great as the first!' },
+    { name: 'Last One', description: 'A round of applause for this one' }
+  ];
+  
+  constructor(private _charService: CharacterService) {
+    this._charService = _charService; // This shouldn't need to happen but we kept getting errors when left out
+  }
+  
+  getItems() {
+    return this.items;
+  }
+  
+  getTotalCharacters() {
+    return this.items.map((item) => {
+      return this._charService.countCharacters(item);
+    }).join('').split('').length;
+  }
+}
+          </code>
+        </pre>
+    </md-content>
+  </template>
+  <template md-tab label="src/services/character.service.ts">
+    <md-content class="md-padding">
+      <pre highlight><code class="js">
+export class CharacterService {
+  countCharacters(item) {
+    return Object.keys(item).reduce((previous, next) => {
+      return previous.concat(item[next]);
+    }, '');
+  }
+}
+        </code>
+      </pre>
+    </md-content>
+  </template>
+  <template md-tab label="src/components/my.component.ts">
+    <md-content class="md-padding">
+      <pre highlight><code class="js">
+import { Component } from 'angular2/core';
+import { ItemsService } from '../services/items.service';
+import { CharacterService } from '../services/character.service';
+
+@Component({
+  selector: 'my-component',
+  template: `
+    &lt;md-list&gt;
+      &lt;md-subheader class=&quot;md-no-sticky md-headline&quot;&gt;Items&lt;/md-subheader&gt;
+      &lt;p&gt;Character count: &lt;strong&gt;{ {characterCount} }&lt;/strong&gt;&lt;/p&gt;
+      &lt;md-list-item class=&quot;md-2-line&quot; *ngFor=&quot;#item of items&quot;&gt;
+        &lt;div class=&quot;md-list-item-text&quot;&gt;
+          &lt;h3&gt;{ {item.name} }&lt;/h3&gt;
+          &lt;p&gt;{ {item.description} }&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/md-list-item&gt;
+    &lt;/md-list&gt;
+  `,
+  providers: [ ItemsService, CharacterService ]
+})
+
+export class MyComponent {
+  items: Array&lt;{ name: String, description: String }> = [];
+  
+  constructor(private _service: ItemsService) {
+    this.items = _service.getItems();
+    this.characterCount = _service.getTotalCharacters();
+  }
+}
+        </code>
+      </pre>
+    </md-content>
+  </template>
+</md-tabs>

@@ -1,0 +1,95 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <div layout-margin layout layout-align="center">
+      <h1>Code</h1>
+    </div>
+  </div>
+</md-toolbar>
+<md-tabs md-margin-bottom md-dynamic-height md-border-bottom>
+  <template md-tab label="src/components/my.component.ts">
+    <md-content class="md-padding">
+      <pre highlight><code class="js">
+import { Component, Input } from 'angular2/core';
+
+@Component({
+  selector: 'my-component',
+  template: `
+    &lt;h3 layout-margin&gt;&lt;small&gt;Counter:&lt;/small&gt; { {counter} }&lt;/h3&gt;
+    &lt;h1&gt;Lifecyle hook log:&lt;/h1&gt;
+    &lt;h3 *ngFor=&quot;#hook of hooks&quot;&gt;{ {hook} }&lt;/h3&gt;
+  `
+})
+
+export class MyComponent {
+  @Input() counter;
+  private hooks: Array&lt;String> = [];
+  
+  ngOnInit() {
+    this.hooks.push('ngOnInit');
+  }
+  
+  ngOnChanges() {
+    this.hooks.push('ngOnChanges');
+  }
+  
+  // ngDoCheck() {
+  // If our component did its own change detection, we would use ngDoCheck and get rid of ngOnChanges
+  // }
+  
+  ngAfterContentInit() {
+    this.hooks.push('ngAfterContentInit');
+  }
+  
+  ngAfterContentChecked() {
+    this.hooks.push('ngAfterContentChecked');
+  }
+  
+  ngAfterViewInit() {
+    this.hooks.push('ngAfterViewInit');
+  }
+  
+  ngAfterViewChecked() {
+    this.hooks.push('ngAfterViewChecked');
+  }
+  
+  ngOnDestroy() {
+    alert('I am being destroyed!');
+  }
+}
+        </code>
+      </pre>
+    </md-content>
+  </template>
+  <template md-tab label="src/app.ts">
+    <md-content class="md-padding">
+       <pre highlight><code class="js">
+import { Component, Input } from 'angular2/core';
+import { MyComponent } from './components/my.component';
+
+@Component({
+  selector: 'app',
+  template: `
+    &lt;button (click)=&quot;increment()&quot; md-button md-raised-button class=&quot;md-secondary&quot;&gt;Increment&lt;/button&gt;
+    &lt;button (click)=&quot;toggleMyComponent()&quot; md-button md-raised-button class=&quot;md-secondary&quot;&gt;Toggle My Component&lt;/button&gt;
+    &lt;my-component *ngIf=&quot;showMyComponent&quot; [counter]=&quot;counter&quot;&gt;&lt;/my-component&gt;
+  `,
+  directives: [ MyComponent ]
+})
+
+export class App {
+  private counter: Number = 0;
+  private showMyComponent: Boolean = true;
+  
+  increment() {
+    this.counter++;
+  }
+  
+  toggleMyComponent() {
+    this.showMyComponent = !this.showMyComponent;
+  }
+}
+          </code>
+        </pre>
+    </md-content>
+  </template>
+</md-tabs>

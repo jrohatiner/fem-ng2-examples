@@ -1,0 +1,72 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <div layout-margin layout layout-align="center">
+      <h1>Code</h1>
+    </div>
+  </div>
+</md-toolbar>
+<md-tabs md-margin-bottom md-dynamic-height md-border-bottom>
+  <template md-tab label="Component">
+    <md-content class="md-padding">
+      <pre highlight><code class="js">
+@Component({
+  selector: 'binding-component',
+  template: `...`
+})
+        
+export class BindingComponent {
+  interpolatedValue: String = 'My Awesome Value';
+  componentStyle: String = 'red';
+  dynamicValue: String = 'Winning!';
+  
+  alertTheWorld(): void {
+    alert('I clicked the button!');
+  }
+}
+        </code>
+      </pre>
+    </md-content>
+  </template>
+  <template md-tab label="Interpolation">
+    <md-content class="md-padding">
+       <pre highlight><code class="html">
+
+&lt;span>{ {interpolatedValue} }&lt;span>
+          </code>
+        </pre>
+    </md-content>
+  </template>
+  <template md-tab label="Property Binding">
+    <md-content class="md-padding">
+       <pre highlight><code class="html">
+&lt;span [style.color]=&quot;componentStyle&quot;&gt;Some colored text!&lt;/span&gt;
+          </code>
+        </pre>
+    </md-content>
+  </template>
+  <template md-tab label="Event Binding">
+    <md-content class="md-padding">
+      <pre highlight><code class="html">
+&lt;button (click)=&quot;alertTheWorld()&quot; 
+         md-button md-raised-button class=&quot;md-primary&quot;&gt;
+  Click me!
+&lt;/button&gt;
+        </code>
+      </pre>
+    </md-content>
+  </template>
+  <template md-tab label="Two-way binding">
+    <md-content class="md-padding">
+      <pre highlight><code class="html">
+&lt;md-input-container&gt;
+  &lt;label&gt;The awesome input&lt;/label&gt;
+  &lt;input md-input [(ngModel)]=&quot;dynamicValue&quot; 
+        placeholder=&quot;Watch the text update!&quot; type=&quot;text&quot;&gt;
+&lt;/md-input-container&gt;
+&lt;br&gt;
+&lt;span&gt;{ {dynamicValue} }&lt;/span&gt;
+        </code>
+      </pre>
+    </md-content>
+  </template>
+</md-tabs>

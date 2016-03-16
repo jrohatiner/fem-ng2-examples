@@ -1,0 +1,99 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <div layout-margin layout layout-align="center">
+      <h1>Code</h1>
+    </div>
+  </div>
+</md-toolbar>
+<md-tabs md-margin-bottom md-dynamic-height md-border-bottom>
+  <template md-tab label="src/app.ts">
+    <md-content class="md-padding">
+       <pre highlight><code class="js">
+import { Component } from 'angular2/core';
+import { RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
+import { MyComponent } from './components/my.component';
+import { AnotherComponent } from './components/another.component';
+
+@Component({
+  selector: 'app',
+  template: `
+    &lt;div&gt;
+      &lt;button [routerLink]=&quot;[&apos;/MyComponent&apos;]&quot; md-button class=&quot;md-warn&quot;&gt;My Component Link&lt;/button&gt;
+      &lt;button [routerLink]=&quot;[&apos;/AnotherComponent&apos;]&quot; md-button class=&quot;md-warn&quot;&gt;Another Component Link&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;h1&gt;Introducing...&lt;/h1&gt;
+    &lt;router-outlet&gt;&lt;/router-outlet&gt;
+  `,
+  directives: [ ROUTER_DIRECTIVES ]
+})
+
+@RouteConfig([
+  {path:'/my-component', name: 'MyComponent', component: MyComponent},
+  {path:'/another-component', name: 'AnotherComponent', component: AnotherComponent, useAsDefault: true}
+])
+
+export class App {}
+          </code>
+        </pre>
+    </md-content>
+  </template>
+  <template md-tab label="src/routes.spec.ts">
+    <md-content class="md-padding">
+      <pre highlight><code class="js">
+import {
+  describe,
+  it,
+  expect,
+  beforeEach,
+  beforeEachProviders,
+  inject
+} from 'angular2/testing';
+
+import { provide } from 'angular2/core';
+import { SpyLocation } from 'angular2/router/testing';
+import { RootRouter } from 'angular2/src/router/router';
+import { Router, Location, ROUTER_PRIMARY_COMPONENT, RouteRegistry } from 'angular2/router';
+
+import { App } from './app';
+
+describe('Router tests', () => {
+  var location, router;
+  
+  beforeEachProviders(() => [
+    RouteRegistry,
+    provide(Location, { useClass: SpyLocation }),
+    provide(ROUTER_PRIMARY_COMPONENT, { useValue: App }),
+    provide(Router, {useClass: RootRouter})
+  ]);
+  
+  beforeEach(inject([Router, Location], (r, l) => {
+    router = r;
+    location = l;
+  }));
+  
+  it('should be able to navigate to `MyComponent`', done => {    
+    router.navigate(['MyComponent']).then(() => {
+      expect(location.path()).toBe('/my-component');
+      done();
+    }).catch(e => done.fail(e));
+  });
+
+  it('should be able to navigate to `AnotherComponent`', done => {
+    router.navigate(['AnotherComponent']).then(() => {
+      expect(location.path()).toBe('/another-component');
+      done();
+    }).catch(e => done.fail(e));
+  });
+  
+  it('should navigate to `AnotherComponent` by default', done => {
+    router.navigateByUrl('/unkown').then(() => {
+      expect(location.path()).toBe('/another-component');
+      done();
+    }).catch(e => done.fail(e));
+  });
+});
+        </code>
+      </pre>
+    </md-content>
+  </template>
+</md-tabs>

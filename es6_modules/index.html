@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Creating/importing/exporting ES6 modules</title>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/justindujardin/ng2-material/gh-pages/v/0.2.5/dist/ng2-material.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/darkula.min.css">
+    <link rel="stylesheet" href="//rawgit.com/sindresorhus/github-markdown-css/gh-pages/github-markdown.css">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <md-toolbar class="md-whiteframe-3dp">
+      <div class="md-toolbar-tools">
+        <div hide show-gt-sm flex layout="row" layout-align="center center" layout-fill>
+          <img src="//onehungrymind.com/wp-content/uploads/2014/08/ohm_logo.png" alt="One Hungry Mind" height="40%">
+        </div>
+        <div hide-gt-sm flex="20" layout="row" layout-align="center center" layout-fill>
+          <img src="//onehungrymind.com/wp-content/uploads/2015/11/brain.png" alt="One Hungry Mind" height="50%">
+        </div>
+        <div layout layout-align="center center" layout-fill flex href="#">
+          <h1>ES6 modules</h1>
+        </div>
+      </div>
+    </md-toolbar>
+    
+    <md-content>
+      <md-card> 
+        <md-card-content layout-column layout-align="center"> 
+          <button id="toggle" md-raised-button class="md-primary">Show Info</button>
+          <div class="markdown-body"></div> 
+          <pre>
+            <code class="js">
+// Importing
+import defaultMember from "module-name";
+import * as name from "module-name";
+import { member1, member2 } from "module-name";
+import { member1, member2 as alias2 } from "module-name";
+import "module-name";
+
+// Exporting
+export { name1, name2 };
+export { variable1 as name1, variable2 as name2 };
+
+export default expression;
+export { name1 as default};
+
+export * from …;
+export { name1, name2 } from …;
+export { import1 as name1, import2 as name2 } from …;
+            </code>
+          </pre>
+        </md-card-content>
+      </md-card>
+    </md-content>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
+    <script src="readme.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>

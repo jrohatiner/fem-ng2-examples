@@ -1,0 +1,39 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <div layout-margin layout layout-align="center">
+      <h1>Code</h1>
+    </div>
+  </div>
+</md-toolbar>
+<md-tabs md-margin-bottom md-dynamic-height md-border-bottom>
+  <template md-tab label="index.html">
+    <md-content class="md-padding">
+      <pre highlight><code class="html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    ...
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.4.1/jasmine.css&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    ...
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.4.1/jasmine.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.4.1/jasmine-html.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.4.1/boot.js&quot;&gt;&lt;/script&gt;
+    ...
+    &lt;script src=&quot;https://code.angularjs.org/2.0.0-beta.8/testing.dev.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+      Promise.all([
+        System.import(&apos;app&apos;),
+        System.import(&apos;./src/components/my.component.spec.ts&apos;)
+      ])
+      .then(window.onload)
+      .catch(console.error.bind(console));
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+        </code>
+      </pre>
+    </md-content>
+  </template>
+</md-tabs>

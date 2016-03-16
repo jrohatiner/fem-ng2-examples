@@ -1,0 +1,73 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <div layout-margin layout layout-align="center">
+      <h1>Code</h1>
+    </div>
+  </div>
+</md-toolbar>
+<md-tabs md-margin-bottom md-dynamic-height md-border-bottom>
+  <template md-tab label="Directive">
+    <md-content class="md-padding">
+      <pre highlight><code class="js">
+import { Directive } from 'angular2/core';
+
+@Directive({
+  selector: '.cool-button:not(a)'	
+  providers: [MyService, provide(...)]
+})
+
+export class MyDirective {}
+        </code>
+      </pre>
+    </md-content>
+  </template>
+  <template md-tab label="Component">
+    <md-content class="md-padding">
+      <pre highlight><code class="js">
+// Component is an extension of Directive
+import { Component } from 'angular2/core';
+
+@Component({
+  selector: 'my-component',
+  viewProviders: [MyService, provide(...)]	
+  template: 'Hello { {name} }' // or templateUrl: 'my-component.html'
+  styles: [` .hide { display: none } `] // or styleUrls: ['my-component.css']	
+  directives: [MyDirective, MyComponent]	
+  pipes: [MyPipe, OtherPipe]
+})
+
+export class MyComponent {}
+        </code>
+      </pre>
+    </md-content>
+  </template>  
+  <template md-tab label="Pipe">
+    <md-content class="md-padding">
+      <pre highlight><code class="js">
+import { Pipe, PipeTransform } from 'angular2/core';
+
+@Pipe({
+  name: 'myTransform',
+  pure: true // optional: set to false for stateful (asynchronouse) pipes
+})
+
+export class MyTransformPipe implements PipeTransform {}
+        </code>
+      </pre>
+    </md-content>
+  </template>  
+  <template md-tab label="Service/Injectable">
+    <md-content class="md-padding">
+      <pre highlight><code class="js">
+import { Injectable } from 'angular2/core';
+        
+@Injectable() // only if you need to inject dependencies into the service
+
+export class MyService() {
+  constructor(http: Http) {}
+}
+        </code>
+      </pre>
+    </md-content>
+  </template>  
+</md-tabs>

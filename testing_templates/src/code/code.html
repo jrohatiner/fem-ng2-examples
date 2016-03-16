@@ -1,0 +1,67 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <div layout-margin layout layout-align="center">
+      <h1>Code</h1>
+    </div>
+  </div>
+</md-toolbar>
+<md-tabs md-margin-bottom md-dynamic-height md-border-bottom>
+  <template md-tab label="src/components/my.component.ts">
+    <md-content class="md-padding">
+      <pre highlight><code class="js">
+import { Component } from 'angular2/core';
+
+@Component({
+  selector: 'my-component',
+  template: `
+    &lt;h1>{ {title} }&lt;/h1>
+  `
+})
+
+export class MyComponent {
+  title: String = 'my first component!';
+}
+        </code>
+      </pre>
+    </md-content>
+  </template>
+  <template md-tab label="src/components/my.component.spec.ts">
+    <md-content class="md-padding">
+      <pre highlight><code class="js">
+import {setBaseTestProviders} from 'angular2/testing';
+import {
+  TEST_BROWSER_PLATFORM_PROVIDERS,
+  TEST_BROWSER_APPLICATION_PROVIDERS
+} from 'angular2/platform/testing/browser';
+setBaseTestProviders(TEST_BROWSER_PLATFORM_PROVIDERS,
+                     TEST_BROWSER_APPLICATION_PROVIDERS);
+
+import {
+  describe,
+  expect,
+  it,
+  TestComponentBuilder,
+  ComponentFixture,
+  injectAsync
+} from 'angular2/testing';
+
+import { MyComponent } from './my.component';
+
+describe('MyComponent template', () => {
+  it('should update text', injectAsync([TestComponentBuilder], (tcb:TestComponentBuilder) => {
+    return tcb.createAsync(MyComponent)
+      .then((fixture:ComponentFixture) => {
+        const element = fixture.nativeElement;
+        fixture.componentInstance.title = 'my epic component!';
+        fixture.detectChanges();
+        
+        expect(element.querySelectorAll('h1').length).toBe(1);
+        expect(element.querySelector('h1').textContent).toBe('my epic component!');
+      });
+  }));
+});
+        </code>
+      </pre>
+    </md-content>
+  </template>
+</md-tabs>
