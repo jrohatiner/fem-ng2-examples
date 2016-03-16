@@ -1,0 +1,7 @@
+<h3>Local Variables</h3>
+
+<ol><li>Local variables are declared in a template using a hashtag</li><li>The most common form is as a handle for each item in an <code>*ngFor</code> statement</li><li>Another use is attaching them to an <code>input</code> tag and getting the resulting value from that input whenever it changes</li></ol>
+
+<h3>The elvis operator</h3>
+
+<ol><li>The elvis operator (<code>?.</code>) guards against null and undefined values in property paths within template expressions</li><li>We use it to define a property path that could be null like so: <code>{{couldBeNull?.someValue}}</code></li><li>If <code>couldBeNull</code> is null, we won&#39;t get an error; instead, the value just won&#39;t display</li></ol>

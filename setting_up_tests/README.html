@@ -1,0 +1,5 @@
+<h3>Setting up Angular 2 Tests</h3>
+
+<ol><li>Include the Jasmine CSS and JS files</li><li>Include the Angular 2 <code>testing.dev.ts</code></li><li>We combine multiple imports into <code>Promise.all</code>, then call <code>window.onload</code></li></ol>
+
+<blockquote><p><strong>Note:</strong> we are importing all of our specs manually. If we wanted to, we could configure the tests like the app itself and just import all test modules into one parent test file.</p><p><strong>Note:</strong> the jasmine html reporter usually shows up at the bottom of the page, but we did some simple JS wizardry to get it at the top of the page.</p></blockquote>

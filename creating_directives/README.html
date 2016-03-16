@@ -1,0 +1,5 @@
+<h3>Creating a directive</h3>
+
+<ol><li>Import the <code>Directive</code> decorator and the <code>ElementRef</code> class</li><li>Create the directive class and then annotate it with a selector and necessary providers</li><li>In the directive class, use <code>ElementRef.nativeElement</code> to gain access to the DOM element that the directive is applied to</li><li>Import your directive and add it to the <code>directives</code> array on your component</li><li>Place the selector of your directive on the HTML element you are applying the directive to</li></ol>
+
+<blockquote><p><strong>Warning:</strong> <code>ElementRef</code> creates tight coupling between your application and rendering layers which will make it impossible to separate the two and deploy your application into a web worker. Use it only when necessary.</p></blockquote>

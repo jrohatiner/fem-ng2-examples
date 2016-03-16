@@ -1,0 +1,7 @@
+<h3>Configuring a Route Table</h3>
+
+<ol><li>Put a <code>&lt;base href=&quot;/&quot;&gt;</code> in your index file, where the href is the root of your application; this tells Angular how to compose navigation URLs</li><li>Import the <code>ROUTER_PROVIDERS</code> from <code>angular2/router</code> and bootstrap the app with them</li><li>Import the  <code>@RouteConfig</code> decorator and <code>ROUTE_DIRECTIVES</code> from <code>angular2/router</code></li><li>Decorate the class of the component that imports the components you want to route to with <code>@RouteConfig</code><ul><li><code>@RouteConfig</code> decorator is just a function that takes an array of routes</li><li>A route generally consists of the <code>path</code> to the route, <code>name</code> of the route, and the <code>component</code> the route navigates to. An optional boolean <code>useAsDefault</code> attribute sets a route as the default</li></ul></li><li>Add <code>ROUTE_DIRECTIVES</code> to the component&#39;s directives in its decoration</li></ol>
+
+<h3>Routing Components in the Template</h3>
+
+<p>To display the routed components, add a <code>&lt;router-outlet&gt;&lt;/router-outlet&gt;</code> to the template of the component you added the route decoration to.</p>

@@ -1,0 +1,22 @@
+<h3>Lifecycle Hooks</h3>
+
+<p>There are 8 different lifecycle hooks to use on our components:
+1. <strong>ngOnChanges</strong> - called when an input or output binding value changes
+2. <strong>ngOnInit</strong> - after the first ngOnChanges
+3. <strong>ngDoCheck</strong> - developer&#39;s custom change detection
+4. <strong>ngAfterContentInit</strong> - after component content initialized
+5. <strong>ngAfterContentChecked</strong> - after every check of component content
+6. <strong>ngAfterViewInit</strong> - after component&#39;s view(s) are initialized
+7. <strong>ngAfterViewChecked</strong> - after every check of a component&#39;s view(s)
+8. <strong>ngOnDestroy</strong> - just before the directive is destroyed.</p>
+
+<p>To use them we just declare them as methods on the component class like so:
+<code>ts
+export class MyComponent {
+  ngOnInit() {
+    console.log(&#39;Hello World&#39;);
+  }
+}
+</code></p>
+
+<blockquote><p><strong>Note:</strong> we will never use <code>ngOnChanges</code> and <code>ngDoCheck</code> at the same time. If we write our own change detection for a component, then we would use <code>ngDoCheck</code> and remove <code>ngOnChanges</code>.</p></blockquote>

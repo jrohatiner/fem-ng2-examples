@@ -1,0 +1,13 @@
+<h3>Router Lifecycle Hooks</h3>
+
+<p>Import <code>CanActivate</code>, <code>CanDeactivate</code>, and <code>ComponentInstruction</code> from <code>angular2/router</code></p>
+
+<h4>CanActivate</h4>
+
+<ol><li><code>CanActivate</code> is a decorator, so we use it like we would the <code>@Component</code> decorator</li><li>Pass in any function that returns a boolean value or returns a promise of a boolean value</li></ol>
+
+<h4>CanDeactivate</h4>
+
+<ol><li><code>CanDeactivate</code> is an interface, so we extend it when we create our component class</li><li>Add <code>routerCanDeactivate</code> as a class method, passing in the next route and the previous route as the <code>ComponentInstruction</code> type</li><li>It should also return a boolean or a promise of a boolean</li></ol>
+
+<p>==========</p>
