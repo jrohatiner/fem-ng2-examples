@@ -1,0 +1,3 @@
+<h3>Getting an Input&#39;s State</h3>
+
+<ol><li>Import <code>FORM_DIRECTIVES</code> from <code>angular2/common</code> and add them to your component&#39;s directives array</li><li>Add an <code>ngControl</code> attribute to your input elements. The value you give them is arbitrary, you will use it to reference that input&#39;s attributes.</li><li>Add a local template variable to the input and set it to <code>ngForm</code>. This is NOT arbitrary. This actually sets the local variable to the instance of the <code>ngForm</code> directive that pertains to the <code>ngControl</code> you just defined.</li></ol>

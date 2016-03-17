@@ -1,0 +1,13 @@
+<h3>Custom Validators</h3>
+
+<h4>Creating the validator</h4>
+
+<ol><li>Create and export a class with a single static method</li><li>The method should take one parameter of type <code>Control</code> and, based on the value of the control, return an object like (<code>{myValidator: true}</code>) if there is an error or <code>null</code> if there is no error </li></ol>
+
+<h4>Using it with the Form Builder</h4>
+
+<ol><li>Import the validator class into your component</li><li>Add the validation method of that class to the list of validators on the appropriate control e.g. <code>[CustomValidator.validationMethod, Validators.required, ...]</code></li></ol>
+
+<h4>Using it as a directive</h4>
+
+<ol><li>Add a directive annotation to the validator</li><li>In the directive&#39;s providers array, use <code>provide</code> to add your custom validator to the default <code>NG_VALIDATORS</code> like so: <code>providers: [provide(NG_VALIDATORS, {useExisting: CustomValidator, multi: true})]</code></li><li>Change the validation method to not be static and make sure it is named <code>validate</code></li><li>In the component, add the custom validator to the list of component directives</li><li>Put the validator on the appropriate input in the template, using the selector you defined</li></ol>

@@ -1,0 +1,53 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <div layout-margin layout layout-align="center">
+      <h1>Code</h1>
+    </div>
+  </div>
+</md-toolbar>
+<md-tabs md-margin-bottom md-dynamic-height md-border-bottom>
+  <template md-tab label="src/app.ts">
+    <md-content class="md-padding">
+       <pre highlight><code class="js">
+import { Component } from 'angular2/core';
+import { FORM_DIRECTIVES } from 'angular2/common';
+
+@Component({
+  selector: 'app',
+  template: `
+    &lt;form&gt;
+      &lt;div ngControlGroup=&quot;name&quot; #nameGroup=&quot;ngForm&quot;&gt;
+        &lt;md-input-container&gt;
+          &lt;label&gt;First Name&lt;/label&gt;
+          &lt;input required md-input [(ngModel)]=&quot;person.firstName&quot; #firstName=&quot;ngForm&quot; ngControl=&quot;firstName&quot; type=&quot;text&quot;&gt;
+        &lt;/md-input-container&gt;
+        &lt;md-input-container&gt;
+          &lt;label&gt;Last Name&lt;/label&gt;
+          &lt;input required md-input [(ngModel)]=&quot;person.lastName&quot; #lastName=&quot;ngForm&quot; ngControl=&quot;lastName&quot; type=&quot;text&quot;&gt;
+        &lt;/md-input-container&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;md-input-container&gt;
+          &lt;label&gt;Title&lt;/label&gt;
+          &lt;input md-input [(ngModel)]=&quot;person.title&quot; #title=&quot;ngForm&quot; ngControl=&quot;title&quot; type=&quot;text&quot; &gt;
+        &lt;/md-input-container&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+    &lt;br&gt;
+    &lt;pre&gt;{ {person | json} }&lt;/pre&gt;
+  `,
+  directives: [ FORM_DIRECTIVES ]
+})
+
+export class App {
+  person: { firstName: String, lastName: String, title: String } = {
+    firstName: 'Luke',
+    lastName: 'Ruebbelke',
+    title: 'Angular 2 Wizard'
+  };
+}
+          </code>
+        </pre>
+    </md-content>
+  </template>
+</md-tabs>

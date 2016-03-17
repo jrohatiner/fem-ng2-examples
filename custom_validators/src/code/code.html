@@ -1,0 +1,80 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <div layout-margin layout layout-align="center">
+      <h1>Code</h1>
+    </div>
+  </div>
+</md-toolbar>
+<md-tabs md-margin-bottom md-dynamic-height md-border-bottom>
+  <template md-tab label="src/components/form.component.ts">
+    <md-content class="md-padding">
+       <pre highlight><code class="js">
+import { Component } from 'angular2/core';
+import { FORM_DIRECTIVES, FormBuilder, Validators } from 'angular2/common';
+import { PasswordValidator } from '../password.validator';
+
+@Component({
+  selector: 'my-form',
+  template: `
+    ...
+    &lt;div&gt;
+      &lt;label&gt;Password&lt;/label&gt;
+      &lt;input passwordValidator #password=&quot;ngForm&quot; ngControl=&quot;password&quot; type=&quot;password&quot;&gt;
+      &lt;div class=&quot;md-caption&quot;&gt;Please include a number, an uppercase letter, and a lowercase letter&lt;/div&gt;
+      ...
+    &lt;/div&gt;
+    ...
+  `,
+  directives: [ FORM_DIRECTIVES ],
+  styles: [`...`]
+})
+
+export class FormComponent {
+  ...
+  constructor(_builder: FormBuilder) {
+    this.personForm = _builder.group({
+      ...
+      password: [this.person.password, Validators.compose([PasswordValidator.validate, Validators.required, Validators.minLength(10) ])]
+    });
+  }
+  ...
+}
+          </code>
+        </pre>
+    </md-content>
+  </template>
+  <template md-tab label="src/password.validator.ts">
+    <md-content class="md-padding">
+      <pre highlight><code class="js">
+=======================
+// Uncomment the below code if you want to use the validator as a directive
+=======================
+
+// import { Directive, provide } from 'angular2/core';
+// import { NG_VALIDATORS } from 'angular2/common';
+
+// @Directive({
+//   selector: '[passwordValidator]',
+//   providers: [provide(NG_VALIDATORS, {useExisting: PasswordValidator, multi: true})]
+// })
+
+export class PasswordValidator implements Validator {
+  static validate(control) {
+  // Uncomment this if you want to use this validator as a directive
+  // validate(control) {
+  
+    // ensure that password has a digit, contains one uppercase letter, and one lowercase letter
+    let regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])/;
+
+    if (regex.test(control.value)) {
+        return null;
+    } else {
+        return { 'invalidPassword': true };
+    }
+  } 
+}
+        </code>
+      </pre>
+    </md-content>
+  </template>
+</md-tabs>

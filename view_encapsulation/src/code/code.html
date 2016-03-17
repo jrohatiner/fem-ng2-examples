@@ -1,0 +1,85 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <div layout-margin layout layout-align="center">
+      <h1>Code</h1>
+    </div>
+  </div>
+</md-toolbar>
+<md-tabs md-margin-bottom md-dynamic-height md-border-bottom>
+  <template md-tab label="src/components/my.component.ts">
+    <md-content class="md-padding">
+      <pre highlight><code class="js">
+import { Component, ViewEncapsulation } from 'angular2/core';
+import { AttributesService } from '../services/attributes.service';
+
+@Component({
+  selector: 'my-component',
+  template: `
+    &lt;h1 #h1&gt;my first component!&lt;/h1&gt;
+    &lt;div class=&quot;md-title&quot;&gt;Child h1 attributes:&lt;/div&gt;
+    &lt;pre&gt;&lt;code&gt;{ {service.attributes(h1)} }&lt;/code&gt;&lt;/pre&gt;
+  `,
+  styles: [`
+    h1 {
+      color: green;
+    }
+  `],
+  providers: [ AttributesService ],
+  encapsulation: ViewEncapsulation.Emulated // Try "Native" and "None" as well
+})
+
+export class MyComponent {
+  constructor(service: AttributesService) { this.service = service; }
+}
+        </code>
+      </pre>
+    </md-content>
+  </template>
+  <template md-tab label="src/app.ts">
+    <md-content class="md-padding">
+       <pre highlight><code class="js">
+import { Component, ViewEncapsulation } from 'angular2/core';
+import { MyComponent } from './components/my.component';
+import { AttributesService } from './services/attributes.service';
+
+@Component({
+  selector: 'app',
+  template: `
+    &lt;h1 #h1&gt;Introducing...&lt;/h1&gt;
+    &lt;div class=&quot;md-title&quot;&gt;Parent h1 attributes:&lt;/div&gt;
+    &lt;pre&gt;&lt;code&gt;{ {service.attributes(h1)} }&lt;/code&gt;&lt;/pre&gt;
+    &lt;my-component&gt;&lt;/my-component&gt;
+  `,
+  directives: [ MyComponent ],
+  providers: [ AttributesService ],
+  styles: [`
+    .rendered h1 {
+      color: red !important;
+    }
+  `],
+  encapsulation: ViewEncapsulation.Emulated // Try "Native" and "None" as well
+})
+
+export class App {
+  constructor(service: AttributesService) { this.service = service; }
+}
+          </code>
+        </pre>
+    </md-content>
+  </template>
+    <template md-tab label="src/services/attributes.service.ts">
+    <md-content class="md-padding">
+      <pre highlight><code class="js">
+export class AttributesService {
+  attributes(h1) {
+    return Object.keys(h1.attributes).map((key) => {
+      return h1.attributes[key].nodeName;
+    })
+    .join(', ');
+  }
+}
+        </code>
+      </pre>
+    </md-content>
+  </template>
+</md-tabs>

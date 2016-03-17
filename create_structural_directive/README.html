@@ -1,0 +1,3 @@
+<h3>Creating a Structural Directive</h3>
+
+<ol><li>Import <code>TemplateRef</code>, <code>ViewContainerRef</code> from <code>angular2/core</code></li><li>Inject them in the constructor of your directive</li><li><code>TemplateRef</code> contains a reference to the host element&#39;s template</li><li><code>ViewContainer</code> contains methods to modify the host element&#39;s template</li><li>To create an embedded element, call <code>viewContainerInstance.createEmbeddedView</code> and pass in an instance of <code>TemplateRef</code></li><li>To clear out the view, call <code>viewContainerInstance.clear</code></li></ol>

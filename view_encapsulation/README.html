@@ -1,0 +1,9 @@
+<h3>View Encapsulation</h3>
+
+<h4>Types of encapsulation</h4>
+
+<ol><li>Emulated – namespaces HTML elements in the template by providing them with attributes unique to that component, and then modifies the css accordingly. This is the default option.</li><li>Native – uses the native encapsulation mechanism of the renderer. For the DOM this means using Shadow DOM and creating a ShadowRoot for Component&#39;s Host Element.</li><li>None – doesn&#39;t provide any template or style encapsulation. Styles are effectively global.</li></ol>
+
+<h4>How to use encapsulation</h4>
+
+<ol><li>Import <code>ViewEncapsulation</code> from <code>angular2/core</code></li><li>Add an <code>encapsulation</code> attribute to the component decoration, providing it with one of three options:<ul><li><code>ViewEncapsulation.Emulated</code></li><li><code>ViewEncapsulation.Native</code></li><li><code>ViewEncapsulation.None</code></li></ul></li></ol>

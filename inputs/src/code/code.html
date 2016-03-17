@@ -1,0 +1,52 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <div layout-margin layout layout-align="center">
+      <h1>Code</h1>
+    </div>
+  </div>
+</md-toolbar>
+<md-tabs md-margin-bottom md-dynamic-height md-border-bottom>
+  <template md-tab label="src/components/my.component.ts">
+    <md-content class="md-padding">
+       <pre highlight><code class="js">
+import { Component, Input } from 'angular2/core';
+
+@Component({
+  selector: 'my-component',
+  template: `
+    &lt;div class=&quot;md-headline&quot;&gt;Greeting from parent:&lt;/div&gt;
+    &lt;div class=&quot;md-title&quot;&gt;{ {greeting} }&lt;/div&gt;
+  `
+})
+
+export class MyComponent {
+  @Input() greeting: String = 'Default Greeting';
+}
+          </code>
+        </pre>
+    </md-content>
+  </template>
+  <template md-tab label="src/app.ts">
+    <md-content class="md-padding">
+      <pre highlight><code class="js">
+import { Component } from 'angular2/core';
+import { MyComponent } from './components/my.component';
+
+@Component({
+  selector: 'app',
+  template: `
+    &lt;my-component layout-padding [greeting]=&quot;greeting&quot;&gt;&lt;/my-component&gt;
+    &lt;md-divider&gt;&lt;/md-divider&gt;
+    &lt;my-component layout-padding&gt;&lt;/my-component&gt;
+  `,
+  directives: [ MyComponent ]
+})
+
+export class App {
+  greeting: String = 'Hello child!';
+}
+        </code>
+      </pre>
+    </md-content>
+  </template>
+</md-tabs>

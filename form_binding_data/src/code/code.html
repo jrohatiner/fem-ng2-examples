@@ -1,0 +1,35 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <div layout-margin layout layout-align="center">
+      <h1>Code</h1>
+    </div>
+  </div>
+</md-toolbar>
+<md-tabs md-margin-bottom md-dynamic-height md-border-bottom>
+  <template md-tab label="src/app.ts">
+    <md-content class="md-padding">
+      <pre highlight><code class="js">
+import { Component } from 'angular2/core';
+
+@Component({
+  selector: 'app',
+  template: `
+    &lt;form&gt;
+      &lt;md-input-container&gt;
+        &lt;label&gt;Bind me data matey!&lt;/label&gt;
+        &lt;input md-input [(ngModel)]=&quot;componentText&quot; [value]=&quot;componentText&quot; type=&quot;text&quot;&gt;
+      &lt;/md-input-container&gt;
+      &lt;br&gt;
+      &lt;span class=&quot;md-title&quot;&gt; { {componentText} } &lt;/span&gt;
+    &lt;/form&gt;
+  `
+})
+
+export class App {
+  componentText: String = 'Arrrrrr!';
+}
+        </code>
+      </pre>
+    </md-content>
+  </template>
+</md-tabs>

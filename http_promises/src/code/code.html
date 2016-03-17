@@ -1,0 +1,75 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <div layout-margin layout layout-align="center">
+      <h1>Code</h1>
+    </div>
+  </div>
+</md-toolbar>
+<md-tabs md-margin-bottom md-dynamic-height md-border-bottom>
+  <template md-tab label="src/services/my.service.ts">
+    <md-content class="md-padding">
+       <pre highlight><code class="js">
+import { Injectable } from 'angular2/core';
+import { Http } from 'angular2/http';
+import 'rxjs/Rx';
+
+export interface Item {
+  name: String, description: String
+}
+
+@Injectable()
+export class MyService {
+  constructor(private _http: Http) {}
+  
+  getItems() {
+    return this._http.get('data/items.json')
+      .map(result => result.json())
+      .toPromise();
+  }
+}
+          </code>
+        </pre>
+    </md-content>
+  </template>
+  <template md-tab label="src/app.ts">
+    <md-content class="md-padding">
+      <pre highlight><code class="js">
+import { Component } from 'angular2/core';
+import { MyService, Item } from './services/my.service';
+
+@Component({
+  selector: 'app',
+  template: `
+    &lt;md-list&gt;
+      &lt;md-subheader class=&quot;md-no-sticky md-headline&quot;&gt;Items&lt;/md-subheader&gt;
+      &lt;md-list-item class=&quot;md-2-line&quot; *ngFor=&quot;#item of items | async&quot;&gt;
+        &lt;div class=&quot;md-list-item-text&quot;&gt;
+          &lt;h3&gt;{ {item.name} }&lt;/h3&gt;
+          &lt;p&gt;{ {item.description} }&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/md-list-item&gt;
+    &lt;/md-list&gt;
+  `,
+  providers: [ MyService ]
+})
+
+export class App {
+  items: Observable&lt;Array&lt;Item>>;
+  
+  constructor(private _service: MyService) {}
+  
+  ngOnInit() {
+    this.items = this._service.getItems();
+    
+    // Uncomment the below and remove the async pipe in the template to chain a `.then` method to populate the data
+    // this._service.getItems()
+    //   .then((result) => {
+    //     this.items = result;
+    //   });
+  }
+}
+        </code>
+      </pre>
+    </md-content>
+  </template>
+</md-tabs>

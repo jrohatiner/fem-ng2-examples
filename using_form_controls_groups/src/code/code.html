@@ -1,0 +1,72 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <div layout-margin layout layout-align="center">
+      <h1>Code</h1>
+    </div>
+  </div>
+</md-toolbar>
+<md-tabs md-margin-bottom md-dynamic-height md-border-bottom>
+  <template md-tab label="src/components/form.component.ts">
+    <md-content class="md-padding">
+       <pre highlight><code class="js">
+import { Component } from 'angular2/core';
+import { FORM_DIRECTIVES } from 'angular2/common';
+
+@Component({
+  selector: 'my-form',
+  template: `
+    &lt;form&gt;
+      &lt;div ngControlGroup=&quot;fullName&quot; #nameGroup=&quot;ngForm&quot;&gt;
+        &lt;md-input-container [class.error]=&quot;!firstName.valid&quot;&gt;
+          &lt;label&gt;First Name&lt;/label&gt;
+          &lt;input required md-input [(ngModel)]=&quot;person.firstName&quot; #firstName=&quot;ngForm&quot; ngControl=&quot;firstName&quot; type=&quot;text&quot;&gt;
+        &lt;/md-input-container&gt;
+        &lt;md-input-container [class.error]=&quot;!lastName.valid&quot;&gt;
+          &lt;label&gt;Last Name&lt;/label&gt;
+          &lt;input required md-input [(ngModel)]=&quot;person.lastName&quot; #lastName=&quot;ngForm&quot; ngControl=&quot;lastName&quot; type=&quot;text&quot;&gt;
+        &lt;/md-input-container&gt;
+        &lt;br&gt;
+        &lt;span class=&quot;error&quot; *ngIf=&quot;!nameGroup.valid&quot;&gt;Please give your first and last name.&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;md-input-container [class.error]=&quot;!password.valid&quot;&gt;
+          &lt;label&gt;Password&lt;/label&gt;
+          &lt;input required minlength=&quot;10&quot; required md-input [(ngModel)]=&quot;person.password&quot; #password=&quot;ngForm&quot; ngControl=&quot;password&quot; type=&quot;password&quot;&gt;
+          &lt;div class=&quot;error&quot; *ngIf=&quot;password.dirty &amp;&amp; !password.valid&quot;&gt;
+            &lt;span *ngIf=&quot;password.errors.required&quot;&gt;Please provide a password&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;error&quot; *ngIf=&quot;password.dirty &amp;&amp; !password.valid&quot;&gt;
+            &lt;span class=&quot;error&quot; *ngIf=&quot;password.errors.minlength&quot;&gt;Your password must me at least 10 characters long.&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/md-input-container&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+    &lt;br&gt;
+    &lt;pre&gt;{ {person | json} }&lt;/pre&gt;
+  `,
+  directives: [ FORM_DIRECTIVES ],
+  styles: [`
+    .error { color: red; }
+    
+    md-input-container.md-input-focused.error label {
+      color: red;
+    }
+    
+    md-input-container.md-input-focused.error .md-input {
+      border-color: red;
+    }
+  `]
+})
+
+export class FormComponent {
+  person: { firstName: String, lastName: String, title: String } = {
+    firstName: 'Luke',
+    lastName: 'Ruebbelke',
+    password: 'superSecretOfGreatLength'
+  };
+}
+          </code>
+        </pre>
+    </md-content>
+  </template>
+</md-tabs>

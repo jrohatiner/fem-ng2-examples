@@ -1,0 +1,101 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <div layout-margin layout layout-align="center">
+      <h1>Code</h1>
+    </div>
+  </div>
+</md-toolbar>
+<md-tabs md-margin-bottom md-dynamic-height md-border-bottom>
+  <template md-tab label="src/directives/blinker.directive.ts">
+    <md-content class="md-padding">
+      <pre highlight><code class="js">
+import { Directive, ElementRef } from 'angular2/core';
+
+@Directive({
+  selector: '[femBlinker]'
+})
+
+export class FemBlinkerDirective {
+  constructor(element: ElementRef) {
+    let interval = setInterval(() => {
+      let color = element.nativeElement.style.color;
+      element.nativeElement.style.color
+        = (color === '' || color === 'black') ? 'red' : 'black';
+    }, 300); 
+    
+    setTimeout(() => {
+      clearInterval(interval);
+    }, 10000);
+  }
+}
+        </code>
+      </pre>
+    </md-content>
+  </template>
+  <template md-tab label="src/directives/blinker.directive.spec.ts">
+    <md-content class="md-padding">
+       <pre highlight><code class="js">
+import {setBaseTestProviders} from 'angular2/testing';
+import {
+  TEST_BROWSER_PLATFORM_PROVIDERS,
+  TEST_BROWSER_APPLICATION_PROVIDERS
+} from 'angular2/platform/testing/browser';
+setBaseTestProviders(TEST_BROWSER_PLATFORM_PROVIDERS,
+                     TEST_BROWSER_APPLICATION_PROVIDERS);
+
+import {
+  describe,
+  it,
+  expect,
+  beforeEach,
+  TestComponentBuilder,
+  ComponentFixture,
+  injectAsync
+} from 'angular2/testing';
+
+import { MockComponent } from './blinker.mock.component';
+
+describe('Directive: femBlinker', () => {
+  let fixture;
+
+  beforeEach(injectAsync([TestComponentBuilder], tcb => {
+    return tcb
+      .createAsync(MockComponent)
+      .then((f: ComponentFixture) => {
+        fixture = f;
+      });
+  }));
+  
+  it('should switch from black to red and back every 300ms', done => {
+    let element = fixture.nativeElement.querySelector('h1');
+    
+    setTimeout(() => {
+      expect(element.style.color).toBe('red');
+    }, 300);
+    
+    setTimeout(() => {
+      expect(element.style.color).toBe('black');
+      done();
+    }, 600);
+  }));
+}); 
+          </code>
+        </pre>
+    </md-content>
+  </template>
+    <template md-tab label="src/directives/blinker.mock.component.ts">
+    <md-content class="md-padding">
+       <pre highlight><code class="js">
+import { Component } from 'angular2/core';
+import { FemBlinkerDirective } from './blinker.directive';
+@Component({ 
+  selector: 'mock',
+  template: `&lt;h1 femBlinker>Blink for 10 seconds please!&lt;/h1>`,
+  directives: [ FemBlinkerDirective ]
+})
+export class MockComponent {} 
+          </code>
+        </pre>
+    </md-content>
+  </template>
+</md-tabs>

@@ -1,0 +1,9 @@
+<h3>Emitting Events from a Component</h3>
+
+<h4>Child component</h4>
+
+<ol><li>Import the <code>Output</code> decorator and <code>EventEmitter</code> class from <code>angular2/core</code></li><li>Declare an output as a class attribute with the <code>@Output()</code> decorator preceding it and initialize it to a new <code>EventEmitter</code></li><li>Call <code>.emit</code> on the greeter you initialize and pass it the data that you want the parent to receive</li></ol>
+
+<h4>Parent component</h4>
+
+<ol><li>Bind to a child component&#39;s outputs just as you would a standard event i.e. <code>&lt;element (childEventName)=&quot;parentResponse($event)&quot;&gt;&lt;/element&gt;</code></li><li><code>$event</code> holds the data that you emitted from the child</li></ol>

@@ -1,0 +1,5 @@
+<h3>Testing a directive</h3>
+
+<ol><li>Create a mock component and use the directive in that component&#39;s template. Make sure to keep the mock component as simple as possible, we are only trying to test the directive.</li><li>Import the mock component into the spec file</li><li>Set up the test just like we did for testing a template (import and set base providers, import Jasmine operators, and use <code>injectAsync</code> to get a <code>ComponentFixture</code> from the <code>TestComponentBuilder</code></li><li>Perform expectations as you would in template testing. Once we have the fixture, we can use it to gain access to the component instance as well as the component&#39;s template</li></ol>
+
+<blockquote><p><strong>Note:</strong> the difference in this test vs. the template test we build is that we are actually injecting the component builder into a <code>beforeEach</code> block instead of each individual <code>it</code> block. This way we can write code once and get an instance of the component, instead of having to re-write the code each time we want an instance.</p></blockquote>
