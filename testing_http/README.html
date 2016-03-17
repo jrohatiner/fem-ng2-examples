@@ -1,0 +1,3 @@
+<h3>Testing Http Calls</h3>
+
+<ol><li>In a <code>beforeEachProviders</code> block, we need to provide <code>HTTP_PROVIDERS</code>, the service under test, and most importantly, provide the <code>MockBackend</code> instead of the <code>XHRBackend</code></li><li>In a <code>beforeEach</code> block, we subscribe to all connections and return a mock response for each one</li><li>Finally, we can call the <code>Http</code> method (or call the service method that calls the <code>Http</code> method), subscribe to it, and perform our expectations</li></ol>

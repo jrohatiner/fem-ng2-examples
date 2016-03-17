@@ -1,0 +1,46 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <div layout-margin layout layout-align="center">
+      <h1>Code</h1>
+    </div>
+  </div>
+</md-toolbar>
+<md-tabs md-margin-bottom md-dynamic-height md-border-bottom>
+  <template md-tab label="src/pipes/reverse.pipe.ts">
+    <md-content class="md-padding">
+      <pre highlight><code class="js">
+import { Pipe } from 'angular2/core';
+
+@Pipe({name: 'reverse'})
+export class ReversePipe implements PipeTransform {
+  transform(value: String, args: Array&lt;string>) : any {
+    return value.split('').reverse().join('');
+  }
+}
+        </code>
+      </pre>
+    </md-content>
+  </template>
+  <template md-tab label="src/app.ts">
+    <md-content class="md-padding">
+       <pre highlight><code class="js">
+import { Component } from 'angular2/core';
+import { ReversePipe } from './pipes/reverse.pipe';
+
+@Component({
+  selector: 'app',
+  template: `
+    &lt;div class=&quot;md-headline&quot;&gt;&lt;strong&gt;Forward&lt;/strong&gt;: { {forwardString} }&lt;/div&gt;
+    &lt;div class=&quot;md-headline&quot;&gt;&lt;strong&gt;Backward&lt;/strong&gt;: { {forwardString | reverse} }&lt;/div&gt;
+  `,
+  pipes: [ ReversePipe ]
+})
+
+export class App {
+  forwardString: String = 'Please turn me around!';
+}
+          </code>
+        </pre>
+    </md-content>
+  </template>
+</md-tabs>

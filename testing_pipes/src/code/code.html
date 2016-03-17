@@ -1,0 +1,63 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <div layout-margin layout layout-align="center">
+      <h1>Code</h1>
+    </div>
+  </div>
+</md-toolbar>
+<md-tabs md-margin-bottom md-dynamic-height md-border-bottom>
+  <template md-tab label="src/pipes/reverse.pipe.ts">
+    <md-content class="md-padding">
+       <pre highlight><code class="js">
+import { Pipe } from 'angular2/core';
+
+@Pipe({name: 'reverse'})
+export class ReversePipe implements PipeTransform {
+  transform(value: String, args: Array&lt;string>) : any {
+    return value.split('').reverse().join('');
+  }
+}
+          </code>
+        </pre>
+    </md-content>
+  </template>
+  <template md-tab label="src/pipes/reverse.pipe.spec.ts">
+    <md-content class="md-padding">
+      <pre highlight><code class="js">
+import {
+  describe,
+  expect,
+  it,
+  beforeEachProviders,
+  beforeEach,
+  inject
+} from 'angular2/testing';
+
+import {
+  ReversePipe
+} from './reverse.pipe';
+
+describe('Reverse Pipe', () => {
+  let pipe;
+  
+  beforeEachProviders(() => [
+    ReversePipe
+  ]);
+  
+  beforeEach(inject([ReversePipe], p => {
+    pipe = p;
+  }));
+  
+  it('should handle an empty string', () => {
+    expect(pipe.transform('')).toEqual('');
+  });
+
+  it('should reverse a string', () => {
+    expect(pipe.transform('reverse me')).toEqual('em esrever');
+  });
+});
+        </code>
+      </pre>
+    </md-content>
+  </template>
+</md-tabs>

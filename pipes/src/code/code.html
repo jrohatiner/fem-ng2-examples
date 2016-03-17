@@ -1,0 +1,43 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <div layout-margin layout layout-align="center">
+      <h1>Code</h1>
+    </div>
+  </div>
+</md-toolbar>
+<md-tabs md-margin-bottom md-dynamic-height md-border-bottom>
+  <template md-tab label="src/app.ts">
+    <md-content class="md-padding">
+      <pre highlight><code class="js">
+import { Component, COMMON_PIPES } from 'angular2/core';
+import { Code } from './code/code';
+
+@Component({
+  selector: 'app',
+  template: `
+    &lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; { {today | date} }&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Capitalization:&lt;/strong&gt; { {name | uppercase} }&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Replace:&lt;/strong&gt; { {name | replace:&apos;Angular&apos;:&apos;Fantangular&apos;} }&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Currency:&lt;/strong&gt; { {randomNumber | currency:&apos;USD&apos;:true} }&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Percent:&lt;/strong&gt; { {randomNumber | percent} }&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Decimal:&lt;/strong&gt; { {randomNumber | number:&apos;2.0-1&apos;} }&lt;/p&gt;
+    &lt;pre&gt;{ {items | slice:1:2 | json} }&lt;/pre&gt;
+  `
+})
+
+export class App {
+  today: Date = new Date();
+  name: String = 'Angular 2';
+  randomNumber: Number = 20.5423;
+  
+  items: Array&lt; {name: String, description: String} > = [
+    { name: 'Item 1', description: 'Epic item!' },
+    { name: 'Item 2', description: 'As great as the first!' },
+    { name: 'Last One', description: 'A round of applause for this one' }
+  ];
+}
+          </code>
+        </pre>
+    </md-content>
+  </template>
+</md-tabs>

@@ -1,0 +1,90 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <div layout-margin layout layout-align="center">
+      <h1>Code</h1>
+    </div>
+  </div>
+</md-toolbar>
+<md-tabs md-margin-bottom md-dynamic-height md-border-bottom>
+  <template md-tab label="src/services/my.service.ts">
+    <md-content class="md-padding">
+       <pre highlight><code class="js">
+import { Injectable } from 'angular2/core';
+import { Http } from 'angular2/http';
+import 'rxjs/Rx';
+
+export interface Item {
+  name: String, description: String
+}
+
+@Injectable()
+export class MyService {
+  constructor(private _http: Http) {}
+  
+  getItems() {
+    return this._http.get('data/items.json')
+      .map(result => result.json());
+  }
+}
+          </code>
+        </pre>
+    </md-content>
+  </template>
+  <template md-tab label="src/services/my.service.spec.ts">
+    <md-content class="md-padding">
+      <pre highlight><code class="js">
+import {
+  it,
+  describe,
+  expect,
+  inject,
+  beforeEachProviders,
+  beforeEach} from 'angular2/testing';
+import { provide } from 'angular2/core';
+import { HTTP_PROVIDERS, Http, XHRBackend, Response, ResponseOptions } from 'angular2/http';
+import { MyService } from './my.service';
+import {MockBackend, MockConnection} from 'angular2/http/testing';
+
+describe('MyService', () => {
+  let service, backend, http, setConnection;
+
+  beforeEachProviders(() => [
+    MyService, HTTP_PROVIDERS, provide(XHRBackend, {useClass: MockBackend})
+  ]);
+
+  beforeEach(inject([MyService, XHRBackend, Http], (MyService, mockBackend, Http) => {
+    service = MyService;
+    backend = mockBackend;
+    http = Http;
+
+    setConnection = (options): void => {
+      let responseOptions = { body: options};
+
+      backend.connections.subscribe((connection: MockConnection) => {
+        connection.mockRespond(
+          new Response(
+            new ResponseOptions(responseOptions)
+          )
+        );
+      });
+    };
+  }));
+
+  it('#getItems', () => {
+    let requestBody = {id: 1, name: 'First Item'};
+
+    setConnection(requestBody);
+    spyOn(http, 'get').and.callThrough();
+
+    service.getItems()
+      .subscribe((res) => {
+        expect(http.get).toHaveBeenCalled();
+        expect(res).toEqual(requestBody);
+      });
+  });
+
+        </code>
+      </pre>
+    </md-content>
+  </template>
+</md-tabs>

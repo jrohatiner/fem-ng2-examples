@@ -1,0 +1,37 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <div layout-margin layout layout-align="center">
+      <h1>Code</h1>
+    </div>
+  </div>
+</md-toolbar>
+<md-tabs md-margin-bottom md-dynamic-height md-border-bottom>
+  <template md-tab label="src/app.ts">
+    <md-content class="md-padding">
+       <pre highlight><code class="js">
+import { Component, COMMON_PIPES } from 'angular2/core';
+import { Observable } from 'rxjs/Rx';
+
+@Component({
+  selector: 'app',
+  template: `
+    &lt;div class=&quot;md-headline&quot;&gt;Items:&lt;/div&gt;
+    &lt;pre&gt;{ {asyncItems | async | json} }&lt;/pre&gt;
+  `
+})
+
+export class App {
+  private _items: Array&lt;{name: String, description: String}> = [
+    { name: 'Item 1', description: 'Epic item!' },
+    { name: 'Item 2', description: 'As great as the first!' },
+    { name: 'Last One', description: 'A round of applause for this one' }
+  ];
+  
+  asyncItems: Observable&lt;Array&lt;{name: String, description: String}>> 
+    = Observable.of(this._items);
+}
+          </code>
+        </pre>
+    </md-content>
+  </template>
+</md-tabs>
