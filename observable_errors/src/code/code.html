@@ -1,0 +1,56 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <div layout-margin layout layout-align="center">
+      <h1>Code</h1>
+    </div>
+  </div>
+</md-toolbar>
+<md-tabs md-margin-bottom md-dynamic-height md-border-bottom>
+  <template md-tab label="src/app.ts">
+    <md-content class="md-padding">
+       <pre highlight><code class="js">
+import { Component, ElementRef } from 'angular2/core';
+import { Observable } from 'rx.all';
+
+@Component({
+  selector: 'app',
+  template: `
+    &lt;md-list&gt;
+      &lt;md-subheader class=&quot;md-no-sticky md-headline&quot;&gt;Message&lt;/md-subheader&gt;
+      &lt;md-list-item class=&quot;md-2-line&quot;&gt;
+        &lt;div class=&quot;md-list-item-text&quot;&gt;
+          &lt;h3&gt;NEXT: { {nextMessage} }&lt;/h3&gt;
+          &lt;h3&gt;ERROR: { {errorMessage} }&lt;/h3&gt;
+          &lt;h3&gt;COMPLETED: { {completedMessage} }&lt;/h3&gt;
+        &lt;/div&gt;
+      &lt;/md-list-item&gt;
+    &lt;/md-list&gt;
+  `
+})
+
+export class App {
+  nextMessage: String;
+  errorMessage: String;
+  completedMessage: String;
+
+  constructor() {
+    var source = Observable
+        .just(42)
+        .delay(5000) // This will complete in 5 seconds
+        .timeout(1000, new Error('Timeout has occurred.')) // We will override this to throw an error in 1 second
+        // .catch(Observable.return('Recovering!'))
+      ;
+    
+    var subscription = source.subscribe(
+        x => this.nextMessage = x, // onNext handler
+        err => this.errorMessage = err, // onError handler
+        () => this.completedMessage = 'Completed'; // onComplete handler
+      );
+  }
+}
+
+          </code>
+        </pre>
+    </md-content>
+  </template>
+</md-tabs>
