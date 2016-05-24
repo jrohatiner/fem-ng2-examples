@@ -1,11 +1,13 @@
-import { Directive, ElementRef } from 'angular2/core';
+import { Directive, ElementRef } from '@angular/core';
 
 @Directive({
   selector: '[highlight]'
 })
 
 export class Highlight {
-  constructor(element: ElementRef) {
-    hljs.highlightBlock(element.nativeElement.querySelector('code'))
+  constructor(private _element: ElementRef) {}
+
+  ngOnInit() {
+    hljs.highlightBlock(this._element.nativeElement.querySelector('code'))
   }
 }

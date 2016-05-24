@@ -1,4 +1,4 @@
-import { Component, COMMON_PIPES } from 'angular2/core';
+import { Component, COMMON_PIPES } from '@angular/core';
 import { Code } from './code/code';
 import { Observable } from 'rxjs/Rx';
 
@@ -27,7 +27,7 @@ export class App {
     { name: 'Item 2', description: 'As great as the first!' },
     { name: 'Last One', description: 'A round of applause for this one' }
   ];
-  
-  asyncItems: Observable<Array<{name: String, description: String}>> 
+
+  asyncItems: Observable<Array<{name: String, description: String}>>
     = Observable.of(this._items);
 }
