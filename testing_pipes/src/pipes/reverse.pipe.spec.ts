@@ -5,7 +5,7 @@ import {
   beforeEachProviders,
   beforeEach,
   inject
-} from 'angular2/testing';
+} from '@angular/testing';
 
 import {
   ReversePipe

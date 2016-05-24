@@ -1,5 +1,5 @@
 ### Router Lifecycle Hooks
-Import `CanActivate`, `CanDeactivate`, and `ComponentInstruction` from `angular2/router`
+Import `CanActivate`, `CanDeactivate`, and `ComponentInstruction` from `@angular/router`
 
 #### CanActivate
 1. `CanActivate` is a decorator, so we use it like we would the `@Component` decorator

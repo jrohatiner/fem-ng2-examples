@@ -1,4 +1,4 @@
-import { Component } from 'angular2/core';
+import { Component } from '@angular/core';
 import { FemBlinkerDirective } from './blinker.directive';
 @Component({ 
   selector: 'mock',

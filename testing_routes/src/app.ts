@@ -1,5 +1,5 @@
-import { Component } from 'angular2/core';
-import { RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
+import { Component } from '@angular/core';
+import { RouteConfig, ROUTER_DIRECTIVES } from '@angular/router';
 import { Code } from './code/code';
 import { MyComponent } from './components/my.component';
 import { AnotherComponent } from './components/another.component';

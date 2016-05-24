@@ -5,7 +5,7 @@
 3. None – doesn't provide any template or style encapsulation. Styles are effectively global.
 
 #### How to use encapsulation
-1. Import `ViewEncapsulation` from `angular2/core`
+1. Import `ViewEncapsulation` from `@angular/core`
 2. Add an `encapsulation` attribute to the component decoration, providing it with one of three options:
     * `ViewEncapsulation.Emulated`
     * `ViewEncapsulation.Native`

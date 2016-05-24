@@ -9,7 +9,7 @@
   <template md-tab label="src/components/my.component.ts">
     <md-content class="md-padding">
        <pre highlight><code class="js">
-import { Component, ViewEncapsulation } from 'angular2/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'my-component',
@@ -22,7 +22,7 @@ import { Component, ViewEncapsulation } from 'angular2/core';
         &lt;/div&gt;
       &lt;/md-subheader&gt;
       &lt;div *ngIf=&quot;showList&quot;&gt;
-        &lt;md-list-item [ngClass]=&quot;{stripe: index % 2 === 0}&quot; class=&quot;md-3-line inset&quot; *ngFor=&quot;#item of items; #index = index&quot;&gt;
+        &lt;md-list-item [ngClass]=&quot;{stripe: index % 2 === 0}&quot; class=&quot;md-3-line inset&quot; *ngFor=&quot;let item of items; #index = index&quot;&gt;
           &lt;div class=&quot;md-list-item-text&quot; layout=&quot;column&quot;&gt;
             &lt;h3&gt;ID:
               &lt;strong&gt;{ { index + 1 } }&lt;/strong&gt;

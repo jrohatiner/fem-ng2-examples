@@ -1,8 +1,8 @@
-import {setBaseTestProviders} from 'angular2/testing';
+import {setBaseTestProviders} from '@angular/testing';
 import {
   TEST_BROWSER_PLATFORM_PROVIDERS,
   TEST_BROWSER_APPLICATION_PROVIDERS
-} from 'angular2/platform/testing/browser';
+} from '@angular/platform/testing/browser';
 setBaseTestProviders(TEST_BROWSER_PLATFORM_PROVIDERS,
                      TEST_BROWSER_APPLICATION_PROVIDERS);
 
@@ -13,7 +13,7 @@ import {
   TestComponentBuilder,
   ComponentFixture,
   injectAsync
-} from 'angular2/testing';
+} from '@angular/testing';
 
 import { MyComponent } from './my.component';
 

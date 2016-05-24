@@ -5,12 +5,12 @@ import {
   beforeEach,
   beforeEachProviders,
   inject
-} from 'angular2/testing';
+} from '@angular/testing';
 
-import { provide } from 'angular2/core';
-import { SpyLocation } from 'angular2/router/testing';
-import { RootRouter } from 'angular2/src/router/router';
-import { Router, Location, ROUTER_PRIMARY_COMPONENT, RouteRegistry } from 'angular2/router';
+import { provide } from '@angular/core';
+import { SpyLocation } from '@angular/router/testing';
+import { RootRouter } from '@angular/src/router/router';
+import { Router, Location, ROUTER_PRIMARY_COMPONENT, RouteRegistry } from '@angular/router';
 
 import { App } from './app';
 

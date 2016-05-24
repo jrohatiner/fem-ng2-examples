@@ -1,5 +1,5 @@
 // 2. Import dependencies, Angular 2 or your own
-import { Component } from 'angular2/core';
+import { Component } from '@angular/core';
 
 // 3. Decorate the component class
 @Component({

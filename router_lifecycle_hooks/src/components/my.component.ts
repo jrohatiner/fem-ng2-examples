@@ -1,5 +1,5 @@
-import { Component } from 'angular2/core';
-import { CanActivate, CanDeactivate, ComponentInstruction, ROUTER_DIRECTIVES } from 'angular2/router';
+import { Component } from '@angular/core';
+import { CanActivate, CanDeactivate, ComponentInstruction, ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
   selector: 'my-component',

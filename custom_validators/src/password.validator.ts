@@ -1,8 +1,8 @@
-import { Control } from 'angular2/common';
+import { Control } from '@angular/common';
 
 // Uncomment the below code if you want to use the validator as a directive
-// import { Directive, provide } from 'angular2/core';
-// import { NG_VALIDATORS } from 'angular2/common';
+// import { Directive, provide } from '@angular/core';
+// import { NG_VALIDATORS } from '@angular/common';
 // @Directive({
 //   selector: '[passwordValidator]',
 //   providers: [provide(NG_VALIDATORS, {useExisting: PasswordValidator, multi: true})]

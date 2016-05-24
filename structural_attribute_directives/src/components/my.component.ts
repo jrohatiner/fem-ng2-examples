@@ -1,5 +1,5 @@
-import { Component, ViewEncapsulation } from 'angular2/core';
-import { MATERIAL_DIRECTIVES } from 'ng2-material/all';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { MATERIAL_DIRECTIVES } from 'ng2-material';
 
 @Component({
   selector: 'my-component',
@@ -12,7 +12,7 @@ import { MATERIAL_DIRECTIVES } from 'ng2-material/all';
         </div>
       </md-subheader>
       <div *ngIf="showList">
-        <md-list-item [ngClass]="{stripe: index % 2 === 0}" class="md-3-line inset" *ngFor="#item of items; #index = index">
+        <md-list-item [ngClass]="{stripe: index % 2 === 0}" class="md-3-line inset" *ngFor="let item of items; #index = index">
           <div class="md-list-item-text" layout="column">
             <h3>ID: <strong>{{ index + 1 }}</strong></h3>
             <h4>{{ item.name }}</h4>
@@ -32,9 +32,9 @@ export class MyComponent {
     { name: 'Item 2', description: 'As great as the first!' },
     { name: 'Last One', description: 'A round of applause for this one' }
   ];
-  
+
   private showList: Boolean = true;
-  
+
   toggleList() {
     this.showList = !this.showList;
   }

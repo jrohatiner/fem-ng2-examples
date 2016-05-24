@@ -2,7 +2,7 @@ import {
   describe,
   expect,
   it
-} from 'angular2/testing';
+} from '@angular/testing';
 
 describe('A simple test', () => {
   it('should work', () => {

@@ -1,4 +1,4 @@
-import { Component, COMMON_PIPES } from 'angular2/core';
+import { Component, COMMON_PIPES } from '@angular/core';
 import { Code } from './code/code';
 
 @Component({

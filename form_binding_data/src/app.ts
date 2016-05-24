@@ -1,6 +1,6 @@
-import { Component } from 'angular2/core';
+import { Component } from '@angular/core';
 import { Code } from './code/code';
-import { MATERIAL_DIRECTIVES } from 'ng2-material/all';
+import { MATERIAL_DIRECTIVES } from 'ng2-material';
 
 @Component({
   selector: 'app',

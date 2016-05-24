@@ -9,12 +9,12 @@
   <template md-tab label="src/components/my.component.ts">
     <md-content class="md-padding">
        <pre highlight><code class="js">
-import { Component } from 'angular2/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'my-component',
   template: `
-    &lt;p *ngFor=&quot;#name of names&quot;&gt;{ {name} }&lt;/p&gt;
+    &lt;p *ngFor=&quot;let name of names&quot;&gt;{ {name} }&lt;/p&gt;
 
     &lt;md-input-container&gt;
       &lt;label&gt;Type to see the value&lt;/label&gt;

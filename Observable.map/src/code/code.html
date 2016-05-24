@@ -9,7 +9,7 @@
   <template md-tab label="src/app.ts">
     <md-content class="md-padding">
        <pre highlight><code class="js">
-import { Component } from 'angular2/core';
+import { Component } from '@angular/core';
 import { MyService } from './services/my.service';
 
 @Component({
@@ -17,7 +17,7 @@ import { MyService } from './services/my.service';
   template: `
     &lt;md-list&gt;
       &lt;md-subheader class=&quot;md-no-sticky md-headline&quot;&gt;Items&lt;/md-subheader&gt;
-      &lt;md-list-item class=&quot;md-2-line&quot; *ngFor=&quot;#item of items&quot;&gt;
+      &lt;md-list-item class=&quot;md-2-line&quot; *ngFor=&quot;let item of items&quot;&gt;
         &lt;div class=&quot;md-list-item-text&quot;&gt;
           &lt;h3&gt;{ {item.name} }&lt;/h3&gt;
           &lt;p&gt;{ {item.description} }&lt;/p&gt;

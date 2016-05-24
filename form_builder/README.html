@@ -2,7 +2,7 @@
 
 <h4>Component</h4>
 
-<ol><li>Import <code>FormBuilder</code> and <code>Validators</code> from <code>angular2/common</code></li><li>Inject an instance of <code>FormBuilder</code> into the constructor</li><li>A form is just a control group, so we create the form by calling <code>builderInstance.group</code></li><li>We pass in an object with one or more controls or control groups...we can nest it however we like</li><li>A control has the name of the control as the key, and the value is an array in the form of <code>[initialValue, validator(s)]</code></li><li>If we want to use multiple validators, we call <code>Validators.compose</code>, passing in an array with all the validators we need</li></ol>
+<ol><li>Import <code>FormBuilder</code> and <code>Validators</code> from <code>@angular/common</code></li><li>Inject an instance of <code>FormBuilder</code> into the constructor</li><li>A form is just a control group, so we create the form by calling <code>builderInstance.group</code></li><li>We pass in an object with one or more controls or control groups...we can nest it however we like</li><li>A control has the name of the control as the key, and the value is an array in the form of <code>[initialValue, validator(s)]</code></li><li>If we want to use multiple validators, we call <code>Validators.compose</code>, passing in an array with all the validators we need</li></ol>
 
 <h4>Template</h4>
 

@@ -9,7 +9,7 @@
   <template md-tab label="src/directives/blinker.directive.ts">
     <md-content class="md-padding">
       <pre highlight><code class="js">
-import { Directive, ElementRef } from 'angular2/core';
+import { Directive, ElementRef } from '@angular/core';
 
 @Directive({
   selector: '[femBlinker]'
@@ -35,11 +35,11 @@ export class FemBlinkerDirective {
   <template md-tab label="src/directives/blinker.directive.spec.ts">
     <md-content class="md-padding">
        <pre highlight><code class="js">
-import {setBaseTestProviders} from 'angular2/testing';
+import {setBaseTestProviders} from '@angular/testing';
 import {
   TEST_BROWSER_PLATFORM_PROVIDERS,
   TEST_BROWSER_APPLICATION_PROVIDERS
-} from 'angular2/platform/testing/browser';
+} from '@angular/platform/testing/browser';
 setBaseTestProviders(TEST_BROWSER_PLATFORM_PROVIDERS,
                      TEST_BROWSER_APPLICATION_PROVIDERS);
 
@@ -51,7 +51,7 @@ import {
   TestComponentBuilder,
   ComponentFixture,
   injectAsync
-} from 'angular2/testing';
+} from '@angular/testing';
 
 import { MockComponent } from './blinker.mock.component';
 
@@ -86,7 +86,7 @@ describe('Directive: femBlinker', () => {
     <template md-tab label="src/directives/blinker.mock.component.ts">
     <md-content class="md-padding">
        <pre highlight><code class="js">
-import { Component } from 'angular2/core';
+import { Component } from '@angular/core';
 import { FemBlinkerDirective } from './blinker.directive';
 @Component({ 
   selector: 'mock',

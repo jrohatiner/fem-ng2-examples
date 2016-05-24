@@ -1,5 +1,5 @@
 ### Creating a Structural Directive
-1. Import `TemplateRef`, `ViewContainerRef` from `angular2/core`
+1. Import `TemplateRef`, `ViewContainerRef` from `@angular/core`
 2. Inject them in the constructor of your directive
 3. `TemplateRef` contains a reference to the host element's template
 4. `ViewContainer` contains methods to modify the host element's template

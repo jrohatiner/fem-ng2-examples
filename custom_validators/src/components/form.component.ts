@@ -1,6 +1,6 @@
-import { Component } from 'angular2/core';
-import { FORM_DIRECTIVES, FormBuilder, Validators } from 'angular2/common';
-import { MATERIAL_DIRECTIVES } from 'ng2-material/all';
+import { Component } from '@angular/core';
+import { FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/common';
+import { MATERIAL_DIRECTIVES } from 'ng2-material';
 import { PasswordValidator } from '../password.validator';
 
 @Component({

@@ -2,7 +2,7 @@ import {
   describe,
   it,
   expect
-} from 'angular2/testing';
+} from '@angular/testing';
 
 import { MyService } from './my.service';
 

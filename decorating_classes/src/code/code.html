@@ -9,7 +9,7 @@
   <template md-tab label="Directive">
     <md-content class="md-padding">
       <pre highlight><code class="js">
-import { Directive } from 'angular2/core';
+import { Directive } from '@angular/core';
 
 @Directive({
   selector: '.cool-button:not(a)'	
@@ -25,7 +25,7 @@ export class MyDirective {}
     <md-content class="md-padding">
       <pre highlight><code class="js">
 // Component is an extension of Directive
-import { Component } from 'angular2/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'my-component',
@@ -44,7 +44,7 @@ export class MyComponent {}
   <template md-tab label="Pipe">
     <md-content class="md-padding">
       <pre highlight><code class="js">
-import { Pipe, PipeTransform } from 'angular2/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'myTransform',
@@ -59,7 +59,7 @@ export class MyTransformPipe implements PipeTransform {}
   <template md-tab label="Service/Injectable">
     <md-content class="md-padding">
       <pre highlight><code class="js">
-import { Injectable } from 'angular2/core';
+import { Injectable } from '@angular/core';
         
 @Injectable() // only if you need to inject dependencies into the service
 

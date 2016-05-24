@@ -10,7 +10,7 @@
     <md-content class="md-padding">
        <pre highlight><code class="js">
 // src/components/my.component.ts
-import { Component } from 'angular2/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'my-component',
@@ -20,7 +20,7 @@ import { Component } from 'angular2/core';
 export class MyComponent {}
 
 // src/components/my.component.ts
-import { Component } from 'angular2/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'another-component',
@@ -35,8 +35,8 @@ export class AnotherComponent {}
   <template md-tab label="src/app.ts">
     <md-content class="md-padding">
       <pre highlight><code class="js">
-import { Component } from 'angular2/core';
-import { RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
+import { Component } from '@angular/core';
+import { RouteConfig, ROUTER_DIRECTIVES } from '@angular/router';
 import { MyComponent } from './components/my.component';
 import { AnotherComponent } from './components/another.component';
 
@@ -62,8 +62,8 @@ export class App {}
   <template md-tab label="src/main.ts">
     <md-content class="md-padding">
        <pre highlight><code class="js">
-import { bootstrap } from 'angular2/platform/browser';
-import { ROUTER_PROVIDERS } from 'angular2/router';
+import { bootstrap } from '@angular/platform-browser-dynamic';
+import { ROUTER_PROVIDERS } from '@angular/router';
 import { App } from './app';
 
 bootstrap(App, [ ROUTER_PROVIDERS ]);

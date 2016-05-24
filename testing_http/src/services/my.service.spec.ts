@@ -4,11 +4,11 @@ import {
   expect,
   inject,
   beforeEachProviders,
-  beforeEach} from 'angular2/testing';
-import { provide } from 'angular2/core';
-import { HTTP_PROVIDERS, Http, XHRBackend, Response, ResponseOptions } from 'angular2/http';
+  beforeEach} from '@angular/testing';
+import { provide } from '@angular/core';
+import { HTTP_PROVIDERS, Http, XHRBackend, Response, ResponseOptions } from '@angular/http';
 import { MyService } from './my.service';
-import {MockBackend, MockConnection} from 'angular2/http/testing';
+import {MockBackend, MockConnection} from '@angular/http/testing';
 
 describe('MyService', () => {
   let service, backend, http, setConnection;

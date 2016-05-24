@@ -3,5 +3,5 @@
 2. These parameters consist of the name we gave the route, as well as any route parameters.
 
 ### Navigating to a Route from a Component
-1. Import `Router` from `angular2/common` and inject it into the component
+1. Import `Router` from `@angular/common` and inject it into the component
 2. Call `navigate` on the router instance and pass in the same params you would when navigating from the template.

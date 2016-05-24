@@ -9,8 +9,8 @@
   <template md-tab label="src/app.ts">
     <md-content class="md-padding">
        <pre highlight><code class="js">
-import { Component } from 'angular2/core';
-import { RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
+import { Component } from '@angular/core';
+import { RouteConfig, ROUTER_DIRECTIVES } from '@angular/router';
 import { MyComponent } from './components/my.component';
 import { AnotherComponent } from './components/another.component';
 
@@ -41,8 +41,8 @@ export class App {}
     <md-content class="md-padding">
       <pre highlight><code class="js">
 // src/components/my.component.ts
-import { Component } from 'angular2/core';
-import { RouteParams } from 'angular2/router';
+import { Component } from '@angular/core';
+import { RouteParams } from '@angular/router';
 
 @Component({
   selector: 'my-component',
@@ -56,8 +56,8 @@ export class MyComponent {
 }
 
 // src/components/another.component.ts
-import { Component } from 'angular2/core';
-import { RouteParams } from 'angular2/router';
+import { Component } from '@angular/core';
+import { RouteParams } from '@angular/router';
 
 @Component({
   selector: 'another-component',

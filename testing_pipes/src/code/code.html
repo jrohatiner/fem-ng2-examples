@@ -9,7 +9,7 @@
   <template md-tab label="src/pipes/reverse.pipe.ts">
     <md-content class="md-padding">
        <pre highlight><code class="js">
-import { Pipe } from 'angular2/core';
+import { Pipe } from '@angular/core';
 
 @Pipe({name: 'reverse'})
 export class ReversePipe implements PipeTransform {
@@ -31,7 +31,7 @@ import {
   beforeEachProviders,
   beforeEach,
   inject
-} from 'angular2/testing';
+} from '@angular/testing';
 
 import {
   ReversePipe

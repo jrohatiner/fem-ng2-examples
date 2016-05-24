@@ -9,7 +9,7 @@
   <template md-tab label="src/components/child.component.ts">
     <md-content class="md-padding">
        <pre highlight><code class="js">
-import { Component } from 'angular2/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'first-sub-component',
@@ -23,8 +23,8 @@ export class FirstSubComponent {}
    <template md-tab label="src/components/another.component.ts">
     <md-content class="md-padding">
        <pre highlight><code class="js">
-import { Component } from 'angular2/core';
-import { RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
+import { Component } from '@angular/core';
+import { RouteConfig, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
 import { FirstSubComponent } from './child.component';
 
 @Component({
@@ -49,8 +49,8 @@ export class AnotherComponent {}
   <template md-tab label="src/app.ts">
     <md-content class="md-padding">
       <pre highlight><code class="js">
-import { Component } from 'angular2/core';
-import { RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
+import { Component } from '@angular/core';
+import { RouteConfig, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
 import { AnotherComponent } from './components/another.component';
 
 @Component({

@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from 'angular2/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { Code } from './code/code';
 import { MyComponent } from './components/my.component';
 import { AttributesService } from './services/attributes.service';

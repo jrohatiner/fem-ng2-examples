@@ -1,4 +1,4 @@
-import { Component, ElementRef } from 'angular2/core';
+import { Component, ElementRef } from '@angular/core';
 import { Code } from './code/code';
 import { Observable } from 'rx.all';
 

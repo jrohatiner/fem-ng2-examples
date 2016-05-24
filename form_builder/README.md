@@ -1,6 +1,6 @@
 ### Form Builder
 #### Component
-1. Import `FormBuilder` and `Validators` from `angular2/common`
+1. Import `FormBuilder` and `Validators` from `@angular/common`
 2. Inject an instance of `FormBuilder` into the constructor
 3. A form is just a control group, so we create the form by calling `builderInstance.group`
 4. We pass in an object with one or more controls or control groups...we can nest it however we like

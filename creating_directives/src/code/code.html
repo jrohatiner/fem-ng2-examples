@@ -9,7 +9,7 @@
   <template md-tab label="src/app.ts">
     <md-content class="md-padding">
       <pre highlight><code class="ts">
-import { Component } from 'angular2/core';
+import { Component } from '@angular/core';
 import { FemBlinker } from './directives/blinker.directive';
 
 @Component({
@@ -34,7 +34,7 @@ export class App {}
   <template md-tab label="src/directives/blinker.directive.ts">
     <md-content class="md-padding">
        <pre highlight><code class="js">
-import { Directive, ElementRef } from 'angular2/core';
+import { Directive, ElementRef } from '@angular/core';
 
 @Directive({
   selector: '[femBlinker]'

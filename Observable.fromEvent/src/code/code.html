@@ -9,7 +9,7 @@
   <template md-tab label="src/app.ts">
     <md-content class="md-padding">
        <pre highlight><code class="js">
-import { Component, ElementRef } from 'angular2/core';
+import { Component, ElementRef } from '@angular/core';
 import { Observable } from 'rx.all';
 
 @Component({
@@ -17,7 +17,7 @@ import { Observable } from 'rx.all';
   template: `
     &lt;md-list&gt;
       &lt;md-subheader class=&quot;md-no-sticky md-headline&quot;&gt;Coordinates&lt;/md-subheader&gt;
-      &lt;md-list-item class=&quot;md-2-line&quot; *ngFor=&quot;#coordinate of coordinates&quot;&gt;
+      &lt;md-list-item class=&quot;md-2-line&quot; *ngFor=&quot;let coordinate of coordinates&quot;&gt;
         &lt;div class=&quot;md-list-item-text&quot;&gt;
           &lt;p&gt;x: { {coordinate.x} } y: { {coordinate.y} }&lt;/p&gt;
         &lt;/div&gt;

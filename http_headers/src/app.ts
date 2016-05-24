@@ -1,4 +1,4 @@
-import { Component } from 'angular2/core';
+import { Component } from '@angular/core';
 import { Code } from './code/code';
 import { MyService, Item } from './services/my.service';
 
@@ -17,7 +17,7 @@ import { MyService, Item } from './services/my.service';
       <md-list>
         <md-subheader class="md-no-sticky md-headline">Items</md-subheader>
         <p>Open your dev tools network tab, refresh the page, and search requests for <code>items.json</code></p>
-        <md-list-item class="md-2-line" *ngFor="#item of items | async">
+        <md-list-item class="md-2-line" *ngFor="let item of items | async">
           <div class="md-list-item-text">
             <h3>{{item.name}}</h3>
             <p>{{item.description}}</p>
@@ -32,9 +32,9 @@ import { MyService, Item } from './services/my.service';
 
 export class App {
   items: Observable<Array<Item>>;
-  
+
   constructor(private _service: MyService) {}
-  
+
   ngOnInit() {
     this.items = this._service.getItems();
   }

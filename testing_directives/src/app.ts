@@ -1,4 +1,4 @@
-import { Component } from 'angular2/core';
+import { Component } from '@angular/core';
 import { Code } from './code/code';
 import { FemBlinkerDirective } from './directives/blinker.directive';
 

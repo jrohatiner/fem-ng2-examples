@@ -1,7 +1,7 @@
 ### Emitting Events from a Component
 
 #### Child component
-1. Import the `Output` decorator and `EventEmitter` class from `angular2/core`
+1. Import the `Output` decorator and `EventEmitter` class from `@angular/core`
 2. Declare an output as a class attribute with the `@Output()` decorator preceding it and initialize it to a new `EventEmitter`
 3. Call `.emit` on the greeter you initialize and pass it the data that you want the parent to receive
 

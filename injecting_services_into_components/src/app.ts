@@ -1,4 +1,4 @@
-import { Component } from 'angular2/core';
+import { Component } from '@angular/core';
 import { Code } from './code/code';
 import { MyComponent } from './components/my.component';
 import { MyService } from './services/my.service';

@@ -5,7 +5,7 @@ Inject a service into another service by importing it, and declaring a variable 
 
 ```ts
 ...
-import { Injectable } from 'angular2/core';
+import { Injectable } from '@angular/core';
 import { AnotherService } from './services/another.service.ts';
 
 @Injectable()

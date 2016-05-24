@@ -5,7 +5,10 @@
   //map tells the System loader where to look for things
   var  map = {
     'app':                        'src', // 'dist',
-    'ng2-material':               'https://npmcdn.com/ng2-material@0.3.8',
+    'ng2-material':               'https://npmcdn.com/ng2-material@0.4.1',
+    '@angular2-material/core':    'https://npmcdn.com/@angular2-material/core',
+    // For some reason, if we don't include the checkbox code the app dies
+    '@angular2-material/checkbox':'https://npmcdn.com/@angular2-material/checkbox',
     'rxjs':                       'https://npmcdn.com/rxjs@5.0.0-beta.6',
     'angular2-in-memory-web-api': 'https://npmcdn.com/angular2-in-memory-web-api' // get latest
   };
@@ -13,8 +16,9 @@
   //packages tells the System loader how to load when no filename and/or no extension
   var packages = {
     'app':                        { main: 'main.ts',  defaultExtension: 'ts' },
-    'ng2-material':               { defaultExtension: 'js' },
-    'rxjs':                       { defaultExtension: 'js' },
+    'ng2-material':               { main: 'index.js', defaultExtension: 'js' },
+    '@angular2-material/core':    { format: 'cjs', defaultExtension: 'js', main: 'core.js' },
+    'rxjs':                       { defaultExtension: 'js', main: 'Rx.js' },
     'angular2-in-memory-web-api': { defaultExtension: 'js' },
   };
 

@@ -18,7 +18,7 @@
     'app':                        { main: 'main.ts',  defaultExtension: 'ts' },
     'ng2-material':               { main: 'index.js', defaultExtension: 'js' },
     '@angular2-material/core':    { format: 'cjs', defaultExtension: 'js', main: 'core.js' },
-    'rxjs':                       { defaultExtension: 'js' },
+    'rxjs':                       { defaultExtension: 'js', main: 'Rx.js' },
     'angular2-in-memory-web-api': { defaultExtension: 'js' },
   };
 
