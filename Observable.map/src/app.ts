@@ -48,7 +48,7 @@ export class App {
 
     // This does NOT work with async
     this.items$ = Observable
-      .fromArray([{price:1}, {price:2}, {price:3}, {price:4}, {price:5}])
+      .from([{price:1}, {price:2}, {price:3}, {price:4}, {price:5}])
       .map(item => {
         return Object.assign({}, item, {price:item.price*2});
       })
