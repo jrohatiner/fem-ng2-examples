@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
 import { MATERIAL_DIRECTIVES } from 'ng2-material';
 
 @Component({
@@ -6,10 +7,7 @@ import { MATERIAL_DIRECTIVES } from 'ng2-material';
   template: `
     <p *ngFor="let name of names">{{name}}</p>
 
-    <md-input-container>
-      <label>Type to see the value</label>
-      <input md-input type="text" #input />
-    </md-input-container>
+    <md-input placeholder="Type to see the value" type="text" #input></md-input>
 
     <strong>{{input?.value}}</strong>
   `,
@@ -22,7 +20,7 @@ import { MATERIAL_DIRECTIVES } from 'ng2-material';
       color: #2196F3;
     }
   `]
-  directives: [ MATERIAL_DIRECTIVES ]
+  directives: [ MATERIAL_DIRECTIVES, MD_INPUT_DIRECTIVES ]
 })
 
 export class MyComponent {

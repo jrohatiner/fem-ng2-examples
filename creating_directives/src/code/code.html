@@ -5,10 +5,12 @@
     </div>
   </div>
 </md-toolbar>
-<md-tabs md-margin-bottom md-dynamic-height md-border-bottom>
-  <template md-tab label="src/app.ts">
-    <md-content class="md-padding">
-      <pre highlight><code class="ts">
+<md-tab-group md-margin-bottom md-dynamic-height md-border-bottom>
+  <md-tab>
+    <template md-tab-label>src/app.ts</template>
+    <template md-tab-content>
+      <md-content class="md-padding">
+        <pre highlight><code class="ts">
 import { Component } from '@angular/core';
 import { FemBlinker } from './directives/blinker.directive';
 
@@ -27,13 +29,16 @@ import { FemBlinker } from './directives/blinker.directive';
 })
 
 export class App {}
-        </code>
-      </pre>
-    </md-content>
-  </template>
-  <template md-tab label="src/directives/blinker.directive.ts">
-    <md-content class="md-padding">
-       <pre highlight><code class="js">
+          </code>
+        </pre>
+      </md-content>
+    </template>
+  </md-tab>
+  <md-tab>
+    <template md-tab-label>src/directives/blinker.directive.ts</template>
+    <template md-tab-content>
+      <md-content class="md-padding">
+         <pre highlight><code class="js">
 import { Directive, ElementRef } from '@angular/core';
 
 @Directive({
@@ -46,15 +51,16 @@ export class FemBlinker {
       let color = element.nativeElement.style.color;
       element.nativeElement.style.color
         = (color === '' || color === 'black') ? 'red' : 'black';
-    }, 300); 
-    
+    }, 300);
+
     setTimeout(() => {
       clearInterval(interval);
     }, 10000);
   }
 }
-          </code>
-        </pre>
-    </md-content>
-  </template>
-</md-tabs>
+            </code>
+          </pre>
+      </md-content>
+    </template>
+  </md-tab>
+</md-tab-group>

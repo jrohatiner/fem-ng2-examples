@@ -5,10 +5,12 @@
     </div>
   </div>
 </md-toolbar>
-<md-tabs md-margin-bottom md-dynamic-height md-border-bottom>
-  <template md-tab label="index.html">
-    <md-content class="md-padding">
-      <pre highlight><code class="html">
+<md-tab-group md-margin-bottom md-dynamic-height md-border-bottom>
+  <md-tab>
+    <template md-tab-label>index.html</template>
+    <template md-tab-content>
+      <md-content class="md-padding">
+        <pre highlight><code class="html">
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
   &lt;head&gt;
@@ -19,13 +21,16 @@
     &lt;app&gt;loading...&lt;/app&gt;
   &lt;/body&gt;
 &lt;/html&gt;
-        </code>
-      </pre>
-    </md-content>
-  </template>
-  <template md-tab label="src/app.ts">
-    <md-content class="md-padding">
-       <pre highlight><code class="js">
+          </code>
+        </pre>
+      </md-content>
+    </template>
+  </md-tab>
+  <md-tab>
+    <template md-tab-label>src/app.ts</template>
+    <template md-tab-content>
+      <md-content class="md-padding">
+         <pre highlight><code class="js">
 import { Component } from '@angular/core';
 import { MyComponent } from './components/my.component';
 
@@ -39,13 +44,16 @@ import { MyComponent } from './components/my.component';
 })
 
 export class App {}
-          </code>
-        </pre>
-    </md-content>
-  </template>
-  <template md-tab label="src/components/my.component.ts">
-    <md-content class="md-padding">
-      <pre highlight><code class="js">
+            </code>
+          </pre>
+      </md-content>
+    </template>
+  </md-tab>
+  <md-tab>
+    <template md-tab-label>src/components/my.component.ts</template>
+    <template md-tab-content>
+      <md-content class="md-padding">
+        <pre highlight><code class="js">
 import { Component } from '@angular/core';
 
 @Component({
@@ -57,13 +65,14 @@ export class MyComponent {
   constructor() {
     setTimeout(this.greet, 500);
   }
-  
+
   greet() {
     alert('Welcome to the first component!');
   }
 }
-        </code>
-      </pre>
-    </md-content>
-  </template>
-</md-tabs>
+          </code>
+        </pre>
+      </md-content>
+    </template>
+  </md-tab>
+</md-tab-group>

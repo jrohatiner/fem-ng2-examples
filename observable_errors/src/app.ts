@@ -1,6 +1,6 @@
 import { Component, ElementRef } from '@angular/core';
 import { Code } from './code/code';
-import { Observable } from 'rx.all';
+import * as Rx from 'rxjs/Rx';
 
 @Component({
   selector: 'app',
@@ -35,13 +35,13 @@ export class App {
   completedMessage: String;
 
   constructor() {
-    var source = Observable
-        .just(42)
+    var source = Rx.Observable
+        .of(42)
         .delay(5000) // This will complete in 5 seconds
         .timeout(1000, new Error('Timeout has occurred.')) // We will override this to throw an error in 1 second
-        // .catch(Observable.return('Recovering!'))
+        // .catch(() => Rx.Observable.of('Recovering!'))
       ;
-    
+
     var subscription = source.subscribe(
         x => this.nextMessage = x, // onNext handler
         err => this.errorMessage = err, // onError handler
@@ -49,4 +49,3 @@ export class App {
       );
   }
 }
-

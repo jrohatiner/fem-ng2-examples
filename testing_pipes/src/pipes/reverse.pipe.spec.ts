@@ -5,7 +5,7 @@ import {
   beforeEachProviders,
   beforeEach,
   inject
-} from '@angular/testing';
+} from '@angular/core/testing';
 
 import {
   ReversePipe
@@ -13,15 +13,15 @@ import {
 
 describe('Reverse Pipe', () => {
   let pipe;
-  
+
   beforeEachProviders(() => [
     ReversePipe
   ]);
-  
+
   beforeEach(inject([ReversePipe], p => {
     pipe = p;
   }));
-  
+
   it('should handle an empty string', () => {
     expect(pipe.transform('')).toEqual('');
   });

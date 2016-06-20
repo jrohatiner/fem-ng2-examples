@@ -1,13 +1,15 @@
-import { Directive, ElementRef } from '@angular/core';
+import { Directive, ElementRef, OnInit } from '@angular/core';
 
 @Directive({
   selector: '[highlight]'
 })
 
 export class Highlight implements OnInit {
-  constructor(private _element: ElementRef) {}
+  constructor(private _element: ElementRef) {
+  }
 
   ngOnInit() {
-    hljs.highlightBlock(this._element.nativeElement.querySelector('code'))
+    hljs.highlightBlock(this._element.nativeElement.querySelector('code'));
+    console.log('asdfasdf');
   }
 }

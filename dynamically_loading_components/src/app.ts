@@ -1,4 +1,4 @@
-import { Component, DynamicComponentLoader, ElementRef } from '@angular/core';
+import { Component, DynamicComponentLoader, Injector } from '@angular/core';
 import { Code } from './code/code';
 import { MyComponent } from './components/my.component';
 
@@ -15,19 +15,19 @@ import { MyComponent } from './components/my.component';
     </md-toolbar>
     <div class="rendered" flex layout-fill layout>
       <h1>Introducing...</h1>
-      <div #loadFormHere></div>
+      <div id="child"></div>
     </div>
   `,
   directives: [Code]
 })
 
 export class App {
-  constructor(dcl: DynamicComponentLoader, element: ElementRef) {
-    this.element = element;
+  constructor(dcl: DynamicComponentLoader, injector: Injector) {
+    this.injector = injector;
     this.dcl = dcl;
   }
-  
+
   ngOnInit() {
-    this.dcl.loadIntoLocation(MyComponent, this.element, 'loadFormHere');
+    this.dcl.loadAsRoot(MyComponent, '#child', this.injector);
   }
 }

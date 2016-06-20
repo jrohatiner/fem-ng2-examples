@@ -5,26 +5,28 @@
     </div>
   </div>
 </md-toolbar>
-<md-tabs md-margin-bottom md-dynamic-height md-border-bottom>
-  <template md-tab label="Component Class">
-    <md-content class="md-padding">
-       <pre highlight><code class="js">
+<md-tab-group md-margin-bottom md-dynamic-height md-border-bottom>
+  <md-tab>
+    <template md-tab-label>Component Class</template>
+    <template md-tab-content>
+      <md-content class="md-padding">
+        <pre highlight><code class="js">
 import { Component } from '@angular/core';
-         
+
 @Component({
   selector: 'my-component',
   template: `...`,
   styles: [`...`]
 })
-         
+
 export class MyComponent {
   private showHeader: Boolean = true;
   private color: String = 'red';
   private decoration: String = 'underline';
-  
+
   constructor() {
     let counter = 0;
-    
+
     let interval = setInterval(() => {
       this.showHeader = !this.showHeader;
       counter++;
@@ -36,19 +38,22 @@ export class MyComponent {
 }
           </code>
         </pre>
-    </md-content>
-  </template>
-  <template md-tab label="Component Template">
-    <md-content class="md-padding">
-      <pre highlight><code class="html">
+      </md-content>
+    </template>
+  </md-tab>
+  <md-tab>
+    <template md-tab-label>Component Template</template>
+    <template md-tab-content>
+      <md-content class="md-padding">
+        <pre highlight><code class="html">
 &lt;div flex layout layout-align=&quot;center center&quot; class=&quot;blinker-wrapper&quot;&gt;
-  &lt;h1 [ngStyle]=&quot;{color: color, &apos;text-decoration&apos;: decoration}&quot;
-      *ngIf=&quot;showHeader&quot;&gt;
+  &lt;h1 [ngStyle]=&quot;{color: color, &apos;text-decoration&apos;: decoration}&quot; *ngIf=&quot;showHeader&quot;&gt;
     Big ol&apos; header!
   &lt;/h1&gt;
 &lt;/div&gt;
-        </code>
-      </pre>
-    </md-content>
-  </template>
-</md-tabs>
+          </code>
+        </pre>
+      </md-content>
+    </template>
+  </md-tab>
+</md-tab-group>

@@ -4,11 +4,11 @@ import {
   expect,
   inject,
   beforeEachProviders,
-  beforeEach} from '@angular/testing';
+  beforeEach} from '@angular/core/testing';
 import { provide } from '@angular/core';
 import { HTTP_PROVIDERS, Http, XHRBackend, Response, ResponseOptions } from '@angular/http';
 import { MyService } from './my.service';
-import {MockBackend, MockConnection} from '@angular/http/testing';
+import { MockBackend, MockConnection } from '@angular/http/testing';
 
 describe('MyService', () => {
   let service, backend, http, setConnection;
@@ -47,3 +47,4 @@ describe('MyService', () => {
         expect(res).toEqual(requestBody);
       });
   });
+});

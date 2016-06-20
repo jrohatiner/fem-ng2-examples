@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Code } from './code/code';
+import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
 import { MATERIAL_DIRECTIVES } from 'ng2-material';
 
 @Component({
@@ -14,22 +15,19 @@ import { MATERIAL_DIRECTIVES } from 'ng2-material';
       </div>
     </md-toolbar>
     <div class="rendered" flex layout>
-      <form>
-        <md-input-container>
-          <label>Bind me data matey!</label>
-          <input md-input [(ngModel)]="componentText" [value]="componentText" type="text">
-        </md-input-container>
-        <br>
-        <span class="md-title"> {{componentText}} </span>
-      </form>
+      <md-input placeholder="Bind me data matey!"
+                [(ngModel)]="componentText"
+                [value]="componentText" type="text"></md-input>
+      <br>
+      <span class="md-title"> {{componentText}} </span>
     </div>
   `,
-  directives: [ Code, MATERIAL_DIRECTIVES ],
+  directives: [ Code, MATERIAL_DIRECTIVES, MD_INPUT_DIRECTIVES ],
   styles: [`
     md-input-container:not(.md-input-invalid).md-input-focused .md-input {
       border-color: #2196F3
     }
-    
+
     md-input-container:not(.md-input-invalid).md-input-focused label {
       color: #2196F3;
     }

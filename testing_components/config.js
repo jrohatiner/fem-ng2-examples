@@ -1,14 +1,15 @@
 (function(global) {
 
-  var ngVer = '@2.0.0-rc.1'; // lock in the angular package version; do not let it float to current!
+  var ngVer = '@2.0.0-rc.2'; // lock in the angular package version; do not let it float to current!
 
   //map tells the System loader where to look for things
   var  map = {
     'app':                        'src', // 'dist',
-    'ng2-material':               'https://npmcdn.com/ng2-material@0.4.1',
+    'ng2-material':               'https://npmcdn.com/ng2-material@0.5.0',
     '@angular2-material/core':    'https://npmcdn.com/@angular2-material/core',
     // For some reason, if we don't include the checkbox code the app dies
     '@angular2-material/checkbox':'https://npmcdn.com/@angular2-material/checkbox',
+    '@angular2-material/tabs':'https://npmcdn.com/@angular2-material/tabs',
     'rxjs':                       'https://npmcdn.com/rxjs@5.0.0-beta.6',
     'angular2-in-memory-web-api': 'https://npmcdn.com/angular2-in-memory-web-api' // get latest
   };
@@ -18,6 +19,7 @@
     'app':                        { main: 'main.ts',  defaultExtension: 'ts' },
     'ng2-material':               { main: 'index.js', defaultExtension: 'js' },
     '@angular2-material/core':    { format: 'cjs', defaultExtension: 'js', main: 'core.js' },
+    '@angular2-material/tabs':    { format: 'cjs', defaultExtension: 'js', main: 'tabs.js' },
     'rxjs':                       { defaultExtension: 'js', main: 'Rx.js' },
     'angular2-in-memory-web-api': { defaultExtension: 'js' },
   };
@@ -31,7 +33,6 @@
       '@angular/platform-browser',
       '@angular/platform-browser-dynamic',
       '@angular/router-deprecated',
-      '@angular/testing',
       '@angular/upgrade',
   ];
 

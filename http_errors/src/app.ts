@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Code } from './code/code';
 import { MyService, Item } from './services/my.service';
 
@@ -15,7 +15,9 @@ import { MyService, Item } from './services/my.service';
     </md-toolbar>
     <div class="rendered" flex layout-fill layout>
       <md-list>
-        <md-subheader class="md-no-sticky md-headline">Items <small>(check the console)</small></md-subheader>
+        <md-subheader class="md-no-sticky md-headline">
+          Items <small>(check the console)</small>
+        </md-subheader>
         <md-list-item class="md-2-line" *ngFor="let item of items | async">
           <div class="md-list-item-text">
             <h3>{{item.name}}</h3>
@@ -29,7 +31,7 @@ import { MyService, Item } from './services/my.service';
   directives: [Code]
 })
 
-export class App {
+export class App implements OnInit {
   items: Observable<Array<Item>>;
 
   constructor(private _service: MyService) {}

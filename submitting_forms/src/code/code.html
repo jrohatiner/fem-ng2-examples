@@ -5,56 +5,45 @@
     </div>
   </div>
 </md-toolbar>
-<md-tabs md-margin-bottom md-dynamic-height md-border-bottom>
-  <template md-tab label="src/components/form.component.ts">
-    <md-content class="md-padding">
-      <pre highlight><code class="js">
+<md-tab-group md-margin-bottom md-dynamic-height md-border-bottom>
+  <md-tab>
+    <template md-tab-label>src/components/form.component.ts</template>
+    <template md-tab-content>
+      <md-content class="md-padding">
+        <pre highlight><code class="js">
 import { Component } from '@angular/core';
 import { FORM_DIRECTIVES } from '@angular/common';
 
 @Component({
   selector: 'my-form',
   template: `
-    &lt;form #personForm=&quot;ngForm&quot; (submit)=&quot;submitForm(personForm)&quot; novalidate&gt;
-      &lt;div ngControlGroup=&quot;name&quot; #nameGroup=&quot;ngForm&quot;&gt;
-        &lt;md-input-container [class.error]=&quot;!firstName.valid&quot;&gt;
-          &lt;label&gt;First Name&lt;/label&gt;
-          &lt;input required md-input [(ngModel)]=&quot;person.firstName&quot; #firstName=&quot;ngForm&quot; ngControl=&quot;firstName&quot; type=&quot;text&quot;&gt;
-        &lt;/md-input-container&gt;
-        &lt;md-input-container [class.error]=&quot;!lastName.valid&quot;&gt;
-          &lt;label&gt;Last Name&lt;/label&gt;
-          &lt;input required md-input [(ngModel)]=&quot;person.lastName&quot; #lastName=&quot;ngForm&quot; ngControl=&quot;lastName&quot; type=&quot;text&quot;&gt;
-        &lt;/md-input-container&gt;
-        &lt;br&gt;
-        &lt;span class=&quot;error&quot; *ngIf=&quot;!nameGroup.valid&quot;&gt;Please give your first and last name.&lt;/span&gt;
-      &lt;/div&gt;
-      &lt;div&gt;
-        &lt;md-input-container [class.error]=&quot;!password.valid&quot;&gt;
-          &lt;label&gt;Password&lt;/label&gt;
-          &lt;input required minlength=&quot;10&quot; md-input [(ngModel)]=&quot;person.password&quot; #password=&quot;ngForm&quot; ngControl=&quot;password&quot; type=&quot;password&quot; &gt;
-          &lt;div class=&quot;error&quot; *ngIf=&quot;password.dirty &amp;&amp; !password.valid&quot;&gt;
-            &lt;span *ngIf=&quot;password.errors.required&quot;&gt;Please provide a password&lt;/span&gt;
-          &lt;/div&gt;
-          &lt;div class=&quot;error&quot; *ngIf=&quot;password.dirty &amp;&amp; !password.valid&quot;&gt;
-            &lt;span class=&quot;error&quot; *ngIf=&quot;password.errors.minlength&quot;&gt;Your password must me at least 10 characters long.&lt;/span&gt;
-          &lt;/div&gt;
-        &lt;/md-input-container&gt;
-      &lt;/div&gt;
-      &lt;button type=&quot;submit&quot; md-button md-raised-button&gt;Submit&lt;/button&gt;
-      &lt;button [disabled]=&quot;!personForm.valid&quot; type=&quot;submit&quot; md-button md-raised-button&gt;Disabled unless Valid&lt;/button&gt;
-    &lt;/form&gt;
+  &lt;form #personForm="ngForm" (submit)="submitForm(personForm)" novalidate>
+    &lt;div ngControlGroup="name" #nameGroup="ngForm">
+      &lt;md-input placeholder="First Name" required [(ngModel)]="person.firstName"
+                #firstName="ngForm" ngControl="firstName" type="text">&lt;/md-input>
+      &lt;md-input placeholder="Last Name" required [(ngModel)]="person.lastName"
+                #lastName="ngForm" ngControl="lastName" type="text">&lt;/md-input>
+      &lt;br>
+      &lt;div class="error" *ngIf="!nameGroup.valid">Please give your first and last name.&lt;/div>
+    &lt;/div>
+    &lt;div>
+      &lt;md-input placeholder="Password" required minlength="10" [(ngModel)]="person.password"
+                #password="ngForm" ngControl="password" type="password">&lt;/md-input>
+      &lt;div class="error" *ngIf="password.dirty && !password.valid">
+        &lt;span *ngIf="password.errors.required">Please provide a password&lt;/span>
+      &lt;/div>
+      &lt;div class="error" *ngIf="password.dirty && !password.valid">
+        &lt;div class="error" *ngIf="password.errors.minlength">
+          Your password must me at least 10 characters long.&lt;/div>
+      &lt;/div>
+    &lt;/div>
+    &lt;button type="submit" md-button md-raised-button>Submit&lt;/button>
+    &lt;button [disabled]="!personForm.valid" type="submit" md-button md-raised-button>Disabled unless Valid&lt;/button>
+  &lt;/form>
   `,
   directives: [ FORM_DIRECTIVES ],
   styles: [`
-    .error { color: red; }
-    
-    md-input-container.md-input-focused.error label {
-      color: red;
-    }
-    
-    md-input-container.md-input-focused.error .md-input {
-      border-color: red;
-    }
+    .error { color: red; margin-bottom: 10px; }
   `]
 })
 
@@ -64,7 +53,7 @@ export class FormComponent {
     lastName: 'Ruebbelke',
     password: 'superSecure42'
   };
-  
+
   submitForm(form) {
     if (form.valid) {
       alert(`
@@ -77,8 +66,9 @@ export class FormComponent {
     }
   }
 }
-        </code>
-      </pre>
-    </md-content>
-  </template>
-</md-tabs>
+          </code>
+        </pre>
+      </md-content>
+    </template>
+  </md-tab>
+</md-tab-group>

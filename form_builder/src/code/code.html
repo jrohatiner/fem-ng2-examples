@@ -5,10 +5,12 @@
     </div>
   </div>
 </md-toolbar>
-<md-tabs md-margin-bottom md-dynamic-height md-border-bottom>
-  <template md-tab label="src/components/form.component.ts">
-    <md-content class="md-padding">
-      <pre highlight><code class="js">
+<md-tab-group md-margin-bottom md-dynamic-height md-border-bottom>
+  <md-tab>
+    <template md-tab-label>src/components/form.component.ts</template>
+    <template md-tab-content>
+      <md-content class="md-padding">
+        <pre highlight><code class="js">
 import { Component } from '@angular/core';
 import { FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/common';
 
@@ -18,7 +20,7 @@ import { FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/common';
     &lt;form [ngFormModel]=&quot;personForm&quot; (submit)=&quot;submitForm(personForm)&quot; novalidate&gt;
       &lt;div ngControlGroup=&quot;nameGroup&quot; #nameGroup=&quot;ngForm&quot;&gt;
         ...
-        &lt;input ngControl=&quot;firstName&quot; type=&quot;text&quot;&gt; 
+        &lt;input ngControl=&quot;firstName&quot; type=&quot;text&quot;&gt;
         ...
         &lt;input #lastName=&quot;ngForm&quot; ngControl=&quot;lastName&quot; type=&quot;text&quot;&gt;
         ...
@@ -50,8 +52,9 @@ export class FormComponent {
   }
   ...
 }
-        </code>
-      </pre>
-    </md-content>
-  </template>
-</md-tabs>
+          </code>
+        </pre>
+      </md-content>
+    </template>
+  </md-tab>
+</md-tab-group>

@@ -5,10 +5,12 @@
     </div>
   </div>
 </md-toolbar>
-<md-tabs md-margin-bottom md-dynamic-height md-border-bottom>
-  <template md-tab label="src/directives/blinker.directive.ts">
-    <md-content class="md-padding">
-      <pre highlight><code class="js">
+<md-tab-group md-margin-bottom md-dynamic-height md-border-bottom>
+  <md-tab>
+    <template md-tab-label>src/directives/blinker.directive.ts</template>
+    <template md-tab-content>
+      <md-content class="md-padding">
+        <pre highlight><code class="js">
 import { Directive, ElementRef } from '@angular/core';
 
 @Directive({
@@ -21,81 +23,100 @@ export class FemBlinkerDirective {
       let color = element.nativeElement.style.color;
       element.nativeElement.style.color
         = (color === '' || color === 'black') ? 'red' : 'black';
-    }, 300); 
-    
+    }, 300);
+
     setTimeout(() => {
       clearInterval(interval);
     }, 10000);
   }
 }
-        </code>
-      </pre>
-    </md-content>
-  </template>
-  <template md-tab label="src/directives/blinker.directive.spec.ts">
-    <md-content class="md-padding">
-       <pre highlight><code class="js">
-import {setBaseTestProviders} from '@angular/testing';
+          </code>
+        </pre>
+      </md-content>
+    </template>
+  </md-tab>
+  <md-tab>
+    <template md-tab-label>src/directives/blinker.directive.spec.ts</template>
+    <template md-tab-content>
+      <md-content class="md-padding">
+        <pre highlight><code class="js">
 import {
-  TEST_BROWSER_PLATFORM_PROVIDERS,
-  TEST_BROWSER_APPLICATION_PROVIDERS
-} from '@angular/platform/testing/browser';
-setBaseTestProviders(TEST_BROWSER_PLATFORM_PROVIDERS,
-                     TEST_BROWSER_APPLICATION_PROVIDERS);
+  resetBaseTestProviders,
+  setBaseTestProviders
+} from '@angular/core/testing';
+
+import {
+  TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
+  TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS
+} from '@angular/platform-browser-dynamic/testing';
+
+resetBaseTestProviders();
+setBaseTestProviders(
+  TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
+  TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS
+);
 
 import {
   describe,
   it,
   expect,
   beforeEach,
-  TestComponentBuilder,
-  ComponentFixture,
-  injectAsync
-} from '@angular/testing';
+  beforeEachProviders,
+  inject
+} from '@angular/core/testing';
 
+import { TestComponentBuilder } from '@angular/compiler/testing';
 import { MockComponent } from './blinker.mock.component';
 
 describe('Directive: femBlinker', () => {
   let fixture;
 
-  beforeEach(injectAsync([TestComponentBuilder], tcb => {
+  beforeEachProviders(() => [
+    TestComponentBuilder
+  ]);
+
+  beforeEach(inject([TestComponentBuilder], tcb => {
     return tcb
       .createAsync(MockComponent)
       .then((f: ComponentFixture) => {
         fixture = f;
       });
   }));
-  
+
   it('should switch from black to red and back every 300ms', done => {
     let element = fixture.nativeElement.querySelector('h1');
-    
+
     setTimeout(() => {
       expect(element.style.color).toBe('red');
     }, 300);
-    
+
     setTimeout(() => {
       expect(element.style.color).toBe('black');
       done();
     }, 600);
-  }));
-}); 
-          </code>
-        </pre>
-    </md-content>
-  </template>
-    <template md-tab label="src/directives/blinker.mock.component.ts">
-    <md-content class="md-padding">
-       <pre highlight><code class="js">
+  });
+});
+            </code>
+          </pre>
+      </md-content>
+    </template>
+  </md-tab>
+  <md-tab>
+    <template md-tab-label>src/directives/blinker.mock.component.ts</template>
+    <template md-tab-content>
+      <md-content class="md-padding">
+         <pre highlight><code class="js">
 import { Component } from '@angular/core';
 import { FemBlinkerDirective } from './blinker.directive';
-@Component({ 
+@Component({
   selector: 'mock',
   template: `&lt;h1 femBlinker>Blink for 10 seconds please!&lt;/h1>`,
   directives: [ FemBlinkerDirective ]
 })
-export class MockComponent {} 
-          </code>
-        </pre>
-    </md-content>
-  </template>
-</md-tabs>
+export class MockComponent {}
+            </code>
+          </pre>
+      </md-content>
+    </template>
+  </md-tab>
+</md-tab-group>

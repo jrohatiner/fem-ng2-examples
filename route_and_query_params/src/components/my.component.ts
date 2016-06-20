@@ -1,13 +1,17 @@
-import { Component } from '@angular/core';
-import { RouteParams } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'my-component',
-  template: `<h1>my component ({{routeParams.get('id')}})!</h1>`
+  template: `<h1>my-component with id: {{params.id}}</h1>`
 })
 
-export class MyComponent {
-  constructor(routeParams: RouteParams) {
-    this.routeParams = routeParams;
+export class MyComponent implements OnInit {
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.params = Object.keys(params).length ? params : {id: 'N/A'};
+    });
   }
 }

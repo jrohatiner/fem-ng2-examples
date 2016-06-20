@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouteConfig, ROUTER_DIRECTIVES, Router } from '@angular/router';
+import { Routes, ROUTER_DIRECTIVES, Router } from '@angular/router';
 import { Code } from './code/code';
 import { MyComponent } from './components/my.component';
 import { AnotherComponent } from './components/another.component';
@@ -17,12 +17,15 @@ import { AnotherComponent } from './components/another.component';
     </md-toolbar>
     <div class="rendered" flex layout-fill layout="column">
       <div>
-        <button [routerLink]="['/MyComponent']" md-button class="md-warn">My Component Link</button>
-        <button [routerLink]="['/AnotherComponent']" md-button class="md-warn">Another Component Link</button>
+        <a [routerLink]="['/my-component']" md-button class="md-warn">My Component Link</a>
+        <a [routerLink]="['/another-component']"
+                md-button class="md-warn">Another Component Link</a>
       </div>
       <div>
-        <button (click)="navigate('MyComponent')" md-button md-raised-button>My Component from Controller</button>
-        <button (click)="navigate('AnotherComponent')" md-button md-raised-button>Another Component from Controller</button>
+        <button (click)="navigate('my-component')"
+                md-button md-raised-button>My Component from Controller</button>
+        <button (click)="navigate('another-component')"
+                md-button md-raised-button>Another Component from Controller</button>
       </div>
       <h1>Introducing...</h1>
       <router-outlet></router-outlet>
@@ -31,9 +34,9 @@ import { AnotherComponent } from './components/another.component';
   directives: [ Code, ROUTER_DIRECTIVES ]
 })
 
-@RouteConfig([
-  {path:'/my-component', name: 'MyComponent', component: MyComponent},
-  {path:'/another-component', name: 'AnotherComponent', component: AnotherComponent, useAsDefault: true}
+@Routes([
+  {path: '/my-component', component: MyComponent},
+  {path: '/another-component', component: AnotherComponent}
 ])
 
 export class App {

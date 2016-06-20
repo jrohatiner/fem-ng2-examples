@@ -12,7 +12,8 @@ import { MATERIAL_DIRECTIVES } from 'ng2-material';
         </div>
       </md-subheader>
       <div *ngIf="showList">
-        <md-list-item [ngClass]="{stripe: index % 2 === 0}" class="md-3-line inset" *ngFor="let item of items; #index = index">
+        <md-list-item [ngClass]="{stripe: index % 2 === 0}" class="md-3-line inset"
+                      *ngFor="let item of items; let index = index">
           <div class="md-list-item-text" layout="column">
             <h3>ID: <strong>{{ index + 1 }}</strong></h3>
             <h4>{{ item.name }}</h4>

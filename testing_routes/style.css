@@ -56,13 +56,13 @@ md-content md-toolbar {
   border-top-right-radius: 3px;
 }
 
-md-tabs {
+md-tab-group {
   min-height: 400px !important;
   border: 1px solid #eee;
   margin-bottom: 15px;
 }
 
-md-tabs .md-tab.md-active {
+md-tab-group .md-tab.md-active {
   color: #2196F3;
 }
 
