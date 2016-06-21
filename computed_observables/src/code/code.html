@@ -11,6 +11,9 @@
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
+import { Component } from '@angular/core';
+import * as Rx from 'rxjs/Rx';
+
 @Component({
   selector: 'app',
   template: `
@@ -62,29 +65,35 @@ export class App {
             err=> console.log(err),
             ()=> console.log('complete')
         );
-
-    // Finish: Create an observable that returns THIS structure
-    /*
-    [
-      {id: 1, name: 'ngConf', speakers: [
-        {id: 1, name: 'Lukas'},
-        {id: 2, name: 'Jules'}
-      ], sponsors: [
-        {id: 1, name: 'Firebase'},
-        {id: 2, name: 'Ionic'}
-      ]},
-      {id: 2, name: 'Angular Connect', speakers: [
-        {id: 1, name: 'Lukas'},
-        {id: 2, name: 'Jules'},
-        {id: 3, name: 'Jon'}
-      ], sponsors: [
-        {id: 3, name: 'Auth0'},
-        {id: 4, name: 'BackAnd'}
-      ]},
-    ]
-    */
   }
 }
+          </code>
+        </pre>
+      </md-content>
+    </template>
+  </md-tab>
+  <md-tab>
+    <template md-tab-label>Resulting Observable Structure</template>
+    <template md-tab-content>
+      <md-content class="md-padding">
+        <pre highlight><code class="json">
+[
+  {"id": 1, name: "ngConf", "speakers": [
+    {"id": 1, name: "Lukas"},
+    {"id": 2, name: "Jules"}
+  ], "sponsors": [
+    {"id": 1, name: "Firebase"},
+    {"id": 2, name: "Ionic"}
+  ]},
+  {"id": 2, name: "Angular Connect", "speakers": [
+    {"id": 1, name: "Lukas"},
+    {"id": 2, name: "Jules"},
+    {"id": 3, name: "Jon"}
+  ], "sponsors": [
+    {"id": 3, name: "Auth0"},
+    {"id": 4, name: "BackAnd"}
+  ]},
+]
           </code>
         </pre>
       </md-content>

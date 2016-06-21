@@ -1,4 +1,4 @@
 ### Child routes
-1. Delineate a "parent" route by adding a trailing slash and elipses
-2. Create a route config on the "child" component, with the path being relative to the "parent" path
-3. To navigate to a "child" route, list both the "parent" and "child" route names as separate items of the `routerLink` array
+1. Add child routes to a parent by creating a `children` attribute on the parent route and setting it to an array of "child" routes
+2. To navigate to a "child" route, list both the "parent" and "child" route names as separate items of the `routerLink` array
+3. Display the associated component of child routes by inserting a `<router-outlet></router-outlet>` directive into the parent component

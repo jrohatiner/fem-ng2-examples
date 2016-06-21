@@ -1,4 +1,4 @@
-import { Component, COMMON_PIPES } from '@angular/core';
+import { Component } from '@angular/core';
 import { Code } from './code/code';
 import { Observable } from 'rxjs/Rx';
 
@@ -22,12 +22,12 @@ import { Observable } from 'rxjs/Rx';
 })
 
 export class App {
-  private _items: Array<{name: String, description: String} > = [
+  private items: Array<{name: String, description: String} > = [
     { name: 'Item 1', description: 'Epic item!' },
     { name: 'Item 2', description: 'As great as the first!' },
     { name: 'Last One', description: 'A round of applause for this one' }
   ];
 
   asyncItems: Observable<Array<{name: String, description: String}>>
-    = Observable.of(this._items);
+    = Observable.of(this.items);
 }

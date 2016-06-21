@@ -11,26 +11,26 @@
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import { Component, COMMON_PIPES } from '@angular/core';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'app',
   template: `
-  &lt;div class=&quot;md-headline&quot;&gt;Items:&lt;/div&gt;
-  &lt;pre&gt;{ {asyncItems | async | json} }&lt;/pre&gt;
+    &lt;div class="md-headline">Items:&lt;/div>
+    &lt;pre>{ {asyncItems | async | json} }&lt;/pre>
   `
 })
 
 export class App {
-  private _items: Array&lt;{name: String, description: String}> = [
+  private items: Array<{name: String, description: String} > = [
     { name: 'Item 1', description: 'Epic item!' },
     { name: 'Item 2', description: 'As great as the first!' },
     { name: 'Last One', description: 'A round of applause for this one' }
   ];
 
-  asyncItems: Observable&lt;Array&lt;{name: String, description: String}>>
-  = Observable.of(this._items);
+  asyncItems: Observable<Array<{name: String, description: String}>>
+    = Observable.of(this.items);
 }
             </code>
         </pre>

@@ -1,11 +1,7 @@
 <h3>Change Detection</h3>
 
-<p>There are six types of change detection:
-<em> CheckOnce: after calling <code>detectChanges</code> the mode of the change detector will become Checked
-</em> Checked: the change detector should be skipped until its mode changes to <code>CheckOnce</code>
-<em> CheckAlways: after calling <code>detectChanges</code> the mode of the change detector will remain <code>CheckAlways</code>
-</em> Detached: the change detector sub tree is not a part of the main tree and should be skipped
-<em> OnPush: the change detector&#39;s mode will be set to <code>CheckOnce</code> during hydration.
-</em> Default: the change detector&#39;s mode will be set to <code>CheckAlways</code> during hydration.</p>
+<p>There are six types of change detection:</p>
+
+<ul><li><p>CheckOnce: after calling <code>detectChanges</code> the mode of the change detector will become Checked</p></li><li><p>Checked: the change detector should be skipped until its mode changes to <code>CheckOnce</code></p></li><li><p>CheckAlways: after calling <code>detectChanges</code> the mode of the change detector will remain <code>CheckAlways</code></p></li><li><p>Detached: the change detector sub tree is not a part of the main tree and should be skipped</p></li><li><p>OnPush: the change detector&#39;s mode will be set to <code>CheckOnce</code> during hydration.</p></li><li><p>Default: the change detector&#39;s mode will be set to <code>CheckAlways</code> during hydration.</p></li></ul>
 
 <p>The two most important strategies are <code>Default</code> and <code>OnPush</code>. <code>Default</code> will check every component every round of change detection. If a component only depends on its inputs and we use immutable objects as the inputs, we can set the strategy to <code>OnPush</code>. All this does is disable change detection on a component until one or more of its inputs change, then it performs change detection on that subtree and subsequently disables it again.</p>

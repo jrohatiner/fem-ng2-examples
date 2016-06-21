@@ -63,7 +63,7 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 })
 
 export class MyComponent  {
-  @Input() counter;
+  @Input() counter = {title: 'My Counter', count: 0};
 }
           </code>
         </pre>

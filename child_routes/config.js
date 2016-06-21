@@ -5,6 +5,8 @@
   //map tells the System loader where to look for things
   var  map = {
     'app':                        'src', // 'dist',
+    // Use latest router
+    '@angular/router':            'https://npmcdn.com/@angular/router@3.0.0-alpha.7',
     'ng2-material':               'https://npmcdn.com/ng2-material@0.5.0',
     '@angular2-material/core':    'https://npmcdn.com/@angular2-material/core',
     // For some reason, if we don't include the checkbox code the app dies
@@ -18,6 +20,7 @@
   var packages = {
     'app':                        { main: 'main.ts',  defaultExtension: 'ts' },
     'ng2-material':               { main: 'index.js', defaultExtension: 'js' },
+    '@angular/router':            { main: 'index.js', defaultExtenstion: 'js' },
     '@angular2-material/core':    { format: 'cjs', defaultExtension: 'js', main: 'core.js' },
     '@angular2-material/tabs':    { format: 'cjs', defaultExtension: 'js', main: 'tabs.js' },
     'rxjs':                       { defaultExtension: 'js', main: 'Rx.js' },
@@ -29,7 +32,8 @@
       '@angular/compiler',
       '@angular/core',
       '@angular/http',
-      '@angular/router',
+      // Use latest router
+      // '@angular/router',
       '@angular/platform-browser',
       '@angular/platform-browser-dynamic',
       '@angular/router-deprecated',

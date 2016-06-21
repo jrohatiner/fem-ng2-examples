@@ -29,12 +29,12 @@ import { DominatorDirective } from './directives/dominator.directive';
 })
 
 export class App {
-  elementCount: Number = 1;
-  
+  elementCount: number = 1;
+
   increment() {
     this.elementCount++;
   }
-  
+
   decrement() {
     this.elementCount = this.elementCount > 0 ? this.elementCount - 1 : 0;
   }

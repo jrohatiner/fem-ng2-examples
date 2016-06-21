@@ -5,16 +5,16 @@ import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 })
 
 export class DominatorDirective {
-  @Input() set dominator(count: Number) {
-    this._viewContainer.clear();
-    
+  @Input() set dominator(count: number) {
+    this.viewContainer.clear();
+
     for (let i = 0; i < count; i++) {
-      this._viewContainer.createEmbeddedView(this._templateRef);
+      this.viewContainer.createEmbeddedView(this.templateRef);
     }
   }
-  
+
   constructor(
-    private _templateRef: TemplateRef,
-    private _viewContainer: ViewContainerRef
+    private templateRef: TemplateRef,
+    private viewContainer: ViewContainerRef
   ) {}
 }

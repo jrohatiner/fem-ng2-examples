@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { RouteConfig, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
-import { FirstSubComponent } from './child.component';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
   selector: 'another-component',
@@ -10,9 +9,5 @@ import { FirstSubComponent } from './child.component';
   `,
   directives: [ ROUTER_DIRECTIVES ]
 })
-
-@RouteConfig([
-  {path:'/first', name: 'FirstChild', component: FirstSubComponent}
-])
 
 export class AnotherComponent {}
