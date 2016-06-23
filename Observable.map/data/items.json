@@ -1,5 +1,0 @@
-[
-  { "name": "Item 1", "description": "Epic item!", "price": 100 },
-  { "name": "Item 2", "description": "As great as the first!", "price": 200 },
-  { "name": "Last One", "description": "A round of applause for this one", "price": 300 }
-]

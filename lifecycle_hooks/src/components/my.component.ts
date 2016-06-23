@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy } from '@angular/core';
 import { MATERIAL_DIRECTIVES } from 'ng2-material';
 
 @Component({
@@ -11,9 +11,9 @@ import { MATERIAL_DIRECTIVES } from 'ng2-material';
   directives: [MATERIAL_DIRECTIVES]
 })
 
-export class MyComponent {
-  @Input() counter: Integer = 0;
-  hooks: Array<String> = [];
+export class MyComponent implements OnInit, OnChanges, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
+  @Input() counter: number = 0;
+  hooks: Array<string> = [];
 
   ngOnInit() {
     this.hooks.push('ngOnInit');

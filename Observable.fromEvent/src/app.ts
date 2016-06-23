@@ -1,4 +1,4 @@
-import { Component, ElementRef, ChangeDetectorRef } from '@angular/core';
+import { Component, ElementRef, ChangeDetectorRef, OnInit } from '@angular/core';
 import { Code } from './code/code';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/debounceTime';
@@ -31,21 +31,21 @@ import 'rxjs/add/observable/fromEvent';
 })
 
 export class App implements OnInit {
-  coordinates: Array<{ x: Number, y: Number }> = [];
+  coordinates: Array<{ x: number, y: number }> = [];
 
   constructor(
-    private _elementRef:ElementRef,
-    private _detectorRef: ChangeDetectorRef
+    private elementRef: ElementRef,
+    private detectorRef: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
-    Observable.fromEvent(this._elementRef.nativeElement, 'mousemove')
+    Observable.fromEvent(this.elementRef.nativeElement, 'mousemove')
     .debounceTime(20)
-    .map(evt => { return {x: evt.clientX, y: evt.clientY}})
+    .map(evt => { return {x: evt.clientX, y: evt.clientY}; })
     .subscribe(
       coordinate => {
         this.coordinates.unshift(coordinate);
-        this._detectorRef.detectChanges();
+        this.detectorRef.detectChanges();
       },
       err => console.log('Error:', err),
       () => console.log('Completed')

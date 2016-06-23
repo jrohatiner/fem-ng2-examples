@@ -3,15 +3,15 @@ import { Http } from '@angular/http';
 import 'rxjs/Rx';
 
 export interface Item {
-  name: String, description: String
+  name: string; description: string;
 }
 
 @Injectable()
 export class MyService {
-  constructor(private _http: Http) {}
-  
+  constructor(private http: Http) {}
+
   getItems() {
-    return this._http.get('data/items.json')
+    return this.http.get('data/items.json')
       .map(result => result.json())
       .toPromise();
   }

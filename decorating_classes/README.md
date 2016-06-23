@@ -1,5 +1,6 @@
 ### Decorating a Class
 There are 4 main types of decorations:
+
 1. Directive
 2. Component (which is an extension of Directive)
 3. Pipe

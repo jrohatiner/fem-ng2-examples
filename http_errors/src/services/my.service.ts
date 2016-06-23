@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
-import 'rxjs/Rx';
+import { Http, Response } from '@angular/http';
+
 
 export interface Item {
-  name: String; description: String;
+  name: string; description: string;
 }
 
 @Injectable()
 export class MyService {
-  constructor(private _http: Http) {}
+  constructor(private http: Http) {}
 
   getItems() {
-    return this._http.get('fileDoesNotExist.json')
+    return this.http.get('fileDoesNotExist.json')
       .map(result => result.json())
       .catch(this.handleError);
   }

@@ -12,7 +12,7 @@
       <md-content class="md-padding">
          <pre highlight><code class="js">
 import { Component } from '@angular/core';
-import { MyService } from './services/my.service';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'app',
@@ -21,42 +21,28 @@ import { MyService } from './services/my.service';
       &lt;md-subheader class=&quot;md-no-sticky md-headline&quot;&gt;Items&lt;/md-subheader&gt;
       &lt;md-list-item class=&quot;md-2-line&quot; *ngFor=&quot;let item of items&quot;&gt;
         &lt;div class=&quot;md-list-item-text&quot;&gt;
-          &lt;h3&gt;{ {item.name} }&lt;/h3&gt;
-          &lt;p&gt;{ {item.description} }&lt;/p&gt;
+          &lt;h3>{ {item.price} }&lt;/h3>
         &lt;/div&gt;
       &lt;/md-list-item&gt;
     &lt;/md-list&gt;
-  `,
-  providers: [ MyService ]
+  `
 })
 
 export class App {
-  private items: Array<{ name: String, description: String }> = [];
+  items: number[] = [];
 
-  constructor(service: MyService) {
-    this.items = service.getItems();
+  constructor() {
+    Observable
+      .from([{price: 1}, {price: 2}, {price: 3}, {price: 4}, {price: 5}])
+      .map(item => {
+        return Object.assign({}, item, {price: item.price * 2});
+      })
+      .subscribe(item => this.items.unshift(item))
+      ;
   }
 }
             </code>
           </pre>
-      </md-content>
-    </template>
-  </md-tab>
-  <md-tab>
-    <template md-tab-label>src/services/my.service.ts</template>
-    <template md-tab-content>
-      <md-content class="md-padding">
-        <pre highlight><code class="ts">
-export class MyService {
-  constructor(private _http: Http) {}
-
-  getItems() {
-    return this._http.get('data/items.json')
-      .map(result => result.json());
-  }
-}
-          </code>
-        </pre>
       </md-content>
     </template>
   </md-tab>

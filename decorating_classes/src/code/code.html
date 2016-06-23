@@ -12,6 +12,7 @@
       <md-content class="md-padding">
         <pre highlight><code class="js">
 import { Directive } from '@angular/core';
+import { MyService } from './my.service';
 
 @Directive({
   selector: '.cool-button:not(a)'
@@ -31,13 +32,16 @@ export class MyDirective {}
         <pre highlight><code class="js">
 // Component is an extension of Directive
 import { Component } from '@angular/core';
+import { MyService } from './my.service';
+import { MyPipe, OtherPipe} from './pipes';
+import { MyDirective, AnotherComponent } from './'
 
 @Component({
   selector: 'my-component',
-  viewProviders: [MyService, provide(...)]
   template: 'Hello { {name} }' // or templateUrl: 'my-component.html'
   styles: [` .hide { display: none } `] // or styleUrls: ['my-component.css']
-  directives: [MyDirective, MyComponent]
+  directives: [MyDirective, AnotherComponent]
+  providers: [MyService, provide(...)]
   pipes: [MyPipe, OtherPipe]
 })
 
@@ -48,7 +52,8 @@ export class MyComponent {}
     </template>
   </md-tab>
   <md-tab>
-    <template md-tab label="Pipe">
+    <template md-tab-label>Pipe</template>
+    <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
 import { Pipe, PipeTransform } from '@angular/core';
@@ -70,11 +75,12 @@ export class MyTransformPipe implements PipeTransform {}
       <md-content class="md-padding">
         <pre highlight><code class="js">
 import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
 
 @Injectable() // only if you need to inject dependencies into the service
 
 export class MyService() {
-  constructor(http: Http) {}
+  constructor(private http: Http) {}
 }
           </code>
         </pre>

@@ -3,7 +3,6 @@ Inject a service into another service by importing it, and declaring a variable 
 
 > **Note:** don't forget to make it injectable
 
-```ts
 ...
 import { Injectable } from '@angular/core';
 import { AnotherService } from './services/another.service.ts';
@@ -14,6 +13,3 @@ export class FirstService {
     this.stuff = service.performAction();
   }
 }
-```
-
-> **Note:** when using the service in a different class method, we should just be able to use it via `this.service`. However, depending on the version of Angular you are using, you may need to set `this.service = service;` explicitly in the constructor.

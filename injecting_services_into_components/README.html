@@ -1,15 +1,14 @@
 <h3>Injecting a Service into a Component</h3>
 
-<p>We inject a service into a component simply by importing the service, and then creating a reference to it in the constructor of our component, giving it the type of our service.</p>
+<p>We inject a service into a component simply by importing the service, creating a reference to it in the constructor of our component, and giving it the type of our service.</p>
 
-<p><code>ts
-...
-import { MyService } from &#39;./services/my.service.ts&#39;;
-export class MyComponent {
-  constructor(service: MyService) {
-    this.stuff = service.performAction();
+<p>
+<pre>
+  import { MyService } from &#39;./services/my.service.ts&#39;;
+  export class MyComponent {
+    constructor(service: MyService) {
+      this.stuff = service.performAction();
+    }
   }
-}
-</code></p>
-
-<blockquote><p><strong>Note:</strong> when using the service in a different class method, we should just be able to use it via <code>this.service</code>. However, depending on the version of Angular you are using, you may need to set <code>this.service = service;</code> explicitly in the constructor.</p></blockquote>
+</pre>
+</p>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MyService } from '../services/my.service';
+import { Item } from '../services/item';
 
 @Component({
   selector: 'my-component',
@@ -18,9 +19,9 @@ import { MyService } from '../services/my.service';
 })
 
 export class MyComponent {
-  private items: Array<{ name: String, description: String }> = [];
+  items: Array<Item> = [];
 
-  constructor(service: MyService) {
+  constructor(private service: MyService) {
     this.items = service.getItems();
   }
 }

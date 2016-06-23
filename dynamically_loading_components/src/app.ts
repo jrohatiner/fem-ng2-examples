@@ -1,4 +1,4 @@
-import { Component, DynamicComponentLoader, Injector } from '@angular/core';
+import { Component, DynamicComponentLoader, Injector, OnInit } from '@angular/core';
 import { Code } from './code/code';
 import { MyComponent } from './components/my.component';
 
@@ -21,8 +21,8 @@ import { MyComponent } from './components/my.component';
   directives: [Code]
 })
 
-export class App {
-  constructor(dcl: DynamicComponentLoader, injector: Injector) {
+export class App implements OnInit {
+  constructor(private dcl: DynamicComponentLoader, private injector: Injector) {
     this.injector = injector;
     this.dcl = dcl;
   }

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Code } from './code/code';
 import { MyComponent } from './components/my.component';
-import { MyService } from './services/my.service';
 
 @Component({
   selector: 'app',
@@ -18,12 +17,7 @@ import { MyService } from './services/my.service';
       <my-component></my-component>
     </div>
   `,
-  directives: [ Code, MyComponent ],
-  providers: [ MyService ]
+  directives: [ Code, MyComponent ]
 })
 
-export class App {
-  constructor(service: MyService) {
-    this.service = service;
-  }
-}
+export class App {}

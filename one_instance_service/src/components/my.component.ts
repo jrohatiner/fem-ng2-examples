@@ -10,6 +10,6 @@ import { MyService } from '../services/my.service';
 
 export class MyComponent {
   constructor(service: MyService) {
-    this.service = service; // We shouldn't need to do this but it makes the plunk work
+    this.service = service;
   }
 }

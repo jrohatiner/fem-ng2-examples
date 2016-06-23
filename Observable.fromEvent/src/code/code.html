@@ -11,8 +11,10 @@
     <template md-tab-content>
       <md-content class="md-padding">
          <pre highlight><code class="js">
-import { Component, ElementRef } from '@angular/core';
-import { Observable } from 'rx.all';
+import { Component, ElementRef, ChangeDetectorRef, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/observable/fromEvent';
 
 @Component({
   selector: 'app',
@@ -28,18 +30,27 @@ import { Observable } from 'rx.all';
   `
 })
 
-export class App {
-  private coordinates: Array<{ x: Number, y: Number }> = [];
+export class App implements OnInit {
+  coordinates: Array<{ x: number, y: number }> = [];
 
-  constructor(elementRef:ElementRef) {
-    Observable.fromEvent(elementRef.nativeElement, 'mousemove')
-      .debounce(20)
-      .map(evt => { return {x: evt.clientX, y: evt.clientY}})
-      .subscribe(
-        coordinate => this.coordinates.unshift(coordinate)
-        err => console.log('Error:', err),
-        () => console.log('Completed')
-      );
+  constructor(
+    private elementRef: ElementRef,
+    private detectorRef: ChangeDetectorRef
+  ) {}
+
+  ngOnInit() {
+    Observable.fromEvent(this.elementRef.nativeElement, 'mousemove')
+    .debounceTime(20)
+    .map(evt => { return {x: evt.clientX, y: evt.clientY}})
+    .subscribe(
+      coordinate => {
+        this.coordinates.unshift(coordinate);
+        this.detectorRef.detectChanges();
+      },
+      err => console.log('Error:', err),
+      () => console.log('Completed')
+    );
+  }
 }
             </code>
           </pre>

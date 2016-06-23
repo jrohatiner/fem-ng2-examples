@@ -1,6 +1,6 @@
 <h3>Creating a Service</h3>
 
-<ol><li>A service is just a class</li><li>The service&#39;s API is defined by it&#39;s class methods</li><li>Import the service into the component and add it to the <code>providers</code> array of the target component</li><li>To access it in the component class, provide a variable in the constructor whose type is the service</li><li>To access the service outside of the constructor, simply reference it as <code>this.service</code></li></ol>
+<ol><li>A service is just a class</li><li>The service&#39;s API is defined by it&#39;s class methods</li><li>Import the service into the component and add it to the <code>providers</code> array of the target component</li><li>To access it in the component class, provide a variable in the constructor whose type is the service</li><li>We can use a TypeScript <code>interface</code> to describe the data in our service; just import the interface wherever the custom type is needed and use it like any other primitive type</li><li>To access the service outside of the constructor, simply reference it as <code>this.service</code></li></ol>
 
 <h3>Hierarchical Injectors</h3>
 

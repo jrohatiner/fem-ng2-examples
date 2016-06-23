@@ -65,9 +65,9 @@ import {MD_INPUT_DIRECTIVES} from '@angular2-material/input';
 })
 
 export class BindingComponent {
-  interpolatedValue: String = 'My Awesome Value';
-  componentStyle: String = 'red';
-  dynamicValue: String = 'Winning!';
+  interpolatedValue: string = 'My Awesome Value';
+  componentStyle: string = 'red';
+  dynamicValue: string = 'Winning!';
 
   alertTheWorld(): void {
     alert('I clicked the button!');

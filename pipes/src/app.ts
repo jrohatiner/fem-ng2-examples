@@ -1,5 +1,7 @@
-import { Component, COMMON_PIPES } from '@angular/core';
+import { Component } from '@angular/core';
 import { Code } from './code/code';
+
+interface Item { name: string; description: string; }
 
 @Component({
   selector: 'app',
@@ -27,10 +29,10 @@ import { Code } from './code/code';
 
 export class App {
   today: Date = new Date();
-  name: String = 'Angular 2';
-  randomNumber: Number = 20.5423;
-  
-  items: Array<{name: String, description: String} > = [
+  name: string = 'Angular 2';
+  randomNumber: number = 20.5423;
+
+  items: Array<Item> = [
     { name: 'Item 1', description: 'Epic item!' },
     { name: 'Item 2', description: 'As great as the first!' },
     { name: 'Last One', description: 'A round of applause for this one' }

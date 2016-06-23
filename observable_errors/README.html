@@ -1,3 +1,7 @@
 <h3>Handling Observable Errors</h3>
 
 <ol><li><code>Observable.subscribe</code> accepts three methods as parameters</li><li>The first method is the <code>next</code> handler that gets fired when the underlying data changes</li><li>The second method is the <code>error</code> handler that gets fired when there is an error in the observable sequence</li><li>The third method is the <code>complete</code> handler that gets fired when the observable sequence is completed</li><li>We will use <code>Observable.catch</code> to recover and continue the observable sequence that is terminated by an exception</li></ol>
+
+<h3>Example</h3>
+
+<p>In the example, we create an observable of a simple value, delay the stream for 5 seconds, but throw an error after one second; this will result in the error message being displayed. However, if we uncomment the <code>.catch</code> operator, the stream will catch the error and recover, eventually completing.</p>

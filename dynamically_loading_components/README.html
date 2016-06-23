@@ -1,3 +1,3 @@
-<h3>Creating a component</h3>
+<h3>Dynamically Loading Components</h3>
 
-<ol><li>Create a class for your component</li><li>Import dependencies</li><li>Decorate your class with the <code>@Component</code> decorator</li><li>Enhance the class with any methods or Inputs or anything else you need</li><li>Repeat</li></ol>
+<ol><li>Import <code>DynamicComponentLoader</code> and <code>Injector</code> and inject them into the parent component</li><li>Import the component that will be dynamically loaded</li><li>Insert an element with an ID into the parent component&#39;s template</li><li>In the parent component class, call <code>DynamicComponentLoader.loadAsRoot</code>, passing in the child component, id selector, and injector, respectively</li></ol>

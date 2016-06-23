@@ -1,7 +1,7 @@
 export class MyService {
-  counter: Number = 0;
-  
+  counter: number = 0;
+
   increment() {
-    this.counter++;  
+    this.counter++;
   }
 }

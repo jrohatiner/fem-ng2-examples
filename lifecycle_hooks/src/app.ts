@@ -23,13 +23,13 @@ import { Code } from './code/code';
 })
 
 export class App {
-  private counter: Integer = 0;
-  private showMyComponent: Boolean = true;
-  
+  private counter: number = 0;
+  private showMyComponent: boolean = true;
+
   increment() {
     this.counter++;
   }
-  
+
   toggleMyComponent() {
     this.showMyComponent = !this.showMyComponent;
   }

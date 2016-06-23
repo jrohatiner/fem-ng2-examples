@@ -1,51 +1,62 @@
-import { Component } from '@angular/core';
-import { FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import {
+  REACTIVE_FORM_DIRECTIVES,
+  FormBuilder,
+  FormGroup,
+  Validators
+} from '@angular/forms';
 import { MATERIAL_DIRECTIVES } from 'ng2-material';
 import { PasswordValidator } from '../password.validator';
 
 @Component({
   selector: 'my-form',
   template: `
-      <form [ngFormModel]="personForm" (submit)="submitForm(personForm)" novalidate>
-        <div ngControlGroup="nameGroup" #nameGroup="ngForm">
+      <form [formGroup]="personForm" (submit)="submitForm(personForm)" novalidate>
+        <div formGroupName="nameGroup">
           <label>First Name</label>
-          <input ngControl="firstName" type="text">
+          <input formControlName="firstName" type="text">
           <br><br>
-          
+
           <label>Last Name</label>
-          <input #lastName="ngForm" ngControl="lastName" type="text">
+          <input formControlName="lastName" type="text">
           <br>
-          <span class="error" *ngIf="!nameGroup.valid">Please give your first and last name.</span>
+          <!--<span class="error" *ngIf="!nameGroup.valid">Please give your first and last name.</span>-->
         </div>
         <br>
         <div>
             <label>Password</label>
-            <input #password="ngForm" ngControl="password" type="password" >
-            <div class="md-caption">Please include a number, an uppercase letter, and a lowercase letter</div>
-            <div class="error" *ngIf="password.dirty && !password.valid">
+            <input formControlName="password" type="password" >
+            <div class="md-caption">
+              Please include a number, an uppercase letter, and a lowercase letter
+            </div>
+            <!--<div class="error" *ngIf="password.dirty && !password.valid">
               <span *ngIf="password.errors.required">Please provide a password</span>
             </div>
             <div class="error" *ngIf="password.dirty && !password.valid">
-              <span class="error" *ngIf="password.errors.minlength">Your password must me at least 10 characters long.</span>
-            </div>
+              <span class="error" *ngIf="password.errors.minlength">
+                Your password must me at least 10 characters long.
+              </span>
+            </div>-->
         </div>
         <br>
         <button type="submit" md-button md-raised-button>Submit</button>
-        <button [disabled]="!personForm.valid" type="submit" md-button md-raised-button>Disabled unless Valid</button>
+        <!--<button [disabled]="!personForm.valid" type="submit" md-button md-raised-button>
+          Disabled unless Valid
+        </button>-->
       </form>
   `,
-  directives: [ MATERIAL_DIRECTIVES, FORM_DIRECTIVES ],
+  directives: [ MATERIAL_DIRECTIVES, REACTIVE_FORM_DIRECTIVES ],
   styles: [`
     md-input-container:not(.md-input-invalid).md-input-focused .md-input {
       border-color: #2196F3
     }
-    
+
     md-input-container:not(.md-input-invalid).md-input-focused label {
       color: #2196F3;
     }
-    
+
     .error { color: red; }
-    
+
     input.ng-invalid {
       color: red;
       outline-color: red;
@@ -54,33 +65,44 @@ import { PasswordValidator } from '../password.validator';
   `]
 })
 
-export class FormComponent {
+export class FormComponent implements OnInit {
   person: { firstName: String, lastName: String, title: String } = {
     firstName: 'Luke',
     lastName: 'Ruebbelke',
     password: 'UpperLower123'
   };
-  
-  constructor(private _builder: FormBuilder) {
-    this.personForm = _builder.group({
-      nameGroup: _builder.group({
+
+  personForm: FormBuilder;
+
+  constructor(private _builder: FormBuilder) {}
+
+  ngOnInit() {
+    this.personForm = this._builder.group({
+      nameGroup: this._builder.group({
         firstName: [this.person.firstName, Validators.required],
         lastName: [this.person.lastName, Validators.required]
       }),
-      password: [this.person.password, Validators.compose([PasswordValidator.validate, Validators.required, Validators.minLength(10) ])]
+      password: [
+        this.person.password,
+        [
+          PasswordValidator.validate,
+          Validators.required,
+          Validators.minLength(10)
+        ]
+      ]
     });
   }
-  
-  submitForm(form) {
-    if (form.valid) {
+
+  submitForm() {
+    console.log(this.personForm)
+    if (this.personForm.valid) {
       alert(`
         Person info:
         Name: ${this.person.firstName} ${this.person.lastName}
         Password: ${this.person.password}
-      `)
+      `);
     } else {
       alert('Please resolve the errors in the form');
     }
   }
-  
 }

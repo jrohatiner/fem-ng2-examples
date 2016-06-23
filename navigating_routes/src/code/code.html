@@ -12,9 +12,7 @@
       <md-content class="md-padding">
          <pre highlight><code class="js">
 import { Component } from '@angular/core';
-import { RouteConfig, ROUTER_DIRECTIVES, Router } from '@angular/router';
-import { MyComponent } from './components/my.component';
-import { AnotherComponent } from './components/another.component';
+import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 
 @Component({
   selector: 'app',
@@ -24,8 +22,8 @@ import { AnotherComponent } from './components/another.component';
       &lt;a [routerLink]=&quot;[&apos;/another-component&apos;]&quot; md-button class=&quot;md-warn&quot;&gt;Another Component Link&lt;/a&gt;
     &lt;/div&gt;
     &lt;div&gt;
-      &lt;button (click)=&quot;navigate(&apos;my-component&apos;)&quot; md-button md-raised-button&gt;My Component from Controller&lt;/button&gt;
-      &lt;button (click)=&quot;navigate(&apos;another-component&apos;)&quot; md-button md-raised-button&gt;Another Component from Controller&lt;/button&gt;
+      &lt;button (click)=&quot;navigate(&apos;/my-component&apos;)&quot; md-button md-raised-button&gt;My Component from Controller&lt;/button&gt;
+      &lt;button (click)=&quot;navigate(&apos;/another-component&apos;)&quot; md-button md-raised-button&gt;Another Component from Controller&lt;/button&gt;
     &lt;/div&gt;
     &lt;h1&gt;Introducing...&lt;/h1&gt;
     &lt;router-outlet&gt;&lt;/router-outlet&gt;
@@ -33,15 +31,11 @@ import { AnotherComponent } from './components/another.component';
   directives: [ ROUTER_DIRECTIVES ]
 })
 
-@Routes([
-  {path: '/my-component', component: MyComponent},
-  {path: '/another-component', component: AnotherComponent}
-])
-
 export class App {
-  constructor(private _router: Router) {}
+  constructor(private router: Router) {}
+
   navigate(route) {
-    this._router.navigate([`/${route}`]);
+    this.router.navigate([`${route}`]);
   }
 }
             </code>

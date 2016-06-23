@@ -1,5 +1,6 @@
 ### Lifecycle Hooks
 There are 8 different lifecycle hooks to use on our components:
+
 1. **ngOnChanges** - called when an input or output binding value changes
 2. **ngOnInit** - after the first ngOnChanges
 3. **ngDoCheck** - developer's custom change detection

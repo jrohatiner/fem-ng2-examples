@@ -30,15 +30,18 @@ import * as Rx from 'rxjs/Rx';
 })
 
 export class App {
-  nextMessage: String;
-  errorMessage: String;
-  completedMessage: String;
+  nextMessage: string;
+  errorMessage: string;
+  completedMessage: string;
 
   constructor() {
     var source = Rx.Observable
         .of(42)
-        .delay(5000) // This will complete in 5 seconds
-        .timeout(1000, new Error('Timeout has occurred.')) // We will override this to throw an error in 1 second
+        // This will complete in 5 seconds
+        .delay(5000)
+        // We will override this to throw an error in 1 second
+        .timeout(1000, new Error('Timeout has occurred.'))
+        // Uncomment this to catch the error and continue the stream
         // .catch(() => Rx.Observable.of('Recovering!'))
       ;
 

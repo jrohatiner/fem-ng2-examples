@@ -13,6 +13,7 @@
          <pre highlight><code class="js">
 import { Component } from '@angular/core';
 import { MyService } from './services/my.service';
+import { Item } from '../services/item';
 
 @Component({
   selector: 'app',
@@ -30,10 +31,10 @@ import { MyService } from './services/my.service';
   providers: [ MyService ]
 })
 
-export class App {
-  private items: Array<{ name: String, description: String }> = [];
+export class MyComponent {
+  items: Array&lt;Item> = [];
 
-  constructor(service: MyService) {
+  constructor(private service: MyService) {
     this.items = service.getItems();
   }
 }
@@ -46,22 +47,22 @@ export class App {
     <template md-tab-label>src/services/my.service.ts</template>
     <template md-tab-content>
       <md-content class="md-padding">
-         <pre highlight><code class="js">
+        <pre highlight><code class="js">
+import { Item } from './item';
+
 export class MyService {
-  private items: Array<{ name: String, description: String}> = [
+  private items: Array&lt;Item> = [
     { name: 'Item 1', description: 'Epic item!' },
     { name: 'Item 2', description: 'As great as the first!' },
     { name: 'Last One', description: 'A round of applause for this one' }
   ];
 
-  constructor() {}
-
   getItems() {
     return this.items;
   }
 }
-            </code>
-          </pre>
+          </code>
+        </pre>
       </md-content>
     </template>
   </md-tab>

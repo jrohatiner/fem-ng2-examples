@@ -11,7 +11,8 @@
     '@angular2-material/checkbox':'https://npmcdn.com/@angular2-material/checkbox',
     '@angular2-material/tabs':'https://npmcdn.com/@angular2-material/tabs',
     'rxjs':                       'https://npmcdn.com/rxjs@5.0.0-beta.6',
-    'angular2-in-memory-web-api': 'https://npmcdn.com/angular2-in-memory-web-api' // get latest
+    'angular2-in-memory-web-api': 'https://npmcdn.com/angular2-in-memory-web-api',
+    '@angular/forms':             'https://npmcdn.com/@angular/forms@0.1.1'
   };
 
   //packages tells the System loader how to load when no filename and/or no extension
@@ -22,6 +23,7 @@
     '@angular2-material/tabs':    { format: 'cjs', defaultExtension: 'js', main: 'tabs.js' },
     'rxjs':                       { defaultExtension: 'js', main: 'Rx.js' },
     'angular2-in-memory-web-api': { defaultExtension: 'js' },
+    '@angular/forms':             { main: 'index.js', defaultExtension: 'js' }
   };
 
   var packageNames = [

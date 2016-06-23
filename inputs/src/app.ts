@@ -23,5 +23,5 @@ import { MyComponent } from './components/my.component';
 })
 
 export class App {
-  greeting: String = 'Hello child!';
+  greeting: string = 'Hello child!';
 }

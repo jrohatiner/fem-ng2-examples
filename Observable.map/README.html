@@ -1,3 +1,15 @@
 <h3>Observable.map</h3>
 
-<ol><li><code>Observable.map</code> transform the items emitted by an Observable by applying a function to each of them</li><li>We can use <code>Observable.map</code> to transform HTTP responses in the form of <code>.map(result =&gt; result.json())</code></li><li>We can perform simple transformations such as <code>.map(x =&gt; x * 2)</code> or more complex transformations such as <code>.map(item =&gt; { return Object.assign({}, item, {price:item.price*2}); })</code></li></ol>
+<ol>
+    <li><code>Observable.map</code> transforms the items emitted by an Observable by applying a function to each of them</li>
+    <li>
+      We can perform simple transformations such as <code>.map(x =&gt; x * 2)</code> or more complex transformations such as
+      <pre>
+        <code>
+.map(item =&gt; {
+  return Object.assign({}, item, {price: item.price * 2});
+})
+        </code>
+      </pre>
+    </li>
+</ol>

@@ -11,20 +11,9 @@
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import { Component, Input } from '@angular/core';
-
-@Component({
-  selector: 'my-component',
-  template: `
-    &lt;h3 layout-margin&gt;&lt;small&gt;Counter:&lt;/small&gt; { {counter} }&lt;/h3&gt;
-    &lt;h1&gt;Lifecyle hook log:&lt;/h1&gt;
-    &lt;h3 *ngFor=&quot;let hook of hooks&quot;&gt;{ {hook} }&lt;/h3&gt;
-  `
-})
-
-export class MyComponent {
-  @Input() counter;
-  private hooks: Array&lt;String> = [];
+export class MyComponent implements OnInit, OnChanges, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
+  @Input() counter: number = 0;
+  hooks: Array&lt;string> = [];
 
   ngOnInit() {
     this.hooks.push('ngOnInit');
@@ -82,8 +71,8 @@ import { MyComponent } from './components/my.component';
 })
 
 export class App {
-  private counter: Number = 0;
-  private showMyComponent: Boolean = true;
+  private counter: number = 0;
+  private showMyComponent: boolean = true;
 
   increment() {
     this.counter++;

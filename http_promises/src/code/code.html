@@ -10,27 +10,27 @@
     <template md-tab-label>src/services/my.service.ts</template>
     <template md-tab-content>
       <md-content class="md-padding">
-         <pre highlight><code class="js">
+        <pre highlight><code class="js">
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/Rx';
 
 export interface Item {
-  name: String, description: String
+  name: string; description: string;
 }
 
 @Injectable()
 export class MyService {
-  constructor(private _http: Http) {}
+  constructor(private http: Http) {}
 
   getItems() {
-    return this._http.get('data/items.json')
+    return this.http.get('data/items.json')
       .map(result => result.json())
       .toPromise();
   }
 }
-            </code>
-          </pre>
+          </code>
+        </pre>
       </md-content>
     </template>
   </md-tab>
@@ -47,7 +47,7 @@ import { MyService, Item } from './services/my.service';
   template: `
     &lt;md-list&gt;
       &lt;md-subheader class=&quot;md-no-sticky md-headline&quot;&gt;Items&lt;/md-subheader&gt;
-      &lt;md-list-item class=&quot;md-2-line&quot; *ngFor=&quot;let item of items | async&quot;&gt;
+      &lt;md-list-item class=&quot;md-2-line&quot; *ngFor=&quot;let item of items&quot;&gt;
         &lt;div class=&quot;md-list-item-text&quot;&gt;
           &lt;h3&gt;{ {item.name} }&lt;/h3&gt;
           &lt;p&gt;{ {item.description} }&lt;/p&gt;
@@ -58,19 +58,16 @@ import { MyService, Item } from './services/my.service';
   providers: [ MyService ]
 })
 
-export class App {
+export class App implements OnInit {
   items: Observable&lt;Array&lt;Item>>;
 
-  constructor(private _service: MyService) {}
+  constructor(private service: MyService) {}
 
   ngOnInit() {
-    this.items = this._service.getItems();
-
-    // Uncomment the below and remove the async pipe in the template to chain a `.then` method to populate the data
-    // this._service.getItems()
-    //   .then((result) => {
-    //     this.items = result;
-    //   });
+    this.service.getItems()
+      .then((result) => {
+        this.items = result;
+      });
   }
 }
           </code>

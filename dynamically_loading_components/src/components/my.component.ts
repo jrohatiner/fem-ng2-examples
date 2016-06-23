@@ -9,7 +9,7 @@ export class MyComponent {
   constructor() {
     setTimeout(this.greet, 500);
   }
-  
+
   greet() {
     alert('Welcome to the first component!');
   }

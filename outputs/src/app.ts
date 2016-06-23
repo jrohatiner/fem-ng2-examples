@@ -22,8 +22,8 @@ import { MyComponent } from './components/my.component';
 })
 
 export class App {
-  greeting: String = 'Click the button for a greeting';
-  
+  greeting: string = 'Click the button for a greeting';
+
   greet(event) {
     this.greeting = event;
   }

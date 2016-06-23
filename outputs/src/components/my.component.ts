@@ -7,7 +7,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 
 export class MyComponent {
   @Output() greeter: EventEmitter = new EventEmitter();
-  
+
   greet() {
     this.greeter.emit('Child greeting emitted!');
   }

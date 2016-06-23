@@ -20,7 +20,7 @@
     'ng2-material':               { main: 'index.js', defaultExtension: 'js' },
     '@angular2-material/core':    { format: 'cjs', defaultExtension: 'js', main: 'core.js' },
     '@angular2-material/tabs':    { format: 'cjs', defaultExtension: 'js', main: 'tabs.js' },
-    'rxjs':                       { defaultExtension: 'js', main: 'Rx.js' },
+    'rxjs':                       { defaultExtension: 'js' },
     'angular2-in-memory-web-api': { defaultExtension: 'js' },
   };
 

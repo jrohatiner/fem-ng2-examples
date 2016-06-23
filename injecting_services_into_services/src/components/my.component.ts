@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ItemsService } from '../services/items.service';
 import { CharacterService } from '../services/character.service';
+import { Item } from '../services/item';
 
 @Component({
   selector: 'my-component',
@@ -20,10 +21,10 @@ import { CharacterService } from '../services/character.service';
 })
 
 export class MyComponent {
-  items: Array<{ name: String, description: String }> = [];
+  items: Array<Item> = [];
 
-  constructor(private _service: ItemsService) {
-    this.items = _service.getItems();
-    this.characterCount = _service.getTotalCharacters();
+  constructor(private service: ItemsService) {
+    this.items = service.getItems();
+    this.characterCount = service.getTotalCharacters();
   }
 }

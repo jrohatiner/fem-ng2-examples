@@ -16,8 +16,6 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'my-component',
   template: `
-    &lt;p *ngFor=&quot;let name of names&quot;&gt;{ {name} }&lt;/p&gt;
-
     &lt;md-input-container&gt;
       &lt;label&gt;Type to see the value&lt;/label&gt;
       &lt;input md-input type=&quot;text&quot; #input /&gt;
@@ -27,9 +25,7 @@ import { Component } from '@angular/core';
   `
 })
 
-export class MyComponent {
-  private names: Array&lt;String> = ['John', 'Susy', 'Billy'];
-}
+export class MyComponent {}
             </code>
           </pre>
       </md-content>

@@ -10,21 +10,20 @@
     <template md-tab-label>src/services/items.service.ts</template>
     <template md-tab-content>
       <md-content class="md-padding">
-         <pre highlight><code class="js">
+        <pre highlight><code class="js">
 import { Injectable } from '@angular/core';
 import { CharacterService } from './character.service';
+import { Item } from './item';
 
 @Injectable()
 export class ItemsService {
-  items: Array&lt;{ name: String, description: String}> = [
+  items: Array&lt;Item> = [
     { name: 'Item 1', description: 'Epic item!' },
     { name: 'Item 2', description: 'As great as the first!' },
     { name: 'Last One', description: 'A round of applause for this one' }
   ];
 
-  constructor(private _charService: CharacterService) {
-    this._charService = _charService; // This shouldn't need to happen but we kept getting errors when left out
-  }
+  constructor(private charService: CharacterService) {}
 
   getItems() {
     return this.items;
@@ -32,12 +31,12 @@ export class ItemsService {
 
   getTotalCharacters() {
     return this.items.map((item) => {
-      return this._charService.countCharacters(item);
+      return this.charService.countCharacters(item);
     }).join('').split('').length;
   }
 }
-            </code>
-          </pre>
+          </code>
+        </pre>
       </md-content>
     </template>
   </md-tab>
@@ -66,6 +65,7 @@ export class CharacterService {
 import { Component } from '@angular/core';
 import { ItemsService } from '../services/items.service';
 import { CharacterService } from '../services/character.service';
+import { Item } from '../services/item';
 
 @Component({
   selector: 'my-component',
@@ -85,11 +85,11 @@ import { CharacterService } from '../services/character.service';
 })
 
 export class MyComponent {
-  items: Array&lt;{ name: String, description: String }> = [];
+  items: Array&lt;Item> = [];
 
-  constructor(private _service: ItemsService) {
-    this.items = _service.getItems();
-    this.characterCount = _service.getTotalCharacters();
+  constructor(private service: ItemsService) {
+    this.items = service.getItems();
+    this.characterCount = service.getTotalCharacters();
   }
 }
           </code>
