@@ -1,6 +1,6 @@
 ### Setting up Angular 2 Tests
 1. Include the Jasmine CSS and JS files
-2. Include the Angular 2 `testing.dev.ts`
+2. Testing is a part of the `@angular/core` package so be sure to include that in your `config.js` file
 3. We combine multiple imports into `Promise.all`, then call `window.onload`
 
 > **Note:** we are importing all of our specs manually. If we wanted to, we could configure the tests like the app itself and just import all test modules into one parent test file.
