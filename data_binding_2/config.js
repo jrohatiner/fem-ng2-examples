@@ -6,11 +6,11 @@
   var  map = {
     'app':                        'src', // 'dist',
     'ng2-material':               'https://npmcdn.com/ng2-material@0.5.0',
-    '@angular2-material/core':    'https://npmcdn.com/@angular2-material/core',
+    '@angular2-material/core':    'https://npmcdn.com/@angular2-material/core@2.0.0-alpha.5',
     // For some reason, if we don't include the checkbox code the app dies
-    '@angular2-material/checkbox':'https://npmcdn.com/@angular2-material/checkbox',
-    '@angular2-material/tabs':    'https://npmcdn.com/@angular2-material/tabs',
-    '@angular2-material/input':    'https://npmcdn.com/@angular2-material/input',
+    '@angular2-material/checkbox':'https://npmcdn.com/@angular2-material/checkbox@2.0.0-alpha.5',
+    '@angular2-material/tabs':    'https://npmcdn.com/@angular2-material/tabs@2.0.0-alpha.5',
+    '@angular2-material/input':    'https://npmcdn.com/@angular2-material/input@2.0.0-alpha.5',
     'rxjs':                       'https://npmcdn.com/rxjs@5.0.0-beta.6',
     'angular2-in-memory-web-api': 'https://npmcdn.com/angular2-in-memory-web-api' // get latest
   };
