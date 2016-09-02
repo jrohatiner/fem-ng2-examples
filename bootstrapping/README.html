@@ -1,3 +1,3 @@
 <h3>Bootstrap an Angular 2 App</h3>
 
-<ol><li>Import <code>bootstrap</code> from <code>platform-browser-dynamic</code></li><li>Call <code>bootstrap()</code>, passing in your main component and a list of providers</li></ol>
+<ol><li>Import <code>@NgModule</code>, <code>BrowserModule</code>, and <code>platformBrowserDynamic</code> and your app</li><li>Create an empty module for your app</li><li>Decorate the module by providing the <code>BrowserModule</code> as an import, declaring all your components, and specifying which component to bootstrap the app with</li><li>Invoke <code>platformBrowserDynamic</code> and then call its <code>bootstrapModule</code> method, passing in the decorated module</li></ol>
