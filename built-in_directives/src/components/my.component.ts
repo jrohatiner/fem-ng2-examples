@@ -1,5 +1,4 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { MATERIAL_DIRECTIVES } from 'ng2-material';
 
 @Component({
   selector: 'my-component',
@@ -15,8 +14,7 @@ import { MATERIAL_DIRECTIVES } from 'ng2-material';
     .blinker-wrapper {
       min-height: 150px;
     }
-  `]
-  directives: [MATERIAL_DIRECTIVES],
+  `],
   encapsulation: ViewEncapsulation.None
 })
 

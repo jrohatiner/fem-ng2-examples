@@ -11,26 +11,26 @@
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import { Component } from '@angular/core';
+import &#123; Component } from '@angular/core';
 
-@Component({
+@Component(&#123;
   selector: 'my-component',
   template: `...`,
   styles: [`...`]
 })
 
-export class MyComponent {
+export class MyComponent &#123;
   private showHeader: Boolean = true;
   private color: String = 'red';
   private decoration: String = 'underline';
 
-  constructor() {
+  constructor() &#123;
     let counter = 0;
 
-    let interval = setInterval(() => {
+    let interval = setInterval(() => &#123;
       this.showHeader = !this.showHeader;
       counter++;
-      if (counter >= 10) {
+      if (counter >= 10) &#123;
         clearInterval(interval);
       }
     }, 500);
@@ -47,7 +47,7 @@ export class MyComponent {
       <md-content class="md-padding">
         <pre highlight><code class="html">
 &lt;div flex layout layout-align=&quot;center center&quot; class=&quot;blinker-wrapper&quot;&gt;
-  &lt;h1 [ngStyle]=&quot;{color: color, &apos;text-decoration&apos;: decoration}&quot; *ngIf=&quot;showHeader&quot;&gt;
+  &lt;h1 [ngStyle]=&quot;&#123;color: color, &apos;text-decoration&apos;: decoration}&quot; *ngIf=&quot;showHeader&quot;&gt;
     Big ol&apos; header!
   &lt;/h1&gt;
 &lt;/div&gt;
