@@ -11,11 +11,11 @@
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import { Pipe } from '@angular/core';
+import &#123; Pipe } from '@angular/core';
 
-@Pipe({name: 'reverse'})
-export class ReversePipe implements PipeTransform {
-  transform(value: String, args: Array&lt;string>) : any {
+@Pipe(&#123;name: 'reverse'})
+export class ReversePipe implements PipeTransform &#123;
+  transform(value: String, args: Array&lt;string>) : any &#123;
     return value.split('').reverse().join('');
   }
 }
@@ -29,19 +29,19 @@ export class ReversePipe implements PipeTransform {
     <template md-tab-content>
       <md-content class="md-padding">
          <pre highlight><code class="js">
-import { Component } from '@angular/core';
-import { ReversePipe } from './pipes/reverse.pipe';
+import &#123; Component } from '@angular/core';
+import &#123; ReversePipe } from './pipes/reverse.pipe';
 
-@Component({
+@Component(&#123;
   selector: 'app',
   template: `
-    &lt;div class=&quot;md-headline&quot;&gt;&lt;strong&gt;Forward&lt;/strong&gt;: { {forwardString} }&lt;/div&gt;
-    &lt;div class=&quot;md-headline&quot;&gt;&lt;strong&gt;Backward&lt;/strong&gt;: { {forwardString | reverse} }&lt;/div&gt;
+    &lt;div class=&quot;md-headline&quot;&gt;&lt;strong&gt;Forward&lt;/strong&gt;: &#123; &#123;forwardString} }&lt;/div&gt;
+    &lt;div class=&quot;md-headline&quot;&gt;&lt;strong&gt;Backward&lt;/strong&gt;: &#123; &#123;forwardString | reverse} }&lt;/div&gt;
   `,
   pipes: [ ReversePipe ]
 })
 
-export class App {
+export class App &#123;
   forwardString: String = 'Please turn me around!';
 }
             </code>

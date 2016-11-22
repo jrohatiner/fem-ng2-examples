@@ -11,14 +11,14 @@
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-export class MyService {
-  private _items: Array<{ name: String, description: String}> = [
-    { name: 'Item 1', description: 'Epic item!' },
-    { name: 'Item 2', description: 'As great as the first!' },
-    { name: 'Last One', description: 'A round of applause for this one' }
+export class MyService &#123;
+  private _items: Array<&#123; name: String, description: String}> = [
+    &#123; name: 'Item 1', description: 'Epic item!' },
+    &#123; name: 'Item 2', description: 'As great as the first!' },
+    &#123; name: 'Last One', description: 'A round of applause for this one' }
   ];
 
-  getItems() {
+  getItems() &#123;
     return this._items;
   }
 }
@@ -32,27 +32,27 @@ export class MyService {
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import {
+import &#123;
   describe,
   it,
   expect
 } from '@angular/core/testing';
 
-import { MyService } from './my.service';
+import &#123; MyService } from './my.service';
 
-describe('MyService', () => {
-  it('should be named `MyService`', () => {
+describe('MyService', () => &#123;
+  it('should be named `MyService`', () => &#123;
     expect(MyService.name).toBe('MyService');
   });
 
-  it('should have an array of 3 items', () => {
+  it('should have an array of 3 items', () => &#123;
     let service = new MyService();
 
     expect(service._items).toBeDefined();
     expect(service._items.length).toBe(3);
   });
 
-  it('#getItems should return an array of 3 items', () => {
+  it('#getItems should return an array of 3 items', () => &#123;
     let service = new MyService(),
         items = service.getItems();
 

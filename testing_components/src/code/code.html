@@ -11,19 +11,19 @@
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import { Component } from '@angular/core';
+import &#123; Component } from '@angular/core';
 
-@Component({
+@Component(&#123;
   selector: 'my-component',
   template: `&lt;h1>my first component!&lt;/h1>`
 })
 
-export class MyComponent {
-  constructor() {
+export class MyComponent &#123;
+  constructor() &#123;
     setTimeout(this.greet, 500);
   }
 
-  greet() {
+  greet() &#123;
     alert('Welcome to the first component!');
   }
 }
@@ -37,31 +37,31 @@ export class MyComponent {
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import {
+import &#123;
   describe,
   expect,
   it
 } from '@angular/core/testing';
 
-import { MyComponent } from './my.component';
+import &#123; MyComponent } from './my.component';
 
-describe('My Component', () => {
-  it('should be named `MyComponent`', () => {
+describe('My Component', () => &#123;
+  it('should be named `MyComponent`', () => &#123;
     expect(MyComponent.name).toBe('MyComponent');
   });
 
-  it('should set a timeout that calls #greet right away', () => {
+  it('should set a timeout that calls #greet right away', () => &#123;
     spyOn(window, 'setTimeout');
     let service = new MyComponent();
 
     expect(window.setTimeout).toHaveBeenCalledWith(MyComponent.prototype.greet, 500);
   });
 
-  it('should have a method called `greet`', () => {
+  it('should have a method called `greet`', () => &#123;
     expect(MyComponent.prototype.greet).toBeDefined();
   });
 
-  it('#greet should alert the user', () => {
+  it('#greet should alert the user', () => &#123;
     let service = new MyComponent();
     spyOn(window, 'alert');
     service.greet();

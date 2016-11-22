@@ -11,10 +11,10 @@
     <template md-tab-content>
       <md-content class="md-padding">
          <pre highlight><code class="js">
-import { Component } from '@angular/core';
-import { ROUTER_DIRECTIVES, Router } from '@angular/router';
+import &#123; Component } from '@angular/core';
+import &#123; ROUTER_DIRECTIVES, Router } from '@angular/router';
 
-@Component({
+@Component(&#123;
   selector: 'app',
   template: `
     &lt;div&gt;
@@ -31,11 +31,11 @@ import { ROUTER_DIRECTIVES, Router } from '@angular/router';
   directives: [ ROUTER_DIRECTIVES ]
 })
 
-export class App {
-  constructor(private router: Router) {}
+export class App &#123;
+  constructor(private router: Router) &#123;}
 
-  navigate(route) {
-    this.router.navigate([`${route}`]);
+  navigate(route) &#123;
+    this.router.navigate([`$&#123;route}`]);
   }
 }
             </code>

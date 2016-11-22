@@ -11,21 +11,21 @@
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import { Directive, ElementRef } from '@angular/core';
+import &#123; Directive, ElementRef } from '@angular/core';
 
-@Directive({
+@Directive(&#123;
   selector: '[femBlinker]'
 })
 
-export class FemBlinkerDirective {
-  constructor(element: ElementRef) {
-    let interval = setInterval(() => {
+export class FemBlinkerDirective &#123;
+  constructor(element: ElementRef) &#123;
+    let interval = setInterval(() => &#123;
       let color = element.nativeElement.style.color;
       element.nativeElement.style.color
         = (color === '' || color === 'black') ? 'red' : 'black';
     }, 300);
 
-    setTimeout(() => {
+    setTimeout(() => &#123;
       clearInterval(interval);
     }, 10000);
   }
@@ -40,12 +40,12 @@ export class FemBlinkerDirective {
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import {
+import &#123;
   resetBaseTestProviders,
   setBaseTestProviders
 } from '@angular/core/testing';
 
-import {
+import &#123;
   TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
   TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS
 } from '@angular/platform-browser-dynamic/testing';
@@ -56,7 +56,7 @@ setBaseTestProviders(
   TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS
 );
 
-import {
+import &#123;
   describe,
   it,
   expect,
@@ -65,32 +65,32 @@ import {
   inject
 } from '@angular/core/testing';
 
-import { TestComponentBuilder } from '@angular/compiler/testing';
-import { MockComponent } from './blinker.mock.component';
+import &#123; TestComponentBuilder } from '@angular/compiler/testing';
+import &#123; MockComponent } from './blinker.mock.component';
 
-describe('Directive: femBlinker', () => {
+describe('Directive: femBlinker', () => &#123;
   let fixture;
 
   beforeEachProviders(() => [
     TestComponentBuilder
   ]);
 
-  beforeEach(inject([TestComponentBuilder], tcb => {
+  beforeEach(inject([TestComponentBuilder], tcb => &#123;
     return tcb
       .createAsync(MockComponent)
-      .then((f: ComponentFixture) => {
+      .then((f: ComponentFixture) => &#123;
         fixture = f;
       });
   }));
 
-  it('should switch from black to red and back every 300ms', done => {
+  it('should switch from black to red and back every 300ms', done => &#123;
     let element = fixture.nativeElement.querySelector('h1');
 
-    setTimeout(() => {
+    setTimeout(() => &#123;
       expect(element.style.color).toBe('red');
     }, 300);
 
-    setTimeout(() => {
+    setTimeout(() => &#123;
       expect(element.style.color).toBe('black');
       done();
     }, 600);
@@ -106,14 +106,14 @@ describe('Directive: femBlinker', () => {
     <template md-tab-content>
       <md-content class="md-padding">
          <pre highlight><code class="js">
-import { Component } from '@angular/core';
-import { FemBlinkerDirective } from './blinker.directive';
-@Component({
+import &#123; Component } from '@angular/core';
+import &#123; FemBlinkerDirective } from './blinker.directive';
+@Component(&#123;
   selector: 'mock',
   template: `&lt;h1 femBlinker>Blink for 10 seconds please!&lt;/h1>`,
   directives: [ FemBlinkerDirective ]
 })
-export class MockComponent {}
+export class MockComponent &#123;}
             </code>
           </pre>
       </md-content>

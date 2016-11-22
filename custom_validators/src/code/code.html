@@ -11,11 +11,11 @@
     <template md-tab-content>
       <md-content class="md-padding">
          <pre highlight><code class="js">
-import { Component } from '@angular/core';
-import { FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/common';
-import { PasswordValidator } from '../password.validator';
+import &#123; Component } from '@angular/core';
+import &#123; FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/common';
+import &#123; PasswordValidator } from '../password.validator';
 
-@Component({
+@Component(&#123;
   selector: 'my-form',
   template: `
     ...
@@ -31,10 +31,10 @@ import { PasswordValidator } from '../password.validator';
   styles: [`...`]
 })
 
-export class FormComponent {
+export class FormComponent &#123;
   ...
-  constructor(_builder: FormBuilder) {
-    this.personForm = _builder.group({
+  constructor(_builder: FormBuilder) &#123;
+    this.personForm = _builder.group(&#123;
       ...
       password: [this.person.password, Validators.compose([PasswordValidator.validate, Validators.required, Validators.minLength(10) ])]
     });
@@ -55,26 +55,26 @@ export class FormComponent {
 // Uncomment the below code if you want to use the validator as a directive
 =======================
 
-// import { Directive, provide } from '@angular/core';
-// import { NG_VALIDATORS } from '@angular/common';
+// import &#123; Directive, provide } from '@angular/core';
+// import &#123; NG_VALIDATORS } from '@angular/common';
 
-// @Directive({
+// @Directive(&#123;
 //   selector: '[passwordValidator]',
-//   providers: [provide(NG_VALIDATORS, {useExisting: PasswordValidator, multi: true})]
+//   providers: [provide(NG_VALIDATORS, &#123;useExisting: PasswordValidator, multi: true})]
 // })
 
-export class PasswordValidator implements Validator {
-  static validate(control) {
+export class PasswordValidator implements Validator &#123;
+  static validate(control) &#123;
   // Uncomment this if you want to use this validator as a directive
-  // validate(control) {
+  // validate(control) &#123;
 
     // ensure that password has a digit, contains one uppercase letter, and one lowercase letter
     let regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])/;
 
-    if (regex.test(control.value)) {
+    if (regex.test(control.value)) &#123;
         return null;
-    } else {
-        return { 'invalidPassword': true };
+    } else &#123;
+        return &#123; 'invalidPassword': true };
     }
   }
 }

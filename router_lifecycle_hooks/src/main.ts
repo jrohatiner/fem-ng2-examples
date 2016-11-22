@@ -1,14 +1,15 @@
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import { provideRouter } from '@angular/router';
-import { AuthGuard, DeactivateGuard } from './guard';
-import { MyComponent } from './components/my.component';
-import { AnotherComponent } from './components/another.component';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { NgModule }      from '@angular/core';
+import { BrowserModule} from '@angular/platform-browser';
+import { MdTabsModule } from '@angular2-material/tabs';
 import { App } from './app';
 
-let routes = [
-  {path: '', component: MyComponent, canActivate: [AuthGuard]},
-  {path: 'my-component', component: MyComponent, canActivate: [AuthGuard]},
-  {path: 'another-component', component: AnotherComponent, canDeactivate: [DeactivateGuard]}
-];
+@NgModule({
+  imports: [BrowserModule, MdTabsModule],
+  declarations: [App],
+  bootstrap: [App]
+})
 
-bootstrap(App, [ AuthGuard, DeactivateGuard, provideRouter(routes) ]);
+export class AppModule {}
+
+platformBrowserDynamic().bootstrapModule(AppModule);

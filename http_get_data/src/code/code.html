@@ -11,18 +11,18 @@
     <template md-tab-content>
       <md-content class="md-padding">
          <pre highlight><code class="js">
- import { Injectable } from '@angular/core';
- import { Http } from '@angular/http';
+ import &#123; Injectable } from '@angular/core';
+ import &#123; Http } from '@angular/http';
 
- export interface Item {
+ export interface Item &#123;
    name: string; description: string;
  }
 
  @Injectable()
- export class MyService {
-   constructor(private http: Http) {}
+ export class MyService &#123;
+   constructor(private http: Http) &#123;}
 
-   getItems() {
+   getItems() &#123;
      return this.http.get('data/items.json')
        .map(res => res.json());
    }
@@ -37,18 +37,18 @@
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import { Component } from '@angular/core';
-import { MyService, Item } from './services/my.service';
+import &#123; Component } from '@angular/core';
+import &#123; MyService, Item } from './services/my.service';
 
-@Component({
+@Component(&#123;
   selector: 'app',
   template: `
     &lt;md-list&gt;
       &lt;md-subheader class=&quot;md-no-sticky md-headline&quot;&gt;Items&lt;/md-subheader&gt;
       &lt;md-list-item class=&quot;md-2-line&quot; *ngFor=&quot;let item of items&quot;&gt;
         &lt;div class=&quot;md-list-item-text&quot;&gt;
-          &lt;h3&gt;{ {item.name} }&lt;/h3&gt;
-          &lt;p&gt;{ {item.description} }&lt;/p&gt;
+          &lt;h3&gt;&#123; &#123;item.name} }&lt;/h3&gt;
+          &lt;p&gt;&#123; &#123;item.description} }&lt;/p&gt;
         &lt;/div&gt;
       &lt;/md-list-item&gt;
     &lt;/md-list&gt;
@@ -56,14 +56,14 @@ import { MyService, Item } from './services/my.service';
   providers: [ MyService ]
 })
 
-export class App implements OnInit {
+export class App implements OnInit &#123;
   items: Observable&lt;Array&lt;Item>>;
 
-  constructor(private service: MyService, private cdf: ChangeDetectorRef) {}
+  constructor(private service: MyService, private cdf: ChangeDetectorRef) &#123;}
 
-  ngOnInit() {
+  ngOnInit() &#123;
     this.service.getItems()
-      .subscribe(data => {
+      .subscribe(data => &#123;
         this.items = data;
         this.cdf.detectChanges();
       });
@@ -80,9 +80,9 @@ export class App implements OnInit {
       <md-content class="md-padding">
         <pre highlight><code class="json">
 [
-  { "name": "Item 1", "description": "Epic item!" },
-  { "name": "Item 2", "description": "As great as the first!" },
-  { "name": "Last One", "description": "A round of applause for this one" }
+  &#123; "name": "Item 1", "description": "Epic item!" },
+  &#123; "name": "Item 2", "description": "As great as the first!" },
+  &#123; "name": "Last One", "description": "A round of applause for this one" }
 ]
           </code>
         </pre>

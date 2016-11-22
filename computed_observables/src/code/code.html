@@ -11,38 +11,38 @@
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import { Component } from '@angular/core';
+import &#123; Component } from '@angular/core';
 import * as Rx from 'rxjs/Rx';
 
-@Component({
+@Component(&#123;
   selector: 'app',
   template: `
     ...
-    &lt;pre&gt;{ {conference | json} }&lt;/pre&gt;
+    &lt;pre&gt;&#123; &#123;conference | json} }&lt;/pre&gt;
   `
 })
 
-export class App {
-  constructor() {
+export class App &#123;
+  constructor() &#123;
     const Observable = Rx.Observable;
 
     // Start: Take these data structures
     const events = [
-      {id: 1, name: 'ngConf', speakers: [1, 2], sponsors: [1, 2] },
-      {id: 2, name: 'Angular Connect', speakers: [1, 2, 3], sponsors: [3, 4] },
+      &#123;id: 1, name: 'ngConf', speakers: [1, 2], sponsors: [1, 2] },
+      &#123;id: 2, name: 'Angular Connect', speakers: [1, 2, 3], sponsors: [3, 4] },
     ];
 
     const users = [
-      {id: 1, name: 'Lukas'},
-      {id: 2, name: 'Jules'},
-      {id: 3, name: 'Jon'}
+      &#123;id: 1, name: 'Lukas'},
+      &#123;id: 2, name: 'Jules'},
+      &#123;id: 3, name: 'Jon'}
     ];
 
     const sponsors = [
-      {id: 1, name: 'Firebase'},
-      {id: 2, name: 'Ionic'},
-      {id: 3, name: 'Auth0'},
-      {id: 4, name: 'BackAnd'}
+      &#123;id: 1, name: 'Firebase'},
+      &#123;id: 2, name: 'Ionic'},
+      &#123;id: 3, name: 'Auth0'},
+      &#123;id: 4, name: 'BackAnd'}
     ];
 
     const events$ = Observable.of(events);
@@ -53,15 +53,15 @@ export class App {
         events$,
         users$,
         sponsors$,
-        (events, users, sponsors)=> {
-          return events.map(event => {
+        (events, users, sponsors)=> &#123;
+          return events.map(event => &#123;
             var speakers = users.filter(user => event.speakers.indexOf(user.id) > -1);
             var eventSponsors = sponsors.filter(sponsor => event.sponsors.indexOf(sponsor.id) > -1);
-            return Object.assign({}, event, {speakers: speakers, sponsors: eventSponsors});
+            return Object.assign(&#123;}, event, &#123;speakers: speakers, sponsors: eventSponsors});
           });
         })
         .subscribe(
-            x=> {this.conference = x},
+            x=> &#123;this.conference = x},
             err=> console.log(err),
             ()=> console.log('complete')
         );
@@ -78,20 +78,20 @@ export class App {
       <md-content class="md-padding">
         <pre highlight><code class="json">
 [
-  {"id": 1, name: "ngConf", "speakers": [
-    {"id": 1, name: "Lukas"},
-    {"id": 2, name: "Jules"}
+  &#123;"id": 1, name: "ngConf", "speakers": [
+    &#123;"id": 1, name: "Lukas"},
+    &#123;"id": 2, name: "Jules"}
   ], "sponsors": [
-    {"id": 1, name: "Firebase"},
-    {"id": 2, name: "Ionic"}
+    &#123;"id": 1, name: "Firebase"},
+    &#123;"id": 2, name: "Ionic"}
   ]},
-  {"id": 2, name: "Angular Connect", "speakers": [
-    {"id": 1, name: "Lukas"},
-    {"id": 2, name: "Jules"},
-    {"id": 3, name: "Jon"}
+  &#123;"id": 2, name: "Angular Connect", "speakers": [
+    &#123;"id": 1, name: "Lukas"},
+    &#123;"id": 2, name: "Jules"},
+    &#123;"id": 3, name: "Jon"}
   ], "sponsors": [
-    {"id": 3, name: "Auth0"},
-    {"id": 4, name: "BackAnd"}
+    &#123;"id": 3, name: "Auth0"},
+    &#123;"id": 4, name: "BackAnd"}
   ]},
 ]
           </code>

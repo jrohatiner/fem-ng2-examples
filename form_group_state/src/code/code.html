@@ -11,10 +11,10 @@
     <template md-tab-content>
       <md-content class="md-padding">
          <pre highlight><code class="js">
-import { Component } from '@angular/core';
-import { FORM_DIRECTIVES } from '@angular/common';
+import &#123; Component } from '@angular/core';
+import &#123; FORM_DIRECTIVES } from '@angular/common';
 
-@Component({
+@Component(&#123;
   selector: 'app',
   template: `
     &lt;form&gt;
@@ -36,13 +36,13 @@ import { FORM_DIRECTIVES } from '@angular/common';
       &lt;/div&gt;
     &lt;/form&gt;
     &lt;br&gt;
-    &lt;pre&gt;{ {person | json} }&lt;/pre&gt;
+    &lt;pre&gt;&#123; &#123;person | json} }&lt;/pre&gt;
   `,
   directives: [ FORM_DIRECTIVES ]
 })
 
-export class App {
-  person: { firstName: String, lastName: String, title: String } = {
+export class App &#123;
+  person: &#123; firstName: String, lastName: String, title: String } = &#123;
     firstName: 'Luke',
     lastName: 'Ruebbelke',
     title: 'Angular 2 Wizard'

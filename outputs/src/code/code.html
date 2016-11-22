@@ -11,17 +11,17 @@
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import { Component, Output, EventEmitter } from '@angular/core';
+import &#123; Component, Output, EventEmitter } from '@angular/core';
 
-@Component({
+@Component(&#123;
   selector: 'my-component',
   template: `&lt;button (click)=&quot;greet()&quot; md-button md-raised-button&gt;Greet Me&lt;/button&gt;`
 })
 
-export class MyComponent {
+export class MyComponent &#123;
   @Output() greeter: EventEmitter = new EventEmitter();
 
-  greet() {
+  greet() &#123;
     this.greeter.emit('Child greeting emitted!');
   }
 }
@@ -35,22 +35,22 @@ export class MyComponent {
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-  import { Component } from '@angular/core';
-  import { MyComponent } from './components/my.component';
+  import &#123; Component } from '@angular/core';
+  import &#123; MyComponent } from './components/my.component';
 
-  @Component({
+  @Component(&#123;
     selector: 'app',
     template: `
-      &lt;h1&gt;{ {greeting} }&lt;/h1&gt;
+      &lt;h1&gt;&#123; &#123;greeting} }&lt;/h1&gt;
       &lt;my-component (greeter)=&quot;greet($event)&quot;&gt;&lt;/my-component&gt;
     `,
     directives: [ MyComponent ]
   })
 
-  export class App {
+  export class App &#123;
     greeting: string = 'Click the button for a greeting';
 
-    greet(event) {
+    greet(event) &#123;
       this.greeting = event;
     }
   }

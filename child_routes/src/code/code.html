@@ -11,16 +11,16 @@
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import { provideRouter, RouteConfig } from '@angular/router';
-import { App } from './app';
-import { AnotherComponent } from './components/another.component';
-import { FirstSubComponent } from './components/child.component';
+import &#123; bootstrap } from '@angular/platform-browser-dynamic';
+import &#123; provideRouter, RouteConfig } from '@angular/router';
+import &#123; App } from './app';
+import &#123; AnotherComponent } from './components/another.component';
+import &#123; FirstSubComponent } from './components/child.component';
 
 let routes: RouteConfig = [
-  {path: '', component: AnotherComponent},
-  {path: 'another-component', component: AnotherComponent, children: [
-    {path: 'first', component: FirstSubComponent}
+  &#123;path: '', component: AnotherComponent},
+  &#123;path: 'another-component', component: AnotherComponent, children: [
+    &#123;path: 'first', component: FirstSubComponent}
   ]}
 ];
 
@@ -35,10 +35,10 @@ bootstrap(App, [ provideRouter(routes) ]);
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import { Component } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router-deprecated';
+import &#123; Component } from '@angular/core';
+import &#123; ROUTER_DIRECTIVES } from '@angular/router-deprecated';
 
-@Component({
+@Component(&#123;
   selector: 'app',
   template: `
     &lt;div&gt;
@@ -50,7 +50,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router-deprecated';
   directives: [ ROUTER_DIRECTIVES ]
 })
 
-export class App {}
+export class App &#123;}
           </code>
         </pre>
       </md-content>
@@ -61,10 +61,10 @@ export class App {}
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import { Component } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router-deprecated';
+import &#123; Component } from '@angular/core';
+import &#123; ROUTER_DIRECTIVES } from '@angular/router-deprecated';
 
-@Component({
+@Component(&#123;
   selector: 'another-component',
   template: `
     &lt;h1&gt;another component!&lt;/h1&gt;
@@ -73,7 +73,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router-deprecated';
   directives: [ ROUTER_DIRECTIVES ]
 })
 
-export class AnotherComponent {}
+export class AnotherComponent &#123;}
           </code>
         </pre>
       </md-content>
@@ -84,13 +84,13 @@ export class AnotherComponent {}
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import { Component } from '@angular/core';
+import &#123; Component } from '@angular/core';
 
-@Component({
+@Component(&#123;
   selector: 'first-sub-component',
   template: `&lt;h3>sub-component 1!&lt;/h3>`
 })
-export class FirstSubComponent {}
+export class FirstSubComponent &#123;}
           </code>
         </pre>
       </md-content>

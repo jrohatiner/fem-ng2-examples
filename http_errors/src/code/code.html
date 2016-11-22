@@ -11,25 +11,25 @@
     <template md-tab-content>
       <md-content class="md-padding">
          <pre highlight><code class="js">
-import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
-import { Observable } from 'rxjs/Rx';
+import &#123; Injectable } from '@angular/core';
+import &#123; Http, Response } from '@angular/http';
+import &#123; Observable } from 'rxjs/Rx';
 
-export interface Item {
+export interface Item &#123;
   name: string, description: string
 }
 
 @Injectable()
-export class MyService {
-  constructor(private http: Http) {}
+export class MyService &#123;
+  constructor(private http: Http) &#123;}
 
-  getItems() {
+  getItems() &#123;
     return this.http.get('fileDoesNotExist.json')
       .map(result => result.json())
       .catch(this.handleError);
   }
 
-  private handleError (error: Response) {
+  private handleError (error: Response) &#123;
     console.error(error);
     return Observable.throw(error.statusText || 'Server error');
   }

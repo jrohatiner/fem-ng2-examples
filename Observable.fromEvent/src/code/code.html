@@ -11,39 +11,39 @@
     <template md-tab-content>
       <md-content class="md-padding">
          <pre highlight><code class="js">
-import { Component, ElementRef, ChangeDetectorRef, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import &#123; Component, ElementRef, ChangeDetectorRef, OnInit } from '@angular/core';
+import &#123; Observable } from 'rxjs';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/observable/fromEvent';
 
-@Component({
+@Component(&#123;
   selector: 'app',
   template: `
     &lt;md-list&gt;
       &lt;md-subheader class=&quot;md-no-sticky md-headline&quot;&gt;Coordinates&lt;/md-subheader&gt;
       &lt;md-list-item class=&quot;md-2-line&quot; *ngFor=&quot;let coordinate of coordinates&quot;&gt;
         &lt;div class=&quot;md-list-item-text&quot;&gt;
-          &lt;p&gt;x: { {coordinate.x} } y: { {coordinate.y} }&lt;/p&gt;
+          &lt;p&gt;x: &#123; &#123;coordinate.x} } y: &#123; &#123;coordinate.y} }&lt;/p&gt;
         &lt;/div&gt;
       &lt;/md-list-item&gt;
     &lt;/md-list&gt;
   `
 })
 
-export class App implements OnInit {
-  coordinates: Array<{ x: number, y: number }> = [];
+export class App implements OnInit &#123;
+  coordinates: Array<&#123; x: number, y: number }> = [];
 
   constructor(
     private elementRef: ElementRef,
     private detectorRef: ChangeDetectorRef
-  ) {}
+  ) &#123;}
 
-  ngOnInit() {
+  ngOnInit() &#123;
     Observable.fromEvent(this.elementRef.nativeElement, 'mousemove')
     .debounceTime(20)
-    .map(evt => { return {x: evt.clientX, y: evt.clientY}})
+    .map(evt => &#123; return &#123;x: evt.clientX, y: evt.clientY}})
     .subscribe(
-      coordinate => {
+      coordinate => &#123;
         this.coordinates.unshift(coordinate);
         this.detectorRef.detectChanges();
       },

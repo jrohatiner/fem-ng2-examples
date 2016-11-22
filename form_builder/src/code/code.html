@@ -11,10 +11,10 @@
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import { Component } from '@angular/core';
-import { FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/common';
+import &#123; Component } from '@angular/core';
+import &#123; FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/common';
 
-@Component({
+@Component(&#123;
   selector: 'my-form',
   template: `
     &lt;form [ngFormModel]=&quot;personForm&quot; (submit)=&quot;submitForm(personForm)&quot; novalidate&gt;
@@ -39,11 +39,11 @@ import { FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/common';
   styles: [`...`]
 })
 
-export class FormComponent {
+export class FormComponent &#123;
   ...
-  constructor(private _builder: FormBuilder) {
-    this.personForm = _builder.group({
-      nameGroup: _builder.group({
+  constructor(private _builder: FormBuilder) &#123;
+    this.personForm = _builder.group(&#123;
+      nameGroup: _builder.group(&#123;
         firstName: [this.person.firstName, Validators.required],
         lastName: [this.person.lastName, Validators.required]
       }),

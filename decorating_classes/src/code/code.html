@@ -11,15 +11,15 @@
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import { Directive } from '@angular/core';
-import { MyService } from './my.service';
+import &#123; Directive } from '@angular/core';
+import &#123; MyService } from './my.service';
 
-@Directive({
+@Directive(&#123;
   selector: '.cool-button:not(a)'
   providers: [MyService, provide(...)]
 })
 
-export class MyDirective {}
+export class MyDirective &#123;}
           </code>
         </pre>
       </md-content>
@@ -31,21 +31,21 @@ export class MyDirective {}
       <md-content class="md-padding">
         <pre highlight><code class="js">
 // Component is an extension of Directive
-import { Component } from '@angular/core';
-import { MyService } from './my.service';
-import { MyPipe, OtherPipe} from './pipes';
-import { MyDirective, AnotherComponent } from './'
+import &#123; Component } from '@angular/core';
+import &#123; MyService } from './my.service';
+import &#123; MyPipe, OtherPipe} from './pipes';
+import &#123; MyDirective, AnotherComponent } from './'
 
-@Component({
+@Component(&#123;
   selector: 'my-component',
-  template: 'Hello { {name} }' // or templateUrl: 'my-component.html'
-  styles: [` .hide { display: none } `] // or styleUrls: ['my-component.css']
+  template: 'Hello &#123; &#123;name} }' // or templateUrl: 'my-component.html'
+  styles: [` .hide &#123; display: none } `] // or styleUrls: ['my-component.css']
   directives: [MyDirective, AnotherComponent]
   providers: [MyService, provide(...)]
   pipes: [MyPipe, OtherPipe]
 })
 
-export class MyComponent {}
+export class MyComponent &#123;}
           </code>
         </pre>
       </md-content>
@@ -56,14 +56,14 @@ export class MyComponent {}
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import { Pipe, PipeTransform } from '@angular/core';
+import &#123; Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({
+@Pipe(&#123;
   name: 'myTransform',
   pure: true // optional: set to false for stateful (asynchronouse) pipes
 })
 
-export class MyTransformPipe implements PipeTransform {}
+export class MyTransformPipe implements PipeTransform &#123;}
           </code>
         </pre>
       </md-content>
@@ -74,13 +74,13 @@ export class MyTransformPipe implements PipeTransform {}
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import &#123; Injectable } from '@angular/core';
+import &#123; Http } from '@angular/http';
 
 @Injectable() // only if you need to inject dependencies into the service
 
-export class MyService() {
-  constructor(private http: Http) {}
+export class MyService() &#123;
+  constructor(private http: Http) &#123;}
 }
           </code>
         </pre>

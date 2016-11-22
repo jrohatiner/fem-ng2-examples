@@ -11,17 +11,17 @@
     <template md-tab-content>
       <md-content class="md-padding">
          <pre highlight><code class="js">
-import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
+import &#123; Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 
-@Directive({
+@Directive(&#123;
   selector: '[dominator]'
 })
 
-export class DominatorDirective {
-  @Input() set dominator(count: number) {
+export class DominatorDirective &#123;
+  @Input() set dominator(count: number) &#123;
     this.viewContainer.clear();
 
-    for (let i = 0; i < count; i++) {
+    for (let i = 0; i < count; i++) &#123;
       this.viewContainer.createEmbeddedView(this.templateRef);
     }
   }
@@ -29,7 +29,7 @@ export class DominatorDirective {
   constructor(
     private templateRef: TemplateRef,
     private viewContainer: ViewContainerRef
-  ) {}
+  ) &#123;}
 }
             </code>
           </pre>
@@ -41,10 +41,10 @@ export class DominatorDirective {
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import { Component } from '@angular/core';
-import { DominatorDirective } from './directives/dominator.directive';
+import &#123; Component } from '@angular/core';
+import &#123; DominatorDirective } from './directives/dominator.directive';
 
-@Component({
+@Component(&#123;
   selector: 'app',
   template: `
     &lt;div&gt;
@@ -55,19 +55,19 @@ import { DominatorDirective } from './directives/dominator.directive';
         &lt;span class=&quot;md-headline&quot;&gt;-&lt;/span&gt;
       &lt;/button&gt;
     &lt;/div&gt;
-    &lt;h1 *dominator=&quot;elementCount&quot;&gt;Repeat me { {elementCount} } times!&lt;/h1&gt;
+    &lt;h1 *dominator=&quot;elementCount&quot;&gt;Repeat me &#123; &#123;elementCount} } times!&lt;/h1&gt;
   `
   directives: [ DominatorDirective ]
 })
 
-export class App {
+export class App &#123;
   elementCount: number = 1;
 
-  increment() {
+  increment() &#123;
     this.elementCount++;
   }
 
-  decrement() {
+  decrement() &#123;
     this.elementCount = this.elementCount > 0 ? this.elementCount - 1 : 0;
   }
 }

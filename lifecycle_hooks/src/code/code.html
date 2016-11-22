@@ -11,39 +11,39 @@
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-export class MyComponent implements OnInit, OnChanges, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
+export class MyComponent implements OnInit, OnChanges, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy &#123;
   @Input() counter: number = 0;
   hooks: Array&lt;string> = [];
 
-  ngOnInit() {
+  ngOnInit() &#123;
     this.hooks.push('ngOnInit');
   }
 
-  ngOnChanges() {
+  ngOnChanges() &#123;
     this.hooks.push('ngOnChanges');
   }
 
-  // ngDoCheck() {
+  // ngDoCheck() &#123;
   // If our component did its own change detection, we would use ngDoCheck and get rid of ngOnChanges
   // }
 
-  ngAfterContentInit() {
+  ngAfterContentInit() &#123;
     this.hooks.push('ngAfterContentInit');
   }
 
-  ngAfterContentChecked() {
+  ngAfterContentChecked() &#123;
     this.hooks.push('ngAfterContentChecked');
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit() &#123;
     this.hooks.push('ngAfterViewInit');
   }
 
-  ngAfterViewChecked() {
+  ngAfterViewChecked() &#123;
     this.hooks.push('ngAfterViewChecked');
   }
 
-  ngOnDestroy() {
+  ngOnDestroy() &#123;
     alert('I am being destroyed!');
   }
 }
@@ -57,10 +57,10 @@ export class MyComponent implements OnInit, OnChanges, AfterContentInit, AfterCo
     <template md-tab-content>
       <md-content class="md-padding">
          <pre highlight><code class="js">
-import { Component, Input } from '@angular/core';
-import { MyComponent } from './components/my.component';
+import &#123; Component, Input } from '@angular/core';
+import &#123; MyComponent } from './components/my.component';
 
-@Component({
+@Component(&#123;
   selector: 'app',
   template: `
     &lt;button (click)=&quot;increment()&quot; md-button md-raised-button class=&quot;md-secondary&quot;&gt;Increment&lt;/button&gt;
@@ -70,15 +70,15 @@ import { MyComponent } from './components/my.component';
   directives: [ MyComponent ]
 })
 
-export class App {
+export class App &#123;
   private counter: number = 0;
   private showMyComponent: boolean = true;
 
-  increment() {
+  increment() &#123;
     this.counter++;
   }
 
-  toggleMyComponent() {
+  toggleMyComponent() &#123;
     this.showMyComponent = !this.showMyComponent;
   }
 }

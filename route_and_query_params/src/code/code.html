@@ -11,16 +11,16 @@
     <template md-tab-content>
       <md-content class="md-padding">
          <pre highlight><code class="js">
- import { bootstrap } from '@angular/platform-browser-dynamic';
- import { provideRouter } from '@angular/router';
- import { MyComponent } from './components/my.component';
- import { AnotherComponent } from './components/another.component';
- import { App } from './app';
+ import &#123; bootstrap } from '@angular/platform-browser-dynamic';
+ import &#123; provideRouter } from '@angular/router';
+ import &#123; MyComponent } from './components/my.component';
+ import &#123; AnotherComponent } from './components/another.component';
+ import &#123; App } from './app';
 
  let routes = [
-   {path: '', component: MyComponent},
-   {path: 'my-component/:id', component: MyComponent},
-   {path: 'another-component', component: AnotherComponent}
+   &#123;path: '', component: MyComponent},
+   &#123;path: 'my-component/:id', component: MyComponent},
+   &#123;path: 'another-component', component: AnotherComponent}
  ];
 
  bootstrap(App, [ provideRouter(routes) ]);
@@ -34,17 +34,17 @@
     <template md-tab-content>
       <md-content class="md-padding">
          <pre highlight><code class="js">
-import { Component } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
-import { MyComponent } from './components/my.component';
-import { AnotherComponent } from './components/another.component';
+import &#123; Component } from '@angular/core';
+import &#123; ROUTER_DIRECTIVES } from '@angular/router';
+import &#123; MyComponent } from './components/my.component';
+import &#123; AnotherComponent } from './components/another.component';
 
-@Component({
+@Component(&#123;
   selector: 'app',
   template: `
     &lt;div&gt;
       &lt;a [routerLink]="['/my-component', '3']" md-button class="md-warn">My Component Link&lt;/a>
-      &lt;a [routerLink]="['/another-component', {foo: 'bar'}]" md-button class="md-warn">Another Component Link&lt;/a>
+      &lt;a [routerLink]="['/another-component', &#123;foo: 'bar'}]" md-button class="md-warn">Another Component Link&lt;/a>
     &lt;/div&gt;
     &lt;h1&gt;Introducing...&lt;/h1&gt;
     &lt;router-outlet&gt;&lt;/router-outlet&gt;
@@ -52,7 +52,7 @@ import { AnotherComponent } from './components/another.component';
   directives: [ ROUTER_DIRECTIVES ]
 })
 
-export class App {}
+export class App &#123;}
             </code>
           </pre>
       </md-content>
@@ -64,38 +64,38 @@ export class App {}
       <md-content class="md-padding">
         <pre highlight><code class="js">
 // src/components/my.component.ts
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import &#123; Component, OnInit } from '@angular/core';
+import &#123; ActivatedRoute } from '@angular/router';
 
-@Component({
+@Component(&#123;
   selector: 'my-component',
-  template: `&lt;h1&gt;my-component with id: { {params.id} }&lt;/h1&gt;`
+  template: `&lt;h1&gt;my-component with id: &#123; &#123;params.id} }&lt;/h1&gt;`
 })
 
-export class MyComponent implements OnInit {
-  constructor(private route: ActivatedRoute) {}
+export class MyComponent implements OnInit &#123;
+  constructor(private route: ActivatedRoute) &#123;}
 
-  ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.params = Object.keys(params).length ? params : {id: 'N/A'};
+  ngOnInit() &#123;
+    this.route.params.subscribe(params => &#123;
+      this.params = Object.keys(params).length ? params : &#123;id: 'N/A'};
     });
   }
 }
 
 // src/components/another.component.ts
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import &#123; Component, OnInit } from '@angular/core';
+import &#123; ActivatedRoute } from '@angular/router';
 
-@Component({
+@Component(&#123;
   selector: 'another-component',
-  template: `&lt;h1>another component with query params: { {params | json} }&lt;/h1>`
+  template: `&lt;h1>another component with query params: &#123; &#123;params | json} }&lt;/h1>`
 })
 
-export class AnotherComponent implements OnInit {
-  constructor(private route: ActivatedRoute) {}
+export class AnotherComponent implements OnInit &#123;
+  constructor(private route: ActivatedRoute) &#123;}
 
-  ngOnInit() {
-    this.route.params.subscribe(params => {
+  ngOnInit() &#123;
+    this.route.params.subscribe(params => &#123;
       this.params = params;
     });
   }

@@ -12,24 +12,24 @@
       <md-content class="md-padding">
          <pre highlight><code class="js">
 // src/components/my.component.ts
-import { Component } from '@angular/core';
+import &#123; Component } from '@angular/core';
 
-@Component({
+@Component(&#123;
   selector: 'my-component',
   template: `&lt;h1&gt;my component!&lt;/h1&gt;`
 })
 
-export class MyComponent {}
+export class MyComponent &#123;}
 
 // src/components/my.component.ts
-import { Component } from '@angular/core';
+import &#123; Component } from '@angular/core';
 
-@Component({
+@Component(&#123;
   selector: 'another-component',
   template: `&lt;h1&gt;another component!&lt;/h1&gt;`
 })
 
-export class AnotherComponent {}
+export class AnotherComponent &#123;}
             </code>
           </pre>
       </md-content>
@@ -40,10 +40,10 @@ export class AnotherComponent {}
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import { Component } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
+import &#123; Component } from '@angular/core';
+import &#123; ROUTER_DIRECTIVES } from '@angular/router';
 
-@Component({
+@Component(&#123;
   selector: 'app',
   template: `
     &lt;a [routerLink]="['/my-component']"
@@ -56,7 +56,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
   directives: [ ROUTER_DIRECTIVES ]
 })
 
-export class App {}
+export class App &#123;}
           </code>
         </pre>
       </md-content>
@@ -67,16 +67,16 @@ export class App {}
     <template md-tab-content>
       <md-content class="md-padding">
          <pre highlight><code class="js">
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import { provideRouter } from '@angular/router';
-import { MyComponent } from './components/my.component';
-import { AnotherComponent } from './components/another.component';
-import { App } from './app';
+import &#123; bootstrap } from '@angular/platform-browser-dynamic';
+import &#123; provideRouter } from '@angular/router';
+import &#123; MyComponent } from './components/my.component';
+import &#123; AnotherComponent } from './components/another.component';
+import &#123; App } from './app';
 
 let routes = [
-  {path: '', component: MyComponent},
-  {path: 'my-component', component: MyComponent},
-  {path: 'another-component', component: AnotherComponent}
+  &#123;path: '', component: MyComponent},
+  &#123;path: 'my-component', component: MyComponent},
+  &#123;path: 'another-component', component: AnotherComponent}
 ];
 
 bootstrap(App, [ provideRouter(routes) ]);

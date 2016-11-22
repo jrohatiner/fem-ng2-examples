@@ -11,17 +11,17 @@
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-@Component({
+@Component(&#123;
   selector: 'binding-component',
   template: `...`
 })
 
-export class BindingComponent {
+export class BindingComponent &#123;
   interpolatedValue: string = 'My Awesome Value';
   componentStyle: string = 'red';
   dynamicValue: string = 'Winning!';
 
-  alertTheWorld(): void {
+  alertTheWorld(): void &#123;
     alert('I clicked the button!');
   }
 }
@@ -35,7 +35,7 @@ export class BindingComponent {
     <template md-tab-content>
       <md-content class="md-padding">
          <pre highlight><code class="html">
-&lt;span>{ {interpolatedValue} }&lt;span>
+&lt;span>&#123; &#123;interpolatedValue} }&lt;span>
             </code>
           </pre>
       </md-content>
@@ -77,7 +77,7 @@ export class BindingComponent {
         placeholder=&quot;Watch the text update!&quot; type=&quot;text&quot;&gt;
 &lt;/md-input-container&gt;
 &lt;br&gt;
-&lt;span&gt;{ {dynamicValue} }&lt;/span&gt;
+&lt;span&gt;&#123; &#123;dynamicValue} }&lt;/span&gt;
           </code>
         </pre>
       </md-content>

@@ -11,20 +11,20 @@
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="ts">
-import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import &#123; Injectable } from '@angular/core';
+import &#123; Http, Headers } from '@angular/http';
 
-const HEADER = { headers: new Headers({ 'Authentication': 'AFDSSASDF123512' }) };
+const HEADER = &#123; headers: new Headers(&#123; 'Authentication': 'AFDSSASDF123512' }) };
 
-export interface Item {
+export interface Item &#123;
   name: string; description: string;
 }
 
 @Injectable()
-export class MyService {
-  constructor(private http: Http) {}
+export class MyService &#123;
+  constructor(private http: Http) &#123;}
 
-  getItems() {
+  getItems() &#123;
     return this.http.get('data/items.json', HEADER)
       .map(items => items.json());
   }

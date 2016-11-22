@@ -11,10 +11,10 @@
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import { Component } from '@angular/core';
-import { FORM_DIRECTIVES } from '@angular/common';
+import &#123; Component } from '@angular/core';
+import &#123; FORM_DIRECTIVES } from '@angular/common';
 
-@Component({
+@Component(&#123;
   selector: 'my-form',
   template: `
   &lt;form #personForm="ngForm" (submit)="submitForm(personForm)" novalidate>
@@ -43,25 +43,25 @@ import { FORM_DIRECTIVES } from '@angular/common';
   `,
   directives: [ FORM_DIRECTIVES ],
   styles: [`
-    .error { color: red; margin-bottom: 10px; }
+    .error &#123; color: red; margin-bottom: 10px; }
   `]
 })
 
-export class FormComponent {
-  person: { firstName: String, lastName: String, title: String } = {
+export class FormComponent &#123;
+  person: &#123; firstName: String, lastName: String, title: String } = &#123;
     firstName: 'Luke',
     lastName: 'Ruebbelke',
     password: 'superSecure42'
   };
 
-  submitForm(form) {
-    if (form.valid) {
+  submitForm(form) &#123;
+    if (form.valid) &#123;
       alert(`
         Person info:
-        Name: ${this.person.firstName} ${this.person.lastName}
-        Password: ${this.person.password}
+        Name: $&#123;this.person.firstName} $&#123;this.person.lastName}
+        Password: $&#123;this.person.password}
       `)
-    } else {
+    } else &#123;
       alert('Please resolve the errors in the form');
     }
   }

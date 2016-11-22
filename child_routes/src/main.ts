@@ -1,14 +1,15 @@
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import { provideRouter, RouteConfig } from '@angular/router';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { NgModule }      from '@angular/core';
+import { BrowserModule} from '@angular/platform-browser';
+import { MdTabsModule } from '@angular2-material/tabs';
 import { App } from './app';
-import { AnotherComponent } from './components/another.component';
-import { FirstSubComponent } from './components/child.component';
 
-let routes: RouteConfig = [
-  {path: '', component: AnotherComponent},
-  {path: 'another-component', component: AnotherComponent, children: [
-    {path: 'first', component: FirstSubComponent}
-  ]}
-];
+@NgModule({
+  imports: [BrowserModule, MdTabsModule],
+  declarations: [App],
+  bootstrap: [App]
+})
 
-bootstrap(App, [ provideRouter(routes) ]);
+export class AppModule {}
+
+platformBrowserDynamic().bootstrapModule(AppModule);

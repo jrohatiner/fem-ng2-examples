@@ -11,19 +11,19 @@
     <template md-tab-content>
       <md-content class="md-padding">
          <pre highlight><code class="js">
-import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import &#123; Injectable } from '@angular/core';
+import &#123; Http } from '@angular/http';
 import 'rxjs/Rx';
 
-export interface Item {
+export interface Item &#123;
   name: String, description: String
 }
 
 @Injectable()
-export class MyService {
-  constructor(private _http: Http) {}
+export class MyService &#123;
+  constructor(private _http: Http) &#123;}
 
-  getItems() {
+  getItems() &#123;
     return this._http.get('data/items.json')
       .map(result => result.json());
   }
@@ -38,34 +38,34 @@ export class MyService {
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import {
+import &#123;
   it,
   describe,
   expect,
   inject,
   beforeEachProviders,
   beforeEach} from '@angular/testing';
-import { provide } from '@angular/core';
-import { HTTP_PROVIDERS, Http, XHRBackend, Response, ResponseOptions } from '@angular/http';
-import { MyService } from './my.service';
-import {MockBackend, MockConnection} from '@angular/http/testing';
+import &#123; provide } from '@angular/core';
+import &#123; HTTP_PROVIDERS, Http, XHRBackend, Response, ResponseOptions } from '@angular/http';
+import &#123; MyService } from './my.service';
+import &#123;MockBackend, MockConnection} from '@angular/http/testing';
 
-describe('MyService', () => {
+describe('MyService', () => &#123;
   let service, backend, http, setConnection;
 
   beforeEachProviders(() => [
-    MyService, HTTP_PROVIDERS, provide(XHRBackend, {useClass: MockBackend})
+    MyService, HTTP_PROVIDERS, provide(XHRBackend, &#123;useClass: MockBackend})
   ]);
 
-  beforeEach(inject([MyService, XHRBackend, Http], (MyService, mockBackend, Http) => {
+  beforeEach(inject([MyService, XHRBackend, Http], (MyService, mockBackend, Http) => &#123;
     service = MyService;
     backend = mockBackend;
     http = Http;
 
-    setConnection = (options): void => {
-      let responseOptions = { body: options};
+    setConnection = (options): void => &#123;
+      let responseOptions = &#123; body: options};
 
-      backend.connections.subscribe((connection: MockConnection) => {
+      backend.connections.subscribe((connection: MockConnection) => &#123;
         connection.mockRespond(
           new Response(
             new ResponseOptions(responseOptions)
@@ -75,14 +75,14 @@ describe('MyService', () => {
     };
   }));
 
-  it('#getItems', () => {
-    let requestBody = {id: 1, name: 'First Item'};
+  it('#getItems', () => &#123;
+    let requestBody = &#123;id: 1, name: 'First Item'};
 
     setConnection(requestBody);
     spyOn(http, 'get').and.callThrough();
 
     service.getItems()
-      .subscribe((res) => {
+      .subscribe((res) => &#123;
         expect(http.get).toHaveBeenCalled();
         expect(res).toEqual(requestBody);
       });

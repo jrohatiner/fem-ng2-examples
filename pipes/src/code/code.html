@@ -11,33 +11,33 @@
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import { Component } from '@angular/core';
-import { Code } from './code/code';
+import &#123; Component } from '@angular/core';
+import &#123; Code } from './code/code';
 
-interface Item { name: string; description: string; }
+interface Item &#123; name: string; description: string; }
 
-@Component({
+@Component(&#123;
   selector: 'app',
   template: `
-    &lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; { {today | date} }&lt;/p&gt;
-    &lt;p&gt;&lt;strong&gt;Capitalization:&lt;/strong&gt; { {name | uppercase} }&lt;/p&gt;
-    &lt;p&gt;&lt;strong&gt;Replace:&lt;/strong&gt; { {name | replace:&apos;Angular&apos;:&apos;Fantangular&apos;} }&lt;/p&gt;
-    &lt;p&gt;&lt;strong&gt;Currency:&lt;/strong&gt; { {randomNumber | currency:&apos;USD&apos;:true} }&lt;/p&gt;
-    &lt;p&gt;&lt;strong&gt;Percent:&lt;/strong&gt; { {randomNumber | percent} }&lt;/p&gt;
-    &lt;p&gt;&lt;strong&gt;Decimal:&lt;/strong&gt; { {randomNumber | number:&apos;2.0-1&apos;} }&lt;/p&gt;
-    &lt;pre&gt;{ {items | slice:1:2 | json} }&lt;/pre&gt;
+    &lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; &#123; &#123;today | date} }&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Capitalization:&lt;/strong&gt; &#123; &#123;name | uppercase} }&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Replace:&lt;/strong&gt; &#123; &#123;name | replace:&apos;Angular&apos;:&apos;Fantangular&apos;} }&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Currency:&lt;/strong&gt; &#123; &#123;randomNumber | currency:&apos;USD&apos;:true} }&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Percent:&lt;/strong&gt; &#123; &#123;randomNumber | percent} }&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Decimal:&lt;/strong&gt; &#123; &#123;randomNumber | number:&apos;2.0-1&apos;} }&lt;/p&gt;
+    &lt;pre&gt;&#123; &#123;items | slice:1:2 | json} }&lt;/pre&gt;
   `
 })
 
-export class App {
+export class App &#123;
   today: Date = new Date();
   name: string = 'Angular 2';
   randomNumber: number = 20.5423;
 
   items: Array&lt;Item> = [
-    { name: 'Item 1', description: 'Epic item!' },
-    { name: 'Item 2', description: 'As great as the first!' },
-    { name: 'Last One', description: 'A round of applause for this one' }
+    &#123; name: 'Item 1', description: 'Epic item!' },
+    &#123; name: 'Item 2', description: 'As great as the first!' },
+    &#123; name: 'Last One', description: 'A round of applause for this one' }
   ];
 }
             </code>

@@ -11,31 +11,31 @@
     <template md-tab-content>
       <md-content class="md-padding">
          <pre highlight><code class="js">
-import { Component } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
+import &#123; Component } from '@angular/core';
+import &#123; Observable } from 'rxjs/Rx';
 
-@Component({
+@Component(&#123;
   selector: 'app',
   template: `
     &lt;md-list&gt;
       &lt;md-subheader class=&quot;md-no-sticky md-headline&quot;&gt;Items&lt;/md-subheader&gt;
       &lt;md-list-item class=&quot;md-2-line&quot; *ngFor=&quot;let item of items&quot;&gt;
         &lt;div class=&quot;md-list-item-text&quot;&gt;
-          &lt;h3>{ {item.price} }&lt;/h3>
+          &lt;h3>&#123; &#123;item.price} }&lt;/h3>
         &lt;/div&gt;
       &lt;/md-list-item&gt;
     &lt;/md-list&gt;
   `
 })
 
-export class App {
+export class App &#123;
   items: number[] = [];
 
-  constructor() {
+  constructor() &#123;
     Observable
-      .from([{price: 1}, {price: 2}, {price: 3}, {price: 4}, {price: 5}])
-      .map(item => {
-        return Object.assign({}, item, {price: item.price * 2});
+      .from([&#123;price: 1}, &#123;price: 2}, &#123;price: 3}, &#123;price: 4}, &#123;price: 5}])
+      .map(item => &#123;
+        return Object.assign(&#123;}, item, &#123;price: item.price * 2});
       })
       .subscribe(item => this.items.unshift(item))
       ;

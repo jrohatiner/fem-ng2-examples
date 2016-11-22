@@ -11,10 +11,10 @@
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { MyComponent } from './components/my.component';
+import &#123; Component, ChangeDetectionStrategy } from '@angular/core';
+import &#123; MyComponent } from './components/my.component';
 
-@Component({
+@Component(&#123;
   selector: 'app',
   template: `
   ...
@@ -26,14 +26,14 @@ import { MyComponent } from './components/my.component';
   directives: [ MyComponent ]
 })
 
-export class App {
-  counter: any = {count: 0, title: 'My Counter'};
+export class App &#123;
+  counter: any = &#123;count: 0, title: 'My Counter'};
 
-  increment() {
+  increment() &#123;
     this.counter.count++;
 
     // The below code makes MyComponent work with non-default change detection
-    // this.counter = Object.assign({}, this.counter, {count: this.counter.count + 1});
+    // this.counter = Object.assign(&#123;}, this.counter, &#123;count: this.counter.count + 1});
   }
 }
           </code>
@@ -46,12 +46,12 @@ export class App {
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import &#123; Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
-@Component({
+@Component(&#123;
   selector: 'my-component',
   template: `
-  &lt;span class=&quot;md-headline&quot;&gt;{ {counter.title} }: &lt;strong&gt;{ {counter.count} }&lt;/strong&gt;&lt;/span&gt;
+  &lt;span class=&quot;md-headline&quot;&gt;&#123; &#123;counter.title} }: &lt;strong&gt;&#123; &#123;counter.count} }&lt;/strong&gt;&lt;/span&gt;
   `,
   changeDetection: ChangeDetectionStrategy.
   // CheckAlways
@@ -62,8 +62,8 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
   Default
 })
 
-export class MyComponent  {
-  @Input() counter = {title: 'My Counter', count: 0};
+export class MyComponent  &#123;
+  @Input() counter = &#123;title: 'My Counter', count: 0};
 }
           </code>
         </pre>

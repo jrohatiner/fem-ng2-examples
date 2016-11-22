@@ -11,31 +11,31 @@
     <template md-tab-content>
       <md-content class="md-padding">
          <pre highlight><code class="js">
-import { Component, ElementRef } from '@angular/core';
+import &#123; Component, ElementRef } from '@angular/core';
 import * as Rx from 'rxjs/Rx';
 
-@Component({
+@Component(&#123;
   selector: 'app',
   template: `
     &lt;md-list&gt;
       &lt;md-subheader class=&quot;md-no-sticky md-headline&quot;&gt;Message&lt;/md-subheader&gt;
       &lt;md-list-item class=&quot;md-2-line&quot;&gt;
         &lt;div class=&quot;md-list-item-text&quot;&gt;
-          &lt;h3&gt;NEXT: { {nextMessage} }&lt;/h3&gt;
-          &lt;h3&gt;ERROR: { {errorMessage} }&lt;/h3&gt;
-          &lt;h3&gt;COMPLETED: { {completedMessage} }&lt;/h3&gt;
+          &lt;h3&gt;NEXT: &#123; &#123;nextMessage} }&lt;/h3&gt;
+          &lt;h3&gt;ERROR: &#123; &#123;errorMessage} }&lt;/h3&gt;
+          &lt;h3&gt;COMPLETED: &#123; &#123;completedMessage} }&lt;/h3&gt;
         &lt;/div&gt;
       &lt;/md-list-item&gt;
     &lt;/md-list&gt;
   `
 })
 
-export class App {
+export class App &#123;
   nextMessage: string;
   errorMessage: string;
   completedMessage: string;
 
-  constructor() {
+  constructor() &#123;
     var source = Rx.Observable
         .of(42)
         // This will complete in 5 seconds

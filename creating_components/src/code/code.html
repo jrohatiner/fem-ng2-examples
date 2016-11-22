@@ -31,10 +31,10 @@
     <template md-tab-content>
       <md-content class="md-padding">
          <pre highlight><code class="js">
-import { Component } from '@angular/core';
-import { MyComponent } from './components/my.component';
+import &#123; Component } from '@angular/core';
+import &#123; MyComponent } from './components/my.component';
 
-@Component({
+@Component(&#123;
   selector: 'app',
   template: `
     &lt;h1&gt;Introducing...&lt;/h1&gt;
@@ -43,7 +43,7 @@ import { MyComponent } from './components/my.component';
   directives: [MyComponent]
 })
 
-export class App {}
+export class App &#123;}
             </code>
           </pre>
       </md-content>
@@ -54,19 +54,19 @@ export class App {}
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import { Component } from '@angular/core';
+import &#123; Component } from '@angular/core';
 
-@Component({
+@Component(&#123;
   selector: 'my-component',
   template: `&lt;h1>my first component!&lt;/h1>`
 })
 
-export class MyComponent {
-  constructor() {
+export class MyComponent &#123;
+  constructor() &#123;
     setTimeout(this.greet, 500);
   }
 
-  greet() {
+  greet() &#123;
     alert('Welcome to the first component!');
   }
 }

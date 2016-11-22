@@ -11,16 +11,16 @@
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import { Component } from '@angular/core';
+import &#123; Component } from '@angular/core';
 
-@Component({
+@Component(&#123;
   selector: 'my-component',
   template: `
-    &lt;h1>{ {title} }&lt;/h1>
+    &lt;h1>&#123; &#123;title} }&lt;/h1>
   `
 })
 
-export class MyComponent {
+export class MyComponent &#123;
   title: String = 'my first component!';
 }
           </code>
@@ -33,12 +33,12 @@ export class MyComponent {
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import {
+import &#123;
   resetBaseTestProviders,
   setBaseTestProviders
 } from '@angular/core/testing';
 
-import {
+import &#123;
   TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
   TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS
 } from '@angular/platform-browser-dynamic/testing';
@@ -49,7 +49,7 @@ setBaseTestProviders(
   TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS
 );
 
-import {
+import &#123;
   describe,
   expect,
   it,
@@ -57,14 +57,14 @@ import {
   inject
 } from '@angular/core/testing';
 
-import { TestComponentBuilder } from '@angular/compiler/testing';
+import &#123; TestComponentBuilder } from '@angular/compiler/testing';
 
-import { MyComponent } from './my.component';
+import &#123; MyComponent } from './my.component';
 
-describe('MyComponent template', () => {
-  it('should update text', inject([TestComponentBuilder], (tcb: TestComponentBuilder) => {
+describe('MyComponent template', () => &#123;
+  it('should update text', inject([TestComponentBuilder], (tcb: TestComponentBuilder) => &#123;
     return tcb.createAsync(MyComponent)
-      .then((fixture: ComponentFixture) => {
+      .then((fixture: ComponentFixture) => &#123;
         const element = fixture.nativeElement;
         fixture.componentInstance.title = 'my epic component!';
         fixture.detectChanges();

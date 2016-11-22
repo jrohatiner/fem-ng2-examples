@@ -1,6 +1,15 @@
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import { Component, PLATFORM_DIRECTIVES, provide } from '@angular/core';
-import { MATERIAL_PROVIDERS } from 'ng2-material';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { NgModule }      from '@angular/core';
+import { BrowserModule} from '@angular/platform-browser';
+import { MdTabsModule } from '@angular2-material/tabs';
 import { App } from './app';
 
-bootstrap(App, [MATERIAL_PROVIDERS]);
+@NgModule({
+    imports: [BrowserModule, MdTabsModule],
+    declarations: [App],
+    bootstrap: [App]
+})
+
+export class AppModule {}
+
+platformBrowserDynamic().bootstrapModule(AppModule);

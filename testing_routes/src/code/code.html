@@ -9,12 +9,12 @@
   <template md-tab label="src/app.ts">
     <md-content class="md-padding">
        <pre highlight><code class="js">
-import { Component } from '@angular/core';
-import { RouteConfig, ROUTER_DIRECTIVES } from '@angular/router';
-import { MyComponent } from './components/my.component';
-import { AnotherComponent } from './components/another.component';
+import &#123; Component } from '@angular/core';
+import &#123; RouteConfig, ROUTER_DIRECTIVES } from '@angular/router';
+import &#123; MyComponent } from './components/my.component';
+import &#123; AnotherComponent } from './components/another.component';
 
-@Component({
+@Component(&#123;
   selector: 'app',
   template: `
     &lt;div&gt;
@@ -28,11 +28,11 @@ import { AnotherComponent } from './components/another.component';
 })
 
 @RouteConfig([
-  {path:'/my-component', name: 'MyComponent', component: MyComponent},
-  {path:'/another-component', name: 'AnotherComponent', component: AnotherComponent, useAsDefault: true}
+  &#123;path:'/my-component', name: 'MyComponent', component: MyComponent},
+  &#123;path:'/another-component', name: 'AnotherComponent', component: AnotherComponent, useAsDefault: true}
 ])
 
-export class App {}
+export class App &#123;}
           </code>
         </pre>
     </md-content>
@@ -40,7 +40,7 @@ export class App {}
   <template md-tab label="src/routes.spec.ts">
     <md-content class="md-padding">
       <pre highlight><code class="js">
-import {
+import &#123;
   describe,
   it,
   expect,
@@ -49,44 +49,44 @@ import {
   inject
 } from '@angular/testing';
 
-import { provide } from '@angular/core';
-import { SpyLocation } from '@angular/router/testing';
-import { RootRouter } from '@angular/src/router/router';
-import { Router, Location, ROUTER_PRIMARY_COMPONENT, RouteRegistry } from '@angular/router';
+import &#123; provide } from '@angular/core';
+import &#123; SpyLocation } from '@angular/router/testing';
+import &#123; RootRouter } from '@angular/src/router/router';
+import &#123; Router, Location, ROUTER_PRIMARY_COMPONENT, RouteRegistry } from '@angular/router';
 
-import { App } from './app';
+import &#123; App } from './app';
 
-describe('Router tests', () => {
+describe('Router tests', () => &#123;
   var location, router;
   
   beforeEachProviders(() => [
     RouteRegistry,
-    provide(Location, { useClass: SpyLocation }),
-    provide(ROUTER_PRIMARY_COMPONENT, { useValue: App }),
-    provide(Router, {useClass: RootRouter})
+    provide(Location, &#123; useClass: SpyLocation }),
+    provide(ROUTER_PRIMARY_COMPONENT, &#123; useValue: App }),
+    provide(Router, &#123;useClass: RootRouter})
   ]);
   
-  beforeEach(inject([Router, Location], (r, l) => {
+  beforeEach(inject([Router, Location], (r, l) => &#123;
     router = r;
     location = l;
   }));
   
-  it('should be able to navigate to `MyComponent`', done => {    
-    router.navigate(['MyComponent']).then(() => {
+  it('should be able to navigate to `MyComponent`', done => &#123;
+    router.navigate(['MyComponent']).then(() => &#123;
       expect(location.path()).toBe('/my-component');
       done();
     }).catch(e => done.fail(e));
   });
 
-  it('should be able to navigate to `AnotherComponent`', done => {
-    router.navigate(['AnotherComponent']).then(() => {
+  it('should be able to navigate to `AnotherComponent`', done => &#123;
+    router.navigate(['AnotherComponent']).then(() => &#123;
       expect(location.path()).toBe('/another-component');
       done();
     }).catch(e => done.fail(e));
   });
   
-  it('should navigate to `AnotherComponent` by default', done => {
-    router.navigateByUrl('/unkown').then(() => {
+  it('should navigate to `AnotherComponent` by default', done => &#123;
+    router.navigateByUrl('/unkown').then(() => &#123;
       expect(location.path()).toBe('/another-component');
       done();
     }).catch(e => done.fail(e));

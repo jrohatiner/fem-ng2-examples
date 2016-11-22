@@ -11,10 +11,10 @@
     <template md-tab-content>
       <md-content class="md-padding">
          <pre highlight><code class="js">
-import { Component, DynamicComponentLoader, Injector, OnInit } from '@angular/core';
-import { MyComponent } from './components/my.component';
+import &#123; Component, DynamicComponentLoader, Injector, OnInit } from '@angular/core';
+import &#123; MyComponent } from './components/my.component';
 
-@Component({
+@Component(&#123;
   selector: 'app',
   template: `
     &lt;h1&gt;Introducing...&lt;/h1&gt;
@@ -22,13 +22,13 @@ import { MyComponent } from './components/my.component';
   `
 })
 
-export class App implements OnInit {
-  constructor(private dcl: DynamicComponentLoader, private injector: Injector) {
+export class App implements OnInit &#123;
+  constructor(private dcl: DynamicComponentLoader, private injector: Injector) &#123;
     this.injector = injector;
     this.dcl = dcl;
   }
 
-  ngOnInit() {
+  ngOnInit() &#123;
     this.dcl.loadAsRoot(MyComponent, '#child', this.injector);
   }
 }
@@ -42,19 +42,19 @@ export class App implements OnInit {
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import { Component } from '@angular/core';
+import &#123; Component } from '@angular/core';
 
-@Component({
+@Component(&#123;
   selector: 'my-component',
   template: `&lt;h1>my first component!&lt;/h1>`
 })
 
-export class MyComponent {
-  constructor() {
+export class MyComponent &#123;
+  constructor() &#123;
     setTimeout(this.greet, 500);
   }
 
-  greet() {
+  greet() &#123;
     alert('Welcome to the first component!');
   }
 }

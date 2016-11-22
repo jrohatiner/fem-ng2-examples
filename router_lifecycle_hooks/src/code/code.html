@@ -11,17 +11,17 @@
     <template md-tab-content>
       <md-content class="md-padding">
          <pre highlight><code class="js">
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import { provideRouter } from '@angular/router';
-import { AuthGuard, DeactivateGuard } from './guard';
-import { MyComponent } from './components/my.component';
-import { AnotherComponent } from './components/another.component';
-import { App } from './app';
+import &#123; bootstrap } from '@angular/platform-browser-dynamic';
+import &#123; provideRouter } from '@angular/router';
+import &#123; AuthGuard, DeactivateGuard } from './guard';
+import &#123; MyComponent } from './components/my.component';
+import &#123; AnotherComponent } from './components/another.component';
+import &#123; App } from './app';
 
 let routes = [
- {path: '', component: MyComponent, canActivate: [AuthGuard]},
- {path: 'my-component', component: MyComponent, canActivate: [AuthGuard]},
- {path: 'another-component', component: AnotherComponent, canDeactivate: [DeactivateGuard]}
+ &#123;path: '', component: MyComponent, canActivate: [AuthGuard]},
+ &#123;path: 'my-component', component: MyComponent, canActivate: [AuthGuard]},
+ &#123;path: 'another-component', component: AnotherComponent, canDeactivate: [DeactivateGuard]}
 ];
 
 bootstrap(App, [ AuthGuard, DeactivateGuard, provideRouter(routes) ]);
@@ -35,11 +35,11 @@ bootstrap(App, [ AuthGuard, DeactivateGuard, provideRouter(routes) ]);
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import { Injectable } from '@angular/core';
-import { CanActivate, CanDeactivate } from '@angular/router';
+import &#123; Injectable } from '@angular/core';
+import &#123; CanActivate, CanDeactivate } from '@angular/router';
 
-export class AuthGuard implements CanActivate {
-  canActivate() {
+export class AuthGuard implements CanActivate &#123;
+  canActivate() &#123;
     let correctPassword = 'p4ssw0rd',
         inputPassword = prompt('Enter a password:', correctPassword);
 
@@ -47,8 +47,8 @@ export class AuthGuard implements CanActivate {
   }
 }
 
-export class DeactivateGuard implements CanDeactivate {
-  canDeactivate() {
+export class DeactivateGuard implements CanDeactivate &#123;
+  canDeactivate() &#123;
     return confirm('Are you sure you want to leave?');
   }
 }
