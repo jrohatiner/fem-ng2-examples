@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { Code } from './code/code';
-import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
-import { MATERIAL_DIRECTIVES } from 'ng2-material';
 
 @Component({
   selector: 'app',
@@ -22,7 +20,7 @@ import { MATERIAL_DIRECTIVES } from 'ng2-material';
       <span class="md-title"> {{componentText}} </span>
     </div>
   `,
-  directives: [ Code, MATERIAL_DIRECTIVES, MD_INPUT_DIRECTIVES ],
+  directives: [ Code ],
   styles: [`
     md-input-container:not(.md-input-invalid).md-input-focused .md-input {
       border-color: #2196F3

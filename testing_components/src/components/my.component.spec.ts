@@ -1,9 +1,3 @@
-import {
-  describe,
-  expect,
-  it
-} from '@angular/core/testing';
-
 import { MyComponent } from './my.component';
 
 describe('My Component', () => {

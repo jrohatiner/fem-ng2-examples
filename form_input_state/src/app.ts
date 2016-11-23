@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
-import { FORM_DIRECTIVES } from '@angular/common';
 import { Code } from './code/code';
-import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
-import { MATERIAL_DIRECTIVES } from 'ng2-material';
 
 @Component({
   selector: 'app',
@@ -17,12 +14,12 @@ import { MATERIAL_DIRECTIVES } from 'ng2-material';
     </md-toolbar>
     <div class="rendered" flex layout="column">
       <form>
-        <md-input placeholder="First Name" required [(ngModel)]="person.firstName"
-                  #firstName="ngForm" ngControl="firstName" type="text"></md-input>
-        <md-input placeholder="Last Name" required md-input [(ngModel)]="person.lastName"
-                  #lastName="ngForm" ngControl="lastName" type="text"></md-input>
-        <md-input placeholder="Title" [(ngModel)]="person.title"
-                  #title="ngForm" ngControl="title" type="text"></md-input>
+        <md-input name="firstName" placeholder="First Name" required [(ngModel)]="person.firstName"
+                  #firstName="ngModel" type="text"></md-input>
+        <md-input name="lastName" placeholder="Last Name" required md-input [(ngModel)]="person.lastName"
+                  #lastName="ngModel" type="text"></md-input>
+        <md-input name="title" placeholder="Title" [(ngModel)]="person.title"
+                  #title="ngModel" type="text"></md-input>
       </form>
       <br>
       <pre>{{person | json}}</pre>
@@ -33,7 +30,7 @@ import { MATERIAL_DIRECTIVES } from 'ng2-material';
       {{logControls(firstName, lastName, title)}}
     </div>
   `,
-  directives: [ Code, MATERIAL_DIRECTIVES, MD_INPUT_DIRECTIVES, FORM_DIRECTIVES ],
+  directives: [ Code ],
   styles: [`
     md-input-container:not(.md-input-invalid).md-input-focused .md-input {
       border-color: #2196F3

@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { MATERIAL_DIRECTIVES } from 'ng2-material';
-import {MD_INPUT_DIRECTIVES} from '@angular2-material/input';
 
 @Component({
   selector: 'binding-component',
@@ -60,8 +58,7 @@ import {MD_INPUT_DIRECTIVES} from '@angular2-material/input';
     md-input-container:not(.md-input-invalid).md-input-focused label {
       color: #2196F3;
     }
-  `],
-  directives: [MATERIAL_DIRECTIVES, MD_INPUT_DIRECTIVES]
+  `]
 })
 
 export class BindingComponent {

@@ -11,9 +11,9 @@
     <template md-tab-content>
       <md-content class="md-padding">
          <pre highlight><code class="js">
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import { MyService } from './services/my.service';
-import { App } from './app';
+import &#123; bootstrap } from '@angular/platform-browser-dynamic';
+import &#123; MyService } from './services/my.service';
+import &#123; App } from './app';
 
 bootstrap(App, [ MyService ]);
             </code>
@@ -26,15 +26,15 @@ bootstrap(App, [ MyService ]);
     <template md-tab-content>
       <md-content class="md-padding">
          <pre highlight><code class="js">
-import { Component } from '@angular/core';
-import { MyComponent } from './components/my.component';
-import { MyService } from './services/my.service';
+import &#123; Component } from '@angular/core';
+import &#123; MyComponent } from './components/my.component';
+import &#123; MyService } from './services/my.service';
 
-@Component({
+@Component(&#123;
   selector: 'app',
   template: `
     ...
-    &lt;h1&gt;&lt;small&gt;Counter:&lt;/small&gt; { {service.counter} }&lt;/h1&gt;
+    &lt;h1&gt;&lt;small&gt;Counter:&lt;/small&gt; &#123; &#123;service.counter} }&lt;/h1&gt;
     &lt;div&gt;
       &lt;my-component&gt;&lt;/my-component&gt;
       &lt;my-component&gt;&lt;/my-component&gt;
@@ -44,8 +44,8 @@ import { MyService } from './services/my.service';
   directives: [ MyComponent ]
 })
 
-export class App {
-  constructor(service: MyService) {
+export class App &#123;
+  constructor(service: MyService) &#123;
     this.service = service;
   }
 }
@@ -59,18 +59,18 @@ export class App {
     <template md-tab-content>
       <md-content class="md-padding">
          <pre highlight><code class="js">
-import { Component } from '@angular/core';
-import { MyService } from '../services/my.service';
+import &#123; Component } from '@angular/core';
+import &#123; MyService } from '../services/my.service';
 
-@Component({
+@Component(&#123;
   selector: 'my-component',
   template: `
     &lt;button (click)=&quot;service.increment()&quot; md-button md-raised-button&gt;Increment&lt;/button&gt;
   `
 })
 
-export class MyComponent {
-  constructor(service: MyService) {
+export class MyComponent &#123;
+  constructor(service: MyService) &#123;
     this.service = service;
   }
 }
@@ -84,10 +84,10 @@ export class MyComponent {
     <template md-tab-content>
       <md-content class="md-padding">
          <pre highlight><code class="js">
-export class MyService {
+export class MyService &#123;
   counter: number = 0;
 
-  increment() {
+  increment() &#123;
     this.counter++;
   }
 }

@@ -10,8 +10,8 @@ export class FemBlinkerDirective {
       let color = element.nativeElement.style.color;
       element.nativeElement.style.color
         = (color === '' || color === 'black') ? 'red' : 'black';
-    }, 300); 
-    
+    }, 300);
+
     setTimeout(() => {
       clearInterval(interval);
     }, 10000);

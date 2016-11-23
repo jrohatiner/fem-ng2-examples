@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
-import { FORM_DIRECTIVES } from '@angular/common';
 import { Code } from './code/code';
-import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
-import { MATERIAL_DIRECTIVES } from 'ng2-material';
 
 @Component({
   selector: 'app',
@@ -17,25 +14,25 @@ import { MATERIAL_DIRECTIVES } from 'ng2-material';
     </md-toolbar>
     <div class="rendered" flex layout="column">
       <form>
-        <div ngControlGroup="name" #nameGroup="ngForm">
+        <div #nameGroup="ngModelGroup" ngModelGroup="nameGroup">
           <md-input placeholder="First Name" required [(ngModel)]="person.firstName"
-                    #firstName="ngForm" ngControl="firstName" type="text"></md-input>
+                    ngControl="firstName" type="text" name="firstName"></md-input>
           <md-input placeholder="Last Name" required [(ngModel)]="person.lastName"
-                    #lastName="ngForm" ngControl="lastName" type="text"></md-input>
+                    ngControl="lastName" type="text" name="lastName"></md-input>
         </div>
         <div>
           <md-input placeholder="Title" [(ngModel)]="person.title"
-                    #title="ngForm" ngControl="title" type="text" ></md-input>
+                    ngControl="title" type="text" name="title"></md-input>
         </div>
       </form>
       <br>
       <pre>{{person | json}}</pre>
 
       <!-- For demonstration purposes only -->
-      {{logControls(nameGroup, firstName, lastName, title)}}
+      {{logControls(nameGroup)}}
     </div>
   `,
-  directives: [ Code, MATERIAL_DIRECTIVES, FORM_DIRECTIVES, MD_INPUT_DIRECTIVES ],
+  directives: [ Code],
   styles: [`
     md-input-container:not(.md-input-invalid).md-input-focused .md-input {
       border-color: #2196F3
@@ -54,11 +51,12 @@ export class App {
     title: 'Angular 2 Wizard'
   };
 
-  logControls(nameGroup, firstName, lastName, title) {
+  logControls(nameGroup) {
     console.clear();
-    console.log(nameGroup);
-    console.log(firstName);
-    console.log(lastName);
-    console.log(title);
+    if (nameGroup.value) {
+      console.log('GROUP: ', nameGroup);
+      console.log('GROUP CONTROLS: ', nameGroup.control.controls);
+      console.log('GROUP VALUE: ', nameGroup.value);
+    }
   }
 }

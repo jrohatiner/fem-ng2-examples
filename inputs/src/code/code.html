@@ -11,17 +11,17 @@
     <template md-tab-content>
       <md-content class="md-padding">
          <pre highlight><code class="js">
-import { Component, Input } from '@angular/core';
+import &#123; Component, Input } from '@angular/core';
 
-@Component({
+@Component(&#123;
   selector: 'my-component',
   template: `
     &lt;div class=&quot;md-headline&quot;&gt;Greeting from parent:&lt;/div&gt;
-    &lt;div class=&quot;md-title&quot;&gt;{ {greeting} }&lt;/div&gt;
+    &lt;div class=&quot;md-title&quot;&gt;&#123; &#123; greeting } }&lt;/div&gt;
   `
 })
 
-export class MyComponent {
+export class MyComponent &#123;
   @Input() greeting: string = 'Default Greeting';
 }
             </code>
@@ -34,10 +34,10 @@ export class MyComponent {
     <template md-tab-content>
       <md-content class="md-padding">
         <pre highlight><code class="js">
-import { Component } from '@angular/core';
-import { MyComponent } from './components/my.component';
+import &#123; Component } from '@angular/core';
+import &#123; MyComponent } from './components/my.component';
 
-@Component({
+@Component(&#123;
   selector: 'app',
   template: `
     &lt;my-component layout-padding [greeting]=&quot;greeting&quot;&gt;&lt;/my-component&gt;
@@ -47,7 +47,7 @@ import { MyComponent } from './components/my.component';
   directives: [ MyComponent ]
 })
 
-export class App {
+export class App &#123;
   greeting: string = 'Hello child!';
 }
           </code>

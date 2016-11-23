@@ -1,30 +1,27 @@
 import { Component } from '@angular/core';
-import { FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/common';
-import { MATERIAL_DIRECTIVES } from 'ng2-material';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'my-form',
   template: `
-    <form [ngFormModel]="personForm" (submit)="submitForm(personForm)" novalidate>
-      <div ngControlGroup="nameGroup" #nameGroup="ngForm">
+    <form [formGroup]="personForm" (submit)="submitForm(personForm)" novalidate>
+      <div formGroupName="nameGroup">
         <label>First Name</label>
-        <input ngControl="firstName" type="text">
+        <input formControlName="firstName" type="text">
         <br><br>
         
         <label>Last Name</label>
-        <input #lastName="ngForm" ngControl="lastName" type="text">
+        <input formControlName="lastName" type="text">
         <br>
-        <span class="error" *ngIf="!nameGroup.valid">Please give your first and last name.</span>
+        <span class="error" *ngIf="!personForm.get('nameGroup').valid">Please give your first and last name.</span>
       </div>
       <br>
       <div>
           <label>Password</label>
-          <input #password="ngForm" ngControl="password" type="password" >
-          <div class="error" *ngIf="password.dirty && !password.valid">
-            <span *ngIf="password.errors.required">Please provide a password</span>
-          </div>
-          <div class="error" *ngIf="password.dirty && !password.valid">
-            <span class="error" *ngIf="password.errors.minlength">Your password must me at least 10 characters long.</span>
+          <input formControlName="password" type="password" >
+          <div class="error" *ngIf="personForm.get('password').dirty && !personForm.get('password').valid">
+            <span *ngIf="personForm.get('password').errors.required">Please provide a password</span>
+            <span *ngIf="personForm.get('password').errors.minlength">Your password must me at least 10 characters long.</span>
           </div>
       </div>
       <br>
@@ -34,7 +31,6 @@ import { MATERIAL_DIRECTIVES } from 'ng2-material';
     <br>
     <pre>{{person | json}}</pre>
   `,
-  directives: [ MATERIAL_DIRECTIVES, FORM_DIRECTIVES ],
   styles: [`
     md-input-container:not(.md-input-invalid).md-input-focused .md-input {
       border-color: #2196F3
@@ -55,7 +51,7 @@ import { MATERIAL_DIRECTIVES } from 'ng2-material';
 })
 
 export class FormComponent {
-  person: { firstName: String, lastName: String, title: String } = {
+  person: { firstName: string, lastName: string, password: string } = {
     firstName: 'Luke',
     lastName: 'Ruebbelke',
     password: 'UpperLower123'

@@ -1,5 +1,4 @@
 import { Component, Input, OnInit, OnChanges, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy } from '@angular/core';
-import { MATERIAL_DIRECTIVES } from 'ng2-material';
 
 @Component({
   selector: 'my-component',
@@ -7,8 +6,7 @@ import { MATERIAL_DIRECTIVES } from 'ng2-material';
     <h3 layout-margin><small>Counter:</small> {{counter}}</h3>
     <h1>Lifecyle hook log:</h1>
     <h3 *ngFor="let hook of hooks">{{hook}}</h3>
-  `,
-  directives: [MATERIAL_DIRECTIVES]
+  `
 })
 
 export class MyComponent implements OnInit, OnChanges, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {

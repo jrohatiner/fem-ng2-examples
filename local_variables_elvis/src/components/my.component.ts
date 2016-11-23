@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
-import { MATERIAL_DIRECTIVES } from 'ng2-material';
 
 @Component({
   selector: 'my-component',
@@ -18,7 +16,6 @@ import { MATERIAL_DIRECTIVES } from 'ng2-material';
       color: #2196F3;
     }
   `]
-  directives: [ MATERIAL_DIRECTIVES, MD_INPUT_DIRECTIVES ]
 })
 
 export class MyComponent {}

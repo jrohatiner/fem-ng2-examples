@@ -22,9 +22,11 @@
   var packageNames = [
     '@angular2-material/core',
     '@angular2-material/tabs',
+    '@angular2-material/input',
     '@angular/common',
     '@angular/compiler',
     '@angular/core',
+    '@angular/forms',
     '@angular/http',
     '@angular/platform-browser',
     '@angular/platform-browser-dynamic',

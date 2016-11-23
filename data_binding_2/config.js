@@ -22,7 +22,9 @@
   var packageNames = [
     '@angular2-material/core',
     '@angular2-material/tabs',
+    '@angular2-material/input',
     '@angular/common',
+    '@angular/forms',
     '@angular/compiler',
     '@angular/core',
     '@angular/http',

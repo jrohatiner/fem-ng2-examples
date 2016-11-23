@@ -1,5 +1,4 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { MATERIAL_DIRECTIVES } from 'ng2-material';
 
 @Component({
   selector: 'my-component',
@@ -24,7 +23,6 @@ import { MATERIAL_DIRECTIVES } from 'ng2-material';
     </md-list>
   `,
   styles: [` .stripe { background-color: whitesmoke; } `]
-  directives: [MATERIAL_DIRECTIVES]
 })
 
 export class MyComponent {
